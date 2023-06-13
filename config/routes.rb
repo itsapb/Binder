@@ -13,7 +13,7 @@ get "dashboard", to: "pages#dashboard"
       resources :chatrooms, only: :show do
         resources :messages, only: :create
       end
-      resources :book_temps, only: [:new, :create, :show] do
+      resources :book_temps, only: [:new, :create, :show, :index] do
         resources :reviews, only: [:create, :new]
       end
 end
