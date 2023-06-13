@@ -1,0 +1,10 @@
+<ul>
+<% if !@books %>
+  <li>There are no books in the system</li>
+  <% else %>
+  <% @books.each do |book| %>
+    <li><%= link_to book.title,
+    book_path(book)%></li>
+  <% end %>
+<% end %>
+</ul>
