@@ -1,0 +1,2 @@
+class BooktempsController < ApplicationController
+end
