@@ -12,7 +12,7 @@ class BookTempsController < ApplicationController
   end
 
   def create
-    @book_temp = BookTemp.new(params)
+    @book_temp = BookTemp.new(params_booktemp)
     @book_temp.user = current_user
 
     if @book_temp.save
@@ -24,7 +24,7 @@ class BookTempsController < ApplicationController
 
   private
 
-  def params
+  def params_booktemp
     params.require(:book_temp).permit(:title, :author, :description, :ISBN)
   end
 end
