@@ -25,7 +25,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
 
-    redirect_to books_path, status: :see_other
+    redirect_to book_path
   end
 
   private
