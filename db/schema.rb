@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_100501) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_150442) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100501) do
     t.string "title"
     t.string "author"
     t.string "description"
-    t.integer "ISBN"
+    t.string "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,15 +27,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100501) do
     t.string "title"
     t.string "author"
     t.string "description"
-    t.integer "ISBN"
+    t.string "isbn"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "droppable"
     t.boolean "have_read"
     t.boolean "currently_reading"
-    t.bigint "book_temps_id", null: false
-    t.index ["book_temps_id"], name: "index_books_on_book_temps_id"
+    t.bigint "book_temp_id", null: false
+    t.index ["book_temp_id"], name: "index_books_on_book_temp_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
@@ -85,14 +85,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100501) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "photo"
     t.string "address"
     t.string "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "books", "book_temps", column: "book_temps_id"
+  add_foreign_key "books", "book_temps"
   add_foreign_key "books", "users"
   add_foreign_key "drops", "books"
   add_foreign_key "drops", "users"
