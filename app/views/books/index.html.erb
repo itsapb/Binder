@@ -1,5 +1,5 @@
 <ul>
-  <% if @books.empty? %>
+  <% if !@books %>
     <p>There are no books in the system</p>
   <% else %>
     <% @books.each do |book| %>
