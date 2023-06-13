@@ -6,7 +6,7 @@ get "dashboard", to: "pages#dashboard"
   # Defines the root path route ("/")
   # root "articles#index"
 
-    resources :books do
+    resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
       resources :bookings, only: [:create]
     end
       resources :bookings, only: [:index, :update]
