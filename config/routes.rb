@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   resources :books do
     resources :bookings, only: [:create]
   end
-    resources :bookings, only: [:index, :update]
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
-    end
 
-    resources :book_temps, only: [:new, :create, :show, :index] do
-      resources :reviews, only: [:create, :new]
-    end
+  resources :bookings, only: [:index, :update]
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
+  resources :book_temps, only: [:new, :create, :show, :index] do
+    resources :reviews, only: [:create, :new]
+  end
 end

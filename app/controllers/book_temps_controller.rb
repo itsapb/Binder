@@ -1,5 +1,4 @@
 class BookTempsController < ApplicationController
-
   def index
     @book_temps = BookTemp.all
   end
