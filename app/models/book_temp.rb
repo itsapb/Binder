@@ -1,4 +1,4 @@
 class BookTemp < ApplicationRecord
-  validates :title, :author, :description, :ISBN, presence: true
-  validates :ISBN, uniqueness: true
+  validates :title, :author, :description, :isbn, presence: true
+  validates :isbn, uniqueness: true
 end
