@@ -15,6 +15,7 @@ class BookTempsController < ApplicationController
   def create
     @book_temp = BookTemp.new(params_booktemp)
     @book_temp.user = current_user
+
     if @book_temp.save
       redirect_to book_temps_path
     else

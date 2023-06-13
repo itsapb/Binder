@@ -2,8 +2,24 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Roboto Mono', monospace;
+$headers-font: 'Days One', sans-serif;
+
+.heading-profile {
+  font-family: $headers-font;
+  color: #0A68E2;
+}
+
+.heading-dashboard {
+  font-family: $headers-font;
+  color: #FF4702;
+}
+
+.logo-font {
+  font-size: 200px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 100;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
