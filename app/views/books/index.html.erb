@@ -1,7 +1,12 @@
 <ul>
-  <li>There are no books in the system</li>
-  <% @books.each do |book| %>
-    <li><%= link_to book.title,
-    book_path(book)%></li>
+  <% if !@books %>
+    <p>There are no books in the system</p>
+  <% else %>
+    <% @books.each do |book| %>
+      <li>
+        <%= link_to book.title, book_path(book) %>
+        <%= link_to "Delete", book_path(book), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
   <% end %>
 </ul>

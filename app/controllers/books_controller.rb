@@ -10,6 +10,7 @@ class BooksController < ApplicationController
         info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
         marker_html: render_to_string(partial: "marker", locals: {user: user})
       }
+    end
   end
 
   def create
@@ -41,6 +42,5 @@ private
 
 def book_params
   params.require(:book).permit(:title, :author, :description)
-end
 end
 end
