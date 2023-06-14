@@ -2,20 +2,16 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @users = User.all
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { user: }),
-        marker_html: render_to_string(partial: "marker", locals: { user: })
-      }
-    end
   end
 
   def new
     @book = Book.new
   end
 
+  def show
+    @book = Book.find(params[:id])
+  end
+  
   def create
     @book = Book.new(book_params)
     if @book.save
