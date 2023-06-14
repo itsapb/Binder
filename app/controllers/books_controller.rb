@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-
   def index
     @books = Book.all
     @users = User.all
@@ -7,46 +6,46 @@ class BooksController < ApplicationController
       {
         lat: flat.latitude,
         lng: flat.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
-        marker_html: render_to_string(partial: "marker", locals: {user: user})
+        info_window_html: render_to_string(partial: "info_window", locals: { user: }),
+        marker_html: render_to_string(partial: "marker", locals: { user: })
       }
     end
   end
 
-def new
-  @book = Book.new
-end
-
-def create
-  @book = Book.new(book_params)
-  if @book.save
-    redirect_to book_path(@book)
-  else
-    render 'new'
+  def new
+    @book = Book.new
   end
-end
 
-def edit
-  @book = Book.find(params[:id])
-end
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render 'new'
+    end
+  end
 
-def update
-  @book = Book.find(params[:id])
-  @book.update(book_params)
+  def edit
+    @book = Book.find(params[:id])
+  end
 
-  redirect_to book_path(@book)
-end
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
 
-def destroy
-  @book = Book.find(params[:id])
-  @book.destroy
+    redirect_to book_path(@book)
+  end
 
-  redirect_to books_path, status: :see_other
-end
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
 
-private
+    redirect_to books_path, status: :see_other
+  end
 
-def book_params
-  params.require(:book).permit(:title, :author, :description)
-end
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :author, :description)
+  end
 end
