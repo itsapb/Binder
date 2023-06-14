@@ -1,5 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder"
+import mapboxgl from 'mapbox-gl'
 
 // Connects to data-controller="map"
 export default class extends Controller {
@@ -10,9 +11,12 @@ export default class extends Controller {
   }
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
+    // const mapMarkers = JSON.parse(this.markersValue)
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/mapbox/streets-v10",
+      // center: [mapMarkers[0].lng, mapMarkers[0].lat], // Set the center to the first marker
+      // zoom: 12
     })
 
     this.#addMarkersToMap()

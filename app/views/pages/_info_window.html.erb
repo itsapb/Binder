@@ -1,2 +1,25 @@
-<h2><%= user.first_name %></h2>
-<p><%= user.address %></p>
+<% rbook = user.books.find_by(currently_reading: true) %>
+<div class="profile-popup">
+  <div class="user-info">
+    <a href="<%= %>">
+    <% if user.photo.present? %>
+         <%= cl_image_tag user.photo.key, class: "user-photo", alt: "User Profile" %>
+      <% end %>
+        <h2 class="user-name"><%= user.first_name %></h2>
+      </a>
+  </div>
+  <div class="book-info">
+  <div class="book-info">
+  <% if rbook.present? %>
+    <%= link_to book_temp_path(rbook.book_temp_id) do %>
+      <%= cl_image_tag rbook.photo.key, class: "book-image", crop: :fill %>
+    <% end %>
+    <div class="book-description">
+      <p class="book-description-text"><%= truncate(rbook.description, length: 50, separator: ' ', omission: '...') %></p>
+    </div>
+  <% end %>
+</div>
+  <div class="popup-footer">
+    <%= link_to "Rent the Book", book_temps_path, class: "rent-button" %>
+  </div>
+</div>
