@@ -1,3 +1,5 @@
+<%# <%= @book.title %> 
+
 <%= link_to "Delete",
-book_path(@book),
+books_path(@book), class: "btn-green",
 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>

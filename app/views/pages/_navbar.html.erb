@@ -1,0 +1,18 @@
+<div class="pr-5">
+<br>
+  <p class="navbar-text float-right">
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.first_name %></strong>.
+      <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link link " %> |
+      <%= link_to "Logout    ", destroy_user_session_path, method: :delete, class: "navbar-link"  %>
+    <% else %>
+      <div class=" float-right"><%= link_to "Sign up", new_user_registration_path, class: "navbar-link btn-black text-white"  %>
+      <%= link_to "Login", new_user_session_path, class: "navbar-link btn-black text-white"  %></div>
+    <% end %>
+  </p>
+  <ul>
+    <li><%= link_to "Dashboard 🪸"%></li> |
+    <li><%= link_to "Map View 📍" %></li> |
+    <li><%= link_to "Be Inspired ✨" %></li>
+  </ul>
+</div>
