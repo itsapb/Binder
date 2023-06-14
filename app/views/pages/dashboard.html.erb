@@ -1,0 +1,40 @@
+<h1> Welcome to the dashboard, <%= current_user.first_name %>! </h1>
+
+<h2> My books:</h2>
+<ul><% unless @books.empty? %>
+  <% @books.each do |book| %>
+    <li><%= book.title %> by <%= book.author %></li>
+    <li><%= book.description %></li>
+    <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <%end%>
+</ul>
+
+<h2> Books you are reading:</h2>
+<ul><% unless @currently_reading.empty? %>
+  <% @currently_reading.each do |book| %>
+    <li><%= book.title %> by <%= book.author %></li>
+    <li><%= book.description %></li>
+    <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <%end%>
+</ul>
+
+<h2>Books you read</h2>
+<ul><% unless @read_books.empty? %>
+<% @read_books.each do |book| %>
+    <li><%= book.title %> by <%= book.author %></li>
+    <li><%= book.description %></li>
+    <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <% end %>
+  </ul>
+
+<h2>Droppable books</h2>
+<ul><% unless @droppable_books.empty? %>
+<% @droppable_books.each do |book| %>
+<li><%= book.title %></li>
+<%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <% end %>
+  </ul>
