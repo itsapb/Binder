@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
     # Defines the root path route ("/")
     # root "articles#index"
-    resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
+    resources :books do
       resources :bookings, only: [:create]
     end
     resources :bookings, only: [:index, :update]
@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
+
+  resources :dashboard, only: [:show, :edit, :create]
 end

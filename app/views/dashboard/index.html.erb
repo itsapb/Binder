@@ -1,0 +1,36 @@
+<h1> Welcome to the dashboard, <%= @user.name %>! </h1>
+
+<h2> Books you are reading:
+    <%= %>
+    Books you borrowed
+    <%= %>
+    Books you loaned
+    <%= %>
+    Books you have read
+    <%= %>
+
+reading = []
+borrowed = []
+read = []
+
+<ul>
+  <% @user.books.each do |book| %>
+    <ul>
+  <% @reading_books.each do |book| %>
+    <li><%= book.title %> by <%= book.author %></li>
+    <li><%= book.description %></li>
+    </ul>
+  <% end %>
+</ul>
+
+<h2>Books You've Borrowed:</h2>
+<ul>
+  <% @borrowed_books.each do |book| %>
+    <li><%= book.title %> by <%= book.author %> (borrowed from <%= book.borrower.name %>)</li>
+  <% end %>
+
+<ul>
+  <% @user.read.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>
