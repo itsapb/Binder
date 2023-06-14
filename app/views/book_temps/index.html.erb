@@ -1,2 +1,35 @@
-<h1>Book Temps index</h1>
-<%= link_to "create book template", new_book_temp_path(@book_temp) %>
+<h1>Book Templates Index</h1>
+<br>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <%= form_with url: new_book_temp_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+<br>
+      <div id="book_temp">
+        <% if @book_temps.any? %>
+          <% @book_temps.each do |book_temp| %>
+            <h4><%= book_temp.title %></h4>
+            <p><%= book_temp.author %></p>
+            <p><%= book_temp.description %></p>
+            <p><%= book_temp.isbn %></p>
+          <% end %>
+        <% else %>
+          <p>
+            Sorry, no book template found.
+            <%= link_to "create book template", new_book_temp_path(@book_temp) %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

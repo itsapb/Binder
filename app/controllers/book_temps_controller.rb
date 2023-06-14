@@ -1,6 +1,10 @@
 class BookTempsController < ApplicationController
   def index
-    @book_temps = BookTemp.all
+    if params[:query].present?
+      @book_temps = BookTemp.search_by_title_and_author(params[:query])
+    else
+      @book_temps = BookTemp.all
+    end
   end
 
   def show
