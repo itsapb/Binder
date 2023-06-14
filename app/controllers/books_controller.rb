@@ -1,10 +1,19 @@
 class BooksController < ApplicationController
-end
 
-def index
-  @books = Book.all
-end
+  def index
+    @books = Book.all
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
+        marker_html: render_to_string(partial: "marker", locals: {user: user})
+      }
+    end
+  end
 
+<<<<<<< HEAD
 def new
   @book = Book.new
 end
@@ -17,6 +26,14 @@ def create
     render 'new'
   end
 end
+=======
+  def create
+    @book = Book.new(book_params)
+    @book.save
+
+    redirect_to book_path(@book)
+  end
+>>>>>>> master
 
 def edit
   @book = Book.find(params[:id])
@@ -40,4 +57,5 @@ private
 
 def book_params
   params.require(:book).permit(:title, :author, :description)
+end
 end
