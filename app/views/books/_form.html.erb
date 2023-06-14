@@ -1,7 +1,17 @@
-<%= form_with model: @book do |f| %>
+<h1 class="heading-profile">Add a book to your profile</h1>
+<br>
+<%= form_with model: @book, url: '/books', method: "post"  do |f| %>
 <%= f.label :title %>
+<br>
 <%= f.text_field :title %>
+<br>
 <%= f.label :author %>
+<br>
 <%= f.text_field :author %>
+<br>
+<%= f.label :description %>
+<br>
+<%= f.text_area :description %>
+<br>
 <%= f.submit class: "btn-green"%>
 <% end %>

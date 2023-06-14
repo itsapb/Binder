@@ -1,3 +1,5 @@
-<%= link_to "Delete",
-books_path,
+<%= @book.title %>
+<%= cl_image_tag @book.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%= link_to "Delete", books_path(@book),
 data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
