@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
     # Defines the root path route ("/")
     # root "articles#index"
-
-<<<<<<< HEAD
-
     resources :books, only: [:new, :create, :show, :edit, :update, :destroy] do
       resources :bookings, only: [:create]
     end
@@ -15,17 +12,6 @@ Rails.application.routes.draw do
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
-=======
-  resources :books do
-    resources :bookings, only: [:create]
-  end
->>>>>>> master
-
-  resources :bookings, only: [:index, :update]
-
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
 
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]

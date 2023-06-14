@@ -13,7 +13,6 @@ class BooksController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
 def new
   @book = Book.new
 end
@@ -26,14 +25,6 @@ def create
     render 'new'
   end
 end
-=======
-  def create
-    @book = Book.new(book_params)
-    @book.save
-
-    redirect_to book_path(@book)
-  end
->>>>>>> master
 
 def edit
   @book = Book.find(params[:id])
