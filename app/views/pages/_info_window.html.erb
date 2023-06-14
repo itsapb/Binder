@@ -2,12 +2,14 @@
 <div class="profile-popup">
   <div class="user-info">
     <a href="<%=%>">
-         <%= image_tag("georg.jpeg", class: "user-photo", alt: "User Profile") %>
+    <% if user.photo.present? %>
+         <%= cl_image_tag user.photo.key, class: "user-photo", alt: "User Profile" %>
+      <% end %>
         <h2 class="user-name"><%= user.first_name %></h2>
       </a>
   </div>
   <div class="book-info">
-    <%= link_to image_tag("never-ken-follett.png", class: "book-image", alt: "Book Image"), book_temps_path %>
+    <%= cl_image_tag user.books.first.photo.key, class: "book-image", crop: :fill %>
       <div class="book-description">
         <p class="book-description-text">Short Book description goes here.</p>
   </div>

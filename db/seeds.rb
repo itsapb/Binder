@@ -35,7 +35,7 @@ user1 = User.new(
   last_name: "J",
   email: "ej@lewagon.com",
   password: "EJ12345",
-  address: "123 St Asaph Rd, Brockley, London SE4 2EJ")
+  address: "76-2 Revelon Rd, London SE4 2PN")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user1.save!
 
@@ -46,7 +46,7 @@ user2 = User.new(
   last_name: "G",
   email: "gg@lewagon.com",
   password: "GG12345",
-  address: "151 St Asaph Rd, Brockley, London SE4 2EJ")
+  address: "51 Dundalk Rd, London SE4 2JJ")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user2.save!
 
@@ -57,7 +57,7 @@ user3 = User.new(
   last_name: "S",
   email: "js@lewagon.com",
   password: "JS12345",
-  address: "125 St Asaph Rd, Brockley, London SE4 2EJ")
+  address: "13 St Norbert Rd, London SE4 2EY")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user3.save!
 
@@ -118,6 +118,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334652",
                 user: user,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -141,6 +142,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334653",
                 user: user4,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -164,6 +166,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334655",
                 user: user4,
+                currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -187,6 +190,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334656",
                 user: user2,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -210,6 +214,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334658",
                 user: user3,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -233,6 +238,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334666",
                 user: user1,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!

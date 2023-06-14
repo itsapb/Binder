@@ -1,4 +1,6 @@
 <div class="position-relative">
-  <%= image_tag("georg.jpeg", class: "rounded-circle position-absolute top-0 end-0", style: "width: 40px; height: 40px;", alt: "User Profile") %>
-  <%= image_tag "never-ken-follett.png", class: "img-fluid", alt: "Currently Reading", height: 120, width: 79 %>
+  <% if user.photo.present? %>
+    <%= cl_image_tag user.photo.key, class: "rounded-circle position-absolute top-0 end-0", height: 40, width: 40, crop: :fill %>
+  <% end %>
+  <%= cl_image_tag user.books.first.photo.key, height: 120, width: 79, crop: :fill %>
 </div>
