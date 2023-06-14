@@ -16,6 +16,4 @@ Rails.application.routes.draw do
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
-
-  resources :dashboard, only: [:show, :edit, :create]
 end
