@@ -20,31 +20,31 @@ puts "Creating the user"
 file = URI.open("https://tse3.mm.bing.net/th?id=OIP.ZXmsrJLmj8Zr_Um2Gkv6aQHaI4&pid=Api")
 puts "got the picture"
 user = User.new(first_name: "Tristan", last_name: "M", email: "tm@lewagon.com", password: "TM12345", address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
-# user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save!
 
 file = URI.open("https://tse3.mm.bing.net/th?id=OIP.ZXmsrJLmj8Zr_Um2Gkv6aQHaI4&pid=Api")
 puts "got the picture"
 user1 = User.new(first_name: "Enrico", last_name: "J", email: "ej@lewagon.com", password: "EJ12345", address: "123 St Asaph Rd, Brockley, London SE4 2EJ")
-# user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user1.save!
 
 file = URI.open("https://tse3.mm.bing.net/th?id=OIP.ZXmsrJLmj8Zr_Um2Gkv6aQHaI4&pid=Api")
 puts "got the picture"
 user2 = User.new(first_name: "Georg", last_name: "G", email: "gg@lewagon.com", password: "GG12345", address: "151 St Asaph Rd, Brockley, London SE4 2EJ")
-# user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user2.save!
 
 file = URI.open("https://tse3.mm.bing.net/th?id=OIP.ZXmsrJLmj8Zr_Um2Gkv6aQHaI4&pid=Api")
 puts "got the picture"
 user3 = User.new(first_name: "Jay", last_name: "S", email: "js@lewagon.com", password: "JS12345", address: "125 St Asaph Rd, Brockley, London SE4 2EJ")
-# user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user3.save!
 
 file = URI.open("https://tse3.mm.bing.net/th?id=OIP.ZXmsrJLmj8Zr_Um2Gkv6aQHaI4&pid=Api")
 puts "got the picture"
 user4 = User.new(first_name: "Alice", last_name: "PB", email: "apb@lewagon.com", password: "APB12345", address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
-# user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user4.save!
 
 # books
