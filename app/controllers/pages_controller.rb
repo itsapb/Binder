@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @users = User.all
+    @book_temp = BookTemp.last
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,

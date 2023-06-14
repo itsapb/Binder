@@ -1,2 +1,14 @@
 <h1>Book Temps index</h1>
 <%= link_to "create book template", new_book_temp_path(@book_temp) %>
+
+<ul>
+  <% if !@book_temps %>
+    <p>There are no books in the system</p>
+  <% else %>
+    <% @book_temps.each do |book_temp| %>
+      <li>
+        <%= link_to book_temp.title, book_temp_path(book_temp) %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
