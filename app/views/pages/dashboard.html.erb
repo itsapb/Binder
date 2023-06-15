@@ -31,10 +31,11 @@
   </ul>
 
 <h2>Droppable books</h2>
-<ul><% unless @droppable_books.empty? %>
-<% @droppable_books.each do |book| %>
-<li><%= book.title %></li>
-<%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+<ul>
+  <% unless @droppable_books.empty? %>
+    <% @droppable_books.each do |book| %>
+      <li><%= book.title %></li>
+      <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
   <% end %>
-  <% end %>
-  </ul>
+</ul>

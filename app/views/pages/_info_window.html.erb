@@ -10,16 +10,20 @@
   </div>
   <div class="book-info">
   <div class="book-info">
+  <div>
   <% if rbook.present? %>
     <%= link_to book_temp_path(rbook.book_temp_id) do %>
       <%= cl_image_tag rbook.photo.key, class: "book-image", crop: :fill %>
+      <div class="text-overlay top-right">Review</div>
+      <div class="text-overlay bottom-right">Learn more</div>
     <% end %>
+  </div>
     <div class="book-description">
       <p class="book-description-text"><%= truncate(rbook.description, length: 50, separator: ' ', omission: '...') %></p>
     </div>
   <% end %>
 </div>
   <div class="popup-footer">
-    <%= link_to "Rent the Book", book_temps_path, class: "rent-button" %>
+    <%= link_to "Rent the Book", book_path(rbook), class: "rent-button" %>
   </div>
 </div>
