@@ -1,5 +1,4 @@
-<%= @book.title %>
-<%= cl_image_tag @book.photo.key, height: 300, width: 400, crop: :fill %>
-
-<%= link_to "Delete", books_path(@book),
-data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+<div class = "container">
+<h1><%= @book.title %></h1>
+<%= cl_image_tag @book.photo.key, height: 500, width: 300, crop: :fill %>
+</div>
