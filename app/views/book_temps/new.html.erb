@@ -1,13 +1,51 @@
-<h1>Here's your new book template 🪸</h1>
+<div class="container" data-controller="booktemp">
+<h1>A new book template 🪸</h1>
+
+<br>
+<%# API search function %>
+ <%# <input type="text" id="searchInput" placeholder="A reader lives a thousand lives..." />
+  <button class="btn-black"onclick="search()">Search</button>
+  <div id="searchResults"></div>
+<br> %>
+
+<div>
+
+
+ <%= form_with url: new_book_temp_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "A reader lives a thousand lives...",
+            data: {target: "booktemp.input"}
+        %>
+      <%= submit_tag "Search", name: "", class: "btn-green" %>
+    <% end %>
+
+<ul id="results"
+    class="list-group list-group-horizontal"
+    data-booktemp-target="results"></ul>
+</div>
+
+<%# <form action="#" class="row g-2 justify-content-center py-5"
+      data-action="submit->booktemp#search">
+<input type="text"
+       class="form-control"
+       placeholder="A reader lives a thousand lives..."
+       data-booktemp-target="input">
+<button class="btn-green">Search</button>
+</form> %>
+<br>
+<h2 class="heading-profile">Can't find your book? Create it!</h2>
 
 <br>
 <%= simple_form_for(@book_temp) do |f| %>
   <%= f.input :title %>
   <%= f.input :author %>
   <%= f.input :description %>
-  <%= f.input :isbn %>
-  <%= f.submit class: "btn btn-warning text-white"%>
+  <%= f.submit class: "btn-green"%>
 <% end %>
 <br>
 
-<%= link_to "back", book_temps_path %>
+ <%= link_to "Back to Home", root_path, class: "btn-green" %>
+  <%= link_to "Back Templates", book_temps_path, class: "btn-green" %>
+</div>

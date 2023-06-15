@@ -1,14 +1,25 @@
-<h1>Book Temps index</h1>
-<%= link_to "create book template", new_book_temp_path(@book_temp) %>
+<div class="container">
+  <h1>Book Temps index</h1>
+  <%= link_to "Create Book Template", new_book_temp_path(@book_temp), class: "btn btn-primary" %>
 
-<ul>
-  <% if !@book_temps %>
-    <p>There are no books in the system</p>
+  <% if @book_temps.blank? %>
+    <p>There are no book_temps in the system.</p>
   <% else %>
-    <% @book_temps.each do |book_temp| %>
-      <li>
-        <%= link_to book_temp.title, book_temp_path(book_temp) %>
-      </li>
-    <% end %>
+    <div class="row">
+      <% @book_temps.each do |book_temp| %>
+        <div class="col-md-4">
+          <div class="card mb-3">
+            <%= link_to book_temp_path(book_temp) do %>
+              <%= cl_image_tag book_temp.books.first.photo.key, class: "card-img-top", crop: :fill %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= book_temp.title %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</ul>
+  <%= link_to "Back to Home", root_path, class: "btn btn-primary" %>
+  <%= link_to "Back Templates", book_temps_path, class: "btn btn-primary" %>
+</div>

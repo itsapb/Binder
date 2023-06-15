@@ -6,5 +6,6 @@
   <div class="book-temp-image-container">
     <%= cl_image_tag @book_temp.books.first.photo.key, height: 500, width: 300, crop: :fill, class: "book-temp-image" %>
   </div>
-  <%= link_to "Back to Home", root_path %>
+  <%= link_to "Back to Home", root_path, class: "btn btn-primary" %>
+  <%= link_to "Back Templates", book_temps_path, class: "btn btn-primary" %>
 </div>
