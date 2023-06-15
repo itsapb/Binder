@@ -25,6 +25,6 @@ class BookTempsController < ApplicationController
   private
 
   def params_booktemp
-    params.require(:book_temp).permit(:title, :author, :description, :ISBN)
+    params.require(:book_temp).permit(:title, :author, :description)
   end
 end

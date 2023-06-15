@@ -3,9 +3,12 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  # For getting info from user about which book they want to view
   def new
     @book = Book.new
   end
+
+  # For displaying API search results
 
   def show
     @book = Book.find(params[:id])
