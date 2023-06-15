@@ -1,1 +1,39 @@
-<%= render "form", book: @book %>
+<div class="container" data-controller="booktemp">
+<h1 class="heading-profile">What are you currently reading? 🪸</h1>
+
+<br>
+<%# API search function %>
+ <%# <input type="text" id="searchInput" placeholder="A reader lives a thousand lives..." />
+  <button class="btn-black"onclick="search()">Search</button>
+  <div id="searchResults"></div>
+<br> %>
+
+<div>
+
+
+ <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "A reader lives a thousand lives...",
+            data: {target: "booktemp.input"}
+        %>
+      <%= submit_tag "Search", name: "", class: "btn-green" %>
+    <% end %>
+
+<ul id="results"
+    class="list-group list-group-horizontal"
+    data-booktemp-target="results"></ul>
+</div>
+
+<%# <form action="#" class="row g-2 justify-content-center py-5"
+      data-action="submit->booktemp#search">
+<input type="text"
+       class="form-control"
+       placeholder="A reader lives a thousand lives..."
+       data-booktemp-target="input">
+<button class="btn-green">Search</button>
+</form> %>
+<br>
+ <%= link_to "Back to Home", root_path, class: "btn-green" %>
+</div>
