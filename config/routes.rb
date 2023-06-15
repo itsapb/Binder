@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     # Defines the root path route ("/")
     # root "articles#index"
     resources :books do
-      resources :bookings, only: [:create]
+      resources :drops, only: [:new, :create]
       member do
         patch :have_read
       end
@@ -19,14 +19,14 @@ Rails.application.routes.draw do
       member do
         patch :not_reading
       end
-
     end
-    resources :bookings, only: [:index, :update]
+
+    resources :drops, only: [:index, :update]
     resources :chatrooms, only: :show do
       resources :messages, only: :create
     end
 
-    
+
 
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
