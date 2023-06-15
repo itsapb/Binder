@@ -1,0 +1,9 @@
+<h1>Rent Book</h1>
+
+<%= image_tag @book.photo %>
+<h2><%= @book.title %></h2>
+
+<%= form_with(model: @drop, url: book_drops_path(@book), method: :post) do |form| %>
+  <%= form.hidden_field :book_id, value: @book.id %>
+  <%= form.submit "Rent Book" %>
+<% end %>

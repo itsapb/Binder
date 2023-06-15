@@ -1,0 +1,4 @@
+<h1>Here are all your bookings</h1>
+<% current_user.drops.each do |drop|%>
+<%= drop.book.title%>
+<%end%>
