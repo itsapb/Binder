@@ -2,13 +2,8 @@
 <h1>A new book template 🪸</h1>
 
 <br>
-<%# API search function %>
- <%# <input type="text" id="searchInput" placeholder="A reader lives a thousand lives..." />
-  <button class="btn-black"onclick="search()">Search</button>
-  <div id="searchResults"></div>
-<br> %>
 
-<div>
+
 
 
  <%= form_with url: new_book_temp_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>

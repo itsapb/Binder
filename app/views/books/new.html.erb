@@ -1,17 +1,16 @@
-<div class="container" data-controller="booktemp">
-<h1 class="heading-profile">What are you currently reading? 🪸</h1>
-
+<div class="container text-center" data-controller="booktemp">
+  <h1 class="heading-profile">What are you currently reading? 🪸</h1>
 <br>
-<%# API search function %>
- <%# <input type="text" id="searchInput" placeholder="A reader lives a thousand lives..." />
-  <button class="btn-black"onclick="search()">Search</button>
-  <div id="searchResults"></div>
-<br> %>
-
-<div>
-
-
- <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+  <div class="text-center">
+    <%= image_tag 'Follet.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag '1984.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'cleo.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'loverman.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'revenge.png', height: 200, width: 120, crop: :fill  %>
+    <br>
+    <br>
+</div>
+  <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
@@ -20,20 +19,12 @@
         %>
       <%= submit_tag "Search", name: "", class: "btn-green" %>
     <% end %>
-
 <ul id="results"
     class="list-group list-group-horizontal"
     data-booktemp-target="results"></ul>
 </div>
-
-<%# <form action="#" class="row g-2 justify-content-center py-5"
-      data-action="submit->booktemp#search">
-<input type="text"
-       class="form-control"
-       placeholder="A reader lives a thousand lives..."
-       data-booktemp-target="input">
-<button class="btn-green">Search</button>
-</form> %>
+<div class="container">
 <br>
- <%= link_to "Back to Home", root_path, class: "btn-green" %>
+  <%= link_to "Back to Home", root_path, class: "btn-green" %>
+</div>
 </div>

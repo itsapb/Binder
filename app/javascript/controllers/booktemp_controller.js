@@ -19,9 +19,9 @@ export default class extends Controller {
       .then(data => {
         console.log(data)
         data.items.forEach((item) => {
-          let booktempTag = "<div class='booktemp'>" +
+          let booktempTag = "<div class='booktemp pt-5'>" +
           "<img src='" + item.volumeInfo.imageLinks.thumbnail + "'>"
-          "<p>" + item.volumeInfo.authors + "</p></div>"
+          "<p>" + item.volumeInfo.title + "</p></div>"
 
           this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
         })
