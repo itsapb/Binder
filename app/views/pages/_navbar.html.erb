@@ -1,6 +1,6 @@
 <div class="pr-5 navbar-lewagon ">
 <br>
-  <p class="navbar-text float-right link">
+  <p class="navbar-text float-right">
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.first_name %></strong>.
       <%= link_to "Edit profile", edit_user_registration_path, class: "navbar-link" %> |
@@ -11,7 +11,7 @@
     <% end %>
   </p>
   <ul>
-    <li><%= link_to "Dashboard 🪸"%></li> |
+    <li><%= link_to "Dashboard 🪸", class: "link"%></li> |
     <li><%= link_to "Map View 📍" %></li> |
     <li><%= link_to "Be Inspired ✨" %></li>
   </ul>
