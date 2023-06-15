@@ -25,7 +25,7 @@ class PagesController < ApplicationController
   end
 
   def create
-    book = Book.find(params[:book_id])
+    Book.find(params[:book_id])
     # Perform necessary logic to create a drop for the book
   end
 end
