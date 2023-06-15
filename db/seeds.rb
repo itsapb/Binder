@@ -117,7 +117,7 @@ book = Book.new(title: "Normal People",
                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334652",
-                user: user,
+                user: user3,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -141,7 +141,7 @@ book = Book.new(title: "Normal People",
                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334653",
-                user: user4,
+                user: user3,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -165,7 +165,7 @@ book = Book.new(title: "Normal People",
                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334655",
-                user: user4,
+                user: user3,
                 currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -189,7 +189,7 @@ book = Book.new(title: "Normal People",
                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334656",
-                user: user2,
+                user: user3,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")

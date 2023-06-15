@@ -7,6 +7,19 @@ Rails.application.routes.draw do
     # root "articles#index"
     resources :books do
       resources :bookings, only: [:create]
+      member do
+        patch :have_read
+      end
+      member do
+        patch :unread
+      end
+      member do
+        patch :currently_reading
+      end
+      member do
+        patch :not_reading
+      end
+
     end
     resources :bookings, only: [:index, :update]
     resources :chatrooms, only: :show do

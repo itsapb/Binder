@@ -11,6 +11,34 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def currently_reading
+    @book = Book.find(params[:id])
+    @book.currently_reading = true
+    @book.save
+    redirect_to dashboard_path
+  end
+
+  def not_reading
+    @book = Book.find(params[:id])
+    @book.currently_reading = false
+    @book.save
+    redirect_to dashboard_path
+  end
+
+  def have_read
+    @book = Book.find(params[:id])
+    @book.have_read = true
+    @book.save
+    redirect_to dashboard_path
+  end
+
+  def unread
+    @book = Book.find(params[:id])
+    @book.have_read = false
+    @book.save
+    redirect_to dashboard_path
+  end
+
   def create
     @book = Book.new(book_params)
     @book.user = current_user
