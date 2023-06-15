@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       resources :messages, only: :create
     end
 
+    
+
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
