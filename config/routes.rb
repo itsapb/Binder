@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  resources :users, only: [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "dashboard", to: "pages#dashboard"
     # Defines the root path route ("/")

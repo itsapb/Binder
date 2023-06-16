@@ -1,13 +1,9 @@
 <% book = user.books.find_by(currently_reading: true) %>
 <div class="profile-popup">
   <div class="user-info">
-    <a href="<%= %>">
-    <% if user.photo.present? %>
-         <%= cl_image_tag user.photo.key, class: "user-photo", alt: "User Profile" %>
+    <% if book.present? %>
+          <h2 class="user-name"><%= user.first_name %> is currently reading</h2>
       <% end %>
-        <h2 class="user-name"><%= user.first_name %></h2>
-      </a>
-  </div>
   <div class="book-info">
   <div class="book-info">
   <div>
@@ -23,7 +19,7 @@
     </div>
   </div>
     <div class="popup-footer">
-    <%= link_to "Rent the Book", new_book_drop_path(book), class: "rent-button" %>
+    <%= link_to "Visit Profile", user_path(book.user), class: "btn btn-black" %>
   </div>
   <% end %>
 </div>
