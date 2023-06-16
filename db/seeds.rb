@@ -156,165 +156,104 @@ book = Book.new(title: "Normal People",
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
-# # books
-# BookTemp.destroy_all
-# puts "Binding the books"
+# books
+puts "Binding the books"
 
 
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334630",
-#                 user: user,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334630",
+                user: user,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334652")
-# book_temp.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334652",
+                user: user,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334652",
-#                 user: user,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334653",
+                user: user4,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334653")
-# book_temp.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334655",
+                user: user4,
+                currently_reading: false,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334653",
-#                 user: user4,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334656",
+                user: user2,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334655")
-# book_temp.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334658",
+                user: user3,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334655",
-#                 user: user4,
-#                 currently_reading: false,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
-
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334656")
-# book_temp.save!
-
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334656",
-#                 user: user2,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
-
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334658")
-# book_temp.save!
-
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334658",
-#                 user: user3,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
-
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334666")
-# book_temp.save!
-
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-# book = Book.new(title: "Normal People",
-#                 author: "Sally Rooney",
-#                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#                 Normal People is a story of mutual fascination, friendship and love.",
-#                 isbn: "9780571334666",
-#                 user: user1,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334666",
+                user: user1,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!

@@ -10,7 +10,7 @@ class DropsController < ApplicationController
     @drop = Drop.new(user_id: @user.id, book_id: @book.id)
 
     if @drop.save
-      redirect_to root_path, notice: "Booking created successfully."
+      redirect_to root_path, notice: "Booking requested."
     else
       redirect_to root_path, alert: "Booking could not be created."
     end
