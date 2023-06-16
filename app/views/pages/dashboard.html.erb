@@ -1,78 +1,89 @@
-<% if user_signed_in? %>
-  <div class="container">
+<div class="container"><% if user_signed_in? %>
+
     <h1>Welcome to the dashboard, <%= current_user.first_name %>!</h1>
-    <div class="main-container">
-      <br>
+    <div class="main div">
       <h2 class="heading-dashboard">My books</h2>
-      <ul>
-        <div class="books-container">
-          <% unless @books.empty? %>
-            <% @books.each do |book| %>
+      <div class="d-flex">
+        <div class="user-info d-flex">
+        <% unless @books.empty? %>
+          <% @books.each do |book| %>
+            <div class = "card-book">
               <% unless book.currently_reading %>
-                <div class="book-button">
-                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: currently_reading_book_path(book)) do |f| %>
-                    <%= f.input :currently_reading, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } } %>
-                    <%= f.button :submit, class: "d-none" %>
-                  <% end %>
+                <div class="btn btn-green" data-controller="checkbox" data-checkbox-id-value="<%=book.id%>">
+                <%= button_tag "Currently Reading", data: { action: "click->checkbox#update" }, class: "btn btn-green"%>
                 </div>
               <% else %>
-                <div class="book-button">
-                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: not_reading_book_path(book)) do |f| %>
-                    <%= f.input :currently_reading, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
-                    <%= f.button :submit, class: "d-none" %>
-                  <% end %>
-                </div>
-                <div class="book-button">
-                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: have_read_book_path(book)) do |f| %>
-                    <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } } %>
-                    <%= f.button :submit, class: "d-none" %>
-                  <% end %>
-                </div>
-              <% end %>
-              <div class="image">
-                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              </div>
-              <div class="book-info">
-                <h5><%= book.title %><br>by <%= book.author %></h5>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </ul>
-      <br>
-      <h2 class="heading-dashboard">Books you have read</h2>
-      <div class="books-container">
-        <ul>
-          <% unless @read_books.empty? %>
-            <% @read_books.each do |book| %>
-              <div class="book-button">
-                <%= simple_form_for(book, data: { controller: "checkbox" }, url: unread_book_path(book)) do |f| %>
-                  <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
+                <%= simple_form_for(book, data: { controller: "checkbox" }, url: not_reading_book_path(book)) do |f| %>
+                  <%= f.input :currently_reading, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
                   <%= f.button :submit, class: "d-none" %>
                 <% end %>
+                <%= simple_form_for(book, data: { controller: "checkbox" }, url: have_read_book_path(book)) do |f| %>
+                  <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } } %>
+                  <%= f.button :submit, class: "d-none" %>
+                <% end %>
+              <% end %>
+                <div class ="picture">
+                  <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                </div>
+                <div class="text">
+                  <p><%= book.title %><br>by <%= book.author %></p>
+                </div>
               </div>
-              <div class="image">
-                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              </div>
-              <li><%= book.title %> by <%= book.author %></li>
-            <% end %>
+            </div>
           <% end %>
-        </ul>
+        <% end %>
       </div>
-      <br>
-      <h2 class="heading-dashboard">Droppable books</h2>
-      <div class="books-container">
-        <ul>
-          <% unless @droppable_books.empty? %>
-  <% @droppable_books.each do |book| %>
-              <div class="image">
-                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              </div>
-              <li><%= book.title %></li>
+  <br>
+
+   <div class="main div">
+  <h2 class="heading-dashboard">Books you have read</h2>
+    <div class="d-flex">
+      <% unless @read_books.empty? %>
+      <div class = "card-book">
+        <% @read_books.each do |book| %>
+        <div class="btn btn-green">
+            <%= simple_form_for(book, data: { controller: "checkbox" }, url: unread_book_path(book)) do |f| %>
+              <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
+              <%= f.button :submit, class: "d-none" %>
+                </div>
             <% end %>
+              <div class="user-info d-flex">
+                <div class ="picture">
+                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                  </div>
+                  <div class="text">
+                    <p><%= book.title %> by <%= book.author %></p>
+                  </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+  <br>
+
+      <div class="main div">
+    <h2 class="heading-dashboard">Droppable books</h2>
+    <div class="d-flex">
+      <% unless @droppable_books.empty? %>
+      <% @droppable_books.each do |book| %>
+      <div class="card-book">
+        <div class="btn btn-green">
+          <%= simple_form_for(book, data: { controller: "checkbox" }, url: undrop_book_path(book)) do |f| %>
+            <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
+            <%= f.button :submit, class: "d-none" %>
           <% end %>
-        </ul>
+        </div>
+        <div class="user-info d-flex">
+          <div class="picture">
+            <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+          </div>
+          <div class="text">
+            <p><%= book.title %></p>
+          </div>
+        </div>
       </div>
+      <% end %>
+      <% end %>
     </div>
   </div>
 

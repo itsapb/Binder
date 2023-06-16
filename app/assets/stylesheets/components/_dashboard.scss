@@ -1,15 +1,113 @@
-.books-container {
-  padding: 16px;
-  display: flex;
-  flex-direction: space-between;
-  align-items: flex-end;
-  position: relative;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+// .books-container {
+//   padding: 16px;
+//   display: flex;
+//   flex-direction: space-between;
+//   align-items: flex-end;
+//   position: relative;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 16px;
+// }
+
+.card-book {
+  background-color: rgb(243, 241, 241);
+  width: 250px;
+  box-shadow: 5px 5px 20px grey;
+  margin: 5px;
+  border-radius: 16px;
 }
 
-.book-info {
-  font-size: smaller;
-  text-align: justified;
-  color: rgb(43, 41, 41)
+.picture {
+  width: 100%;
+  margin-left: 35px;
 }
+
+.text {
+  // display: flex;
+  text-align: center;
+}
+
+.btn {
+margin: 8px;
+}
+
+
+// .book-info {
+//   font-size: 16px;
+//   text-align: justified;
+//   color: rgb(43, 41, 41);
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 50%;
+//   margin-bottom: 5px;
+// }
+
+// .books-container {
+//   max-width: 250px;
+//   background-color: #fff;
+//   border: 1px solid #ccc;
+//   border-radius: 5px;
+//   padding: 15px;
+// }
+
+// .user-name {
+//   font-size: 16px;
+//   font-weight: bold;
+// }
+
+// .image {
+//   width: 100%;
+//   max-width: 150px;
+//   height: auto;
+//   border-radius: 5px;
+//   margin-bottom: 10px;
+//   cursor: pointer;
+// }
+
+// .book-description-text {
+//   font-size: 12px;
+//   color: #555;
+// }
+
+// .popup-footer {
+//   text-align: center;
+//   margin-top: 15px;
+// }
+
+// .books-buttons {
+//   display: inline-block;
+//   padding: 4px 8px;
+//   font-size: 12px;
+//   background-color: #007bff;
+//   color: #fff;
+//   text-decoration: none;
+//   border-radius: 5px;
+//   transition: background-color 0.3s ease;
+// }
+
+// .books-buttons:hover {
+//   background-color: #0056b3;
+// }
+
+// // .book-info {
+// //   position: relative;
+// // }
+
+// .text-overlay {
+//   position: absolute;
+//   padding: 5px 10px;
+//   color: #fff;
+//   font-weight: bold;
+//   text-align: center;
+// }
+
+// .top-right {
+//   top: 0px;
+//   right: 20px;
+//   background-color: rgba(0, 0, 0, 0.7);
+// }
+
+// .bottom-right {
+//   bottom: 50px;
+//   right: 20px;
+//   background-color: rgba(0, 0, 0, 0.7);
+// }
