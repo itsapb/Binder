@@ -15,7 +15,9 @@ class PagesController < ApplicationController
   def dashboard
     if user_signed_in?
       @books = current_user.books
+      # my booking requests
       @drops = current_user.drops
+      @booking_requests = current_user.books.map(&:drops).flatten
       # client = Goodreads.new(api_key: ENV['GOODREADS_API_KEY'])
       # @books = client.listopia("interesting")
 

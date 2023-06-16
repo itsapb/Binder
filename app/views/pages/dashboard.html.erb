@@ -77,6 +77,18 @@
         <h2 class="heading-dashboard">Your requests</h2>
         <div class="books-container">
         <ul>
+          <% unless @booking_requests.empty? %>
+            <% @booking_requests.each do |booking_request| %>
+              <div class="image">
+                <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <li><%= booking_request.book.title %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+        <div class="books-container">
+        <ul>
           <% unless @drops.empty? %>
             <% @drops.each do |drop| %>
               <div class="image">

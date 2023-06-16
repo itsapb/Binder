@@ -1,11 +1,9 @@
 <div class="book-temp-container">
-  <h1 class="book-temp-title">Show Book Temp</h1>
-  <h2 class="book-temp-subtitle"><%= @book_temp.title %></h2>
+  <h1 class="book-temp-subtitle"><%= @book_temp.title %></h1>
   <p class="book-temp-description"><%= @book_temp.description %></p>
 
   <div class="book-temp-image-container">
     <%= cl_image_tag @book_temp.books.first.photo.key, height: 500, width: 300, crop: :fill, class: "book-temp-image" %>
   </div>
-  <%= link_to "Back to Home", root_path, class: "btn btn-primary" %>
-  <%= link_to "Back Templates", book_temps_path, class: "btn btn-primary" %>
+  <%= link_to "Back to Home", root_path, class: "btn btn-green" %>
 </div>
