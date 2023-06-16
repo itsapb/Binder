@@ -41,6 +41,16 @@
                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
               </div>
               <li><%= book.title %></li>
+              <% if user_signed_in? %>
+                <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
+                <%= form.hidden_field :book_id, value: book.id %>
+                <%= form.submit "Rent Book" %>
+                <% end %>
+              <% else %>
+                <p>Please Log in to rent the book</p>
+                <%= button_to "Log in", user_session_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+              <% end %>
+
             <% end %>
           <% end %>
         </ul>

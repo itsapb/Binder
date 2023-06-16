@@ -64,11 +64,25 @@
       <div class="books-container">
         <ul>
           <% unless @droppable_books.empty? %>
-  <% @droppable_books.each do |book| %>
+            <% @droppable_books.each do |book| %>
               <div class="image">
                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
               </div>
               <li><%= book.title %></li>
+            <% end %>
+          <% end %>
+        </ul>
+        </div>
+           <br>
+        <h2 class="heading-dashboard">Your requests</h2>
+        <div class="books-container">
+        <ul>
+          <% unless @drops.empty? %>
+            <% @drops.each do |drop| %>
+              <div class="image">
+                <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <li><%= drop.book.title %></li>
             <% end %>
           <% end %>
         </ul>

@@ -105,7 +105,9 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334652",
                 user: user3,
-                currently_reading: true,
+                droppable: true,
+                have_read: true,
+                currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -120,7 +122,9 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334653",
                 user: user3,
-                currently_reading: true,
+                currently_reading: false,
+                have_read: true,
+                droppable: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -136,6 +140,8 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334655",
                 user: user3,
+                droppable: false,
+                have_read: true,
                 currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -151,7 +157,9 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334656",
                 user: user3,
-                currently_reading: true,
+                droppable: false,
+                have_read: true,
+                currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -197,6 +205,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334653",
                 user: user4,
+                have_read: false,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -211,6 +220,7 @@ book = Book.new(title: "Normal People",
                 Normal People is a story of mutual fascination, friendship and love.",
                 isbn: "9780571334655",
                 user: user4,
+                have_read: true,
                 currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
