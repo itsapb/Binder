@@ -1,91 +1,42 @@
 require "json"
 require "open-uri"
 
-Book.destroy_all
-BookTemp.destroy_all
+# Book.destroy_all
+# BookTemp.destroy_all
 
-url = "https://www.googleapis.com/books/v1/volumes?q=lord+of+the+rings&key=AIzaSyC1kURKAfO5p22IwVMlAJ0A2bfmG8s9YKY&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
-books_serialized = URI.open(url).read
-books = JSON.parse(books_serialized)
+# url = "https://www.googleapis.com/books/v1/volumes?q=lord+of+the+rings&key=AIzaSyC1kURKAfO5p22IwVMlAJ0A2bfmG8s9YKY&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
+# books_serialized = URI.open(url).read
+# books = JSON.parse(books_serialized)
 
-# puts "#{books[:items]} - #{books["description"]}"
+# # puts "#{books[:items]} - #{books["description"]}"
 
-books["items"].each do | book |
-  book_info = book["volumeInfo"]
-  p book_info
-  puts "--------"
-  next if book_info["imageLinks"].blank?
-  book_temp = BookTemp.new(title: book_info["title"], author: book_info["authors"][0], description: book_info["description"])
-  image_url = book_info["imageLinks"]["thumbnail"]
-  large_image_url = image_url.sub("zoom=1", "zoom=0")
-  p large_image_url
-  file = URI.open(large_image_url)
-  # article = Article.new(title: "NES", body: "A great console")
-  book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-  book_temp.save
-end
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334652",
-                user: user3,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334653",
-                user: user3,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-# # users
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334655",
-                user: user3,
-                currently_reading: false,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+# books["items"].each do | book |
+#   book_info = book["volumeInfo"]
+#   p book_info
+#   puts "--------"
+#   next if book_info["imageLinks"].blank?
+#   book_temp = BookTemp.new(title: book_info["title"], author: book_info["authors"][0], description: book_info["description"])
+#   image_url = book_info["imageLinks"]["thumbnail"]
+#   large_image_url = image_url.sub("zoom=1", "zoom=0")
+#   p large_image_url
+#   file = URI.open(large_image_url)
+#   # article = Article.new(title: "NES", body: "A great console")
+#   book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+#   book_temp.save
+# end
 
 puts "Cleaning database..."
 User.destroy_all
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334656",
-                user: user3,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+book_temp = BookTemp.new(
+  title: "Normal People",
+  author: "Sally Rooney",
+  description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+  but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+  But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+  Normal People is a story of mutual fascination, friendship and love.",
+  isbn: "9780571334630")
+book_temp.save!
 
 puts "Creating the user"
 
@@ -144,19 +95,72 @@ user4 = User.new(
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user4.save!
 
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334652",
+                user: user3,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334653",
+                user: user3,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+# # users
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334655",
+                user: user3,
+                currently_reading: false,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334656",
+                user: user3,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
 # # books
 # BookTemp.destroy_all
 # puts "Binding the books"
 
-# book_temp = BookTemp.new(
-#   title: "Normal People",
-#   author: "Sally Rooney",
-#   description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-#   but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-#   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-#   Normal People is a story of mutual fascination, friendship and love.",
-#   isbn: "9780571334630")
-# book_temp.save!
+
 
 # file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
 # book = Book.new(title: "Normal People",

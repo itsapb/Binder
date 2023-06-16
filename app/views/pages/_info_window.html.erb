@@ -21,9 +21,9 @@
     <div class="book-description">
       <p class="book-description-text"><%= truncate(book.description, length: 50, separator: ' ', omission: '...') %></p>
     </div>
-  <% end %>
-</div>
-  <div class="popup-footer">
+  </div>
+    <div class="popup-footer">
     <%= link_to "Rent the Book", new_book_drop_path(book), class: "rent-button" %>
   </div>
+  <% end %>
 </div>

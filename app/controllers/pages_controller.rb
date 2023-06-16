@@ -13,15 +13,17 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @books = current_user.books
-    @drops = current_user.drops
-    # client = Goodreads.new(api_key: ENV['GOODREADS_API_KEY'])
-    # @books = client.listopia("interesting")
+    if user_signed_in?
+      @books = current_user.books
+      @drops = current_user.drops
+      # client = Goodreads.new(api_key: ENV['GOODREADS_API_KEY'])
+      # @books = client.listopia("interesting")
 
-    @droppable_books = Book.where(droppable: true)
-    @currently_reading = current_user.books.where(currently_reading: true)
-    # @borrowed_books = current_user.books.where(borrowed: true)
-    @read_books = current_user.books.where(have_read: true)
+      @droppable_books = Book.where(droppable: true)
+      @currently_reading = current_user.books.where(currently_reading: true)
+      # @borrowed_books = current_user.books.where(borrowed: true)
+      @read_books = current_user.books.where(have_read: true)
+    end
   end
 
   def create
