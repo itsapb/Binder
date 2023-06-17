@@ -1,0 +1,51 @@
+<div class="container text-center" data-controller="booktemp">
+  <h1 class="heading-profile">What are you currently reading? 🪸</h1>
+  <br>
+  <div class="text-center">
+    <%= image_tag 'Follet.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag '1984.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'cleo.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'loverman.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'revenge.png', height: 200, width: 120, crop: :fill  %>
+    <br>
+    <br>
+  </div>
+  <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+    <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "A reader lives a thousand lives...",
+            data: {target: "booktemp.input"}
+    %>
+      <%= submit_tag "Search", name: "", class: "btn-green" %>
+  <% end %>
+
+    <ul id="results"
+      class="list-group list-group-horizontal"
+      data-booktemp-target="results">
+    </ul>
+  </div>
+
+  <div class="container">
+  <br>
+    <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none" %>
+  </div>
+
+<%# Bootstrap popup Modal %>
+<div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addBookModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add book</button>
+      </div>
+    </div>
+  </div>
+</div>

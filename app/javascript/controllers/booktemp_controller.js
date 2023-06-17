@@ -1,15 +1,18 @@
+//= require jquery3
+//= require popper
+//= require bootstrap
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["input", "results"]
   connect() {
-    console.log("booktemp controller connected33")
+    console.log("booktemp controller connected :)")
   }
 
   search(event) {
     event.preventDefault()
-    console.log("searching..!!.");
-    // this.resultsTarget.innerHTML = ""
+    console.log("searching...");
+    this.resultsTarget.innerHTML = ""
     this.fetchBooktemp(this.inputTarget.value)
   }
 
@@ -19,14 +22,15 @@ export default class extends Controller {
       .then(data => {
         console.log(data)
         data.items.forEach((item) => {
-          let booktempTag = "<div class='booktemp pt-5'>" +
-          "<img src='" + item.volumeInfo.imageLinks.thumbnail + "'>"
-          "<p>" + item.volumeInfo.title + "</p></div>"
-
+          let booktempTag =
+            `
+            <div class='booktemp pt-5'>
+              <img src='${item.volumeInfo.imageLinks.thumbnail}' data-toggle="modal" data-target="#addBookModal">
+              <p>${item.volumeInfo.title}</p></div>
+            </div>
+            `
           this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
         })
-
       })
-      //.then(data => this.insertBooktemp(data))
   }
 }

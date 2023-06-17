@@ -3,6 +3,8 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def search
+  end
   # For getting info from user about which book they want to view
   def new
     @book = Book.new
