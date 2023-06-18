@@ -1,8 +1,9 @@
 require "json"
 require "open-uri"
 
-Book.destroy_all
 BookTemp.destroy_all
+Book.destroy_all
+
 
 # url = "https://www.googleapis.com/books/v1/volumes?q=lord+of+the+rings&key=AIzaSyC1kURKAfO5p22IwVMlAJ0A2bfmG8s9YKY&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api"
 # books_serialized = URI.open(url).read
