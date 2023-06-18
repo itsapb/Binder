@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
+
+  patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
 end

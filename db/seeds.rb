@@ -26,7 +26,9 @@ BookTemp.destroy_all
 # end
 
 puts "Cleaning database..."
+Drop.destroy_all
 User.destroy_all
+Book.destroy_all
 
 book_temp = BookTemp.new(
   title: "Normal People",
@@ -132,12 +134,15 @@ book.save!
 # # users
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
                 user: user3,
                 droppable: false,
@@ -159,7 +164,7 @@ book = Book.new(title: "Normal People",
                 user: user3,
                 droppable: false,
                 have_read: true,
-                currently_reading: false,
+                currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -170,12 +175,15 @@ puts "Binding the books"
 
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334630",
                 user: user,
                 book_temp: book_temp)
@@ -212,12 +220,15 @@ book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
                 user: user4,
                 have_read: true,
@@ -227,8 +238,8 @@ book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
+book = Book.new(title: "1984",
+                author: "George Orwell",
                 description: "Connell and Marianne grow up in the same small town in the west of Ireland,
                 but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
                 But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
@@ -240,16 +251,22 @@ book = Book.new(title: "Normal People",
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686913936/816N1Kv6gfL_bvharw.jpg")
+book = Book.new(title: "Ultra-Processed People",
+                author: "Chris van Tulleken",
+                description: "An eye-opening investigation into the science, economics,
+                history and production of ultra-processed food.
+                It's not you, it's the food.
+                We have entered a new 'age of eating' where most of our calories come from an entirely
+                novel set of substances called Ultra-Processed Food, food which is industrially processed
+                and designed and marketed to be addictive. But do we really know what it's doing to our bodies?
+                Join Chris in his travels through the world of food science and a UPF diet
+                to discover what's really going on. Find out why exercise and willpower can't save us,
+                and what UPF is really doing to our bodies, our health, our weight, and the planet
+                (hint: nothing good).",
                 isbn: "9780571334658",
                 user: user3,
-                currently_reading: true,
+                currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
