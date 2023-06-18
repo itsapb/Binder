@@ -15,10 +15,12 @@ class PagesController < ApplicationController
   def dashboard
     if user_signed_in?
       @books = current_user.books
+      # my booking requests
       @drops = current_user.drops
+      @booking_requests = current_user.books.map(&:drops).flatten
       # client = Goodreads.new(api_key: ENV['GOODREADS_API_KEY'])
       # @books = client.listopia("interesting")
-
+      
       @droppable_books = Book.where(droppable: true)
       @currently_reading = current_user.books.where(currently_reading: true)
       # @borrowed_books = current_user.books.where(borrowed: true)

@@ -9,8 +9,8 @@
           <% unless @books.empty? %>
             <% @books.each do |book| %>
               <% unless book.currently_reading %>
-                <div class="book-button">
-                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: currently_reading_book_path(book)) do |f| %>
+              <!--  <div class="book-button">
+                 <%= simple_form_for(book, data: { controller: "checkbox" }, url: currently_reading_book_path(book)) do |f| %>
                     <%= f.input :currently_reading, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } } %>
                     <%= f.button :submit, class: "d-none" %>
                   <% end %>
@@ -28,7 +28,7 @@
                     <%= f.button :submit, class: "d-none" %>
                   <% end %>
                 </div>
-              <% end %>
+              <% end %> -->
               <div class="image">
                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
               </div>
@@ -41,17 +41,17 @@
       </ul>
       <br>
       <h2 class="heading-dashboard">Books you have read</h2>
-      <div class="books-container">
+      <div class="books-container d-flex">
         <ul>
           <% unless @read_books.empty? %>
             <% @read_books.each do |book| %>
               <div class="book-button">
-                <%= simple_form_for(book, data: { controller: "checkbox" }, url: unread_book_path(book)) do |f| %>
+           <!--    <%= simple_form_for(book, data: { controller: "checkbox" }, url: unread_book_path(book)) do |f| %>
                   <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
                   <%= f.button :submit, class: "d-none" %>
-                <% end %>
+                <% end %> -->
               </div>
-              <div class="image">
+              <div class="image d-flex">
                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
               </div>
               <li><%= book.title %> by <%= book.author %></li>
@@ -74,7 +74,23 @@
         </ul>
         </div>
            <br>
-        <h2 class="heading-dashboard">Your requests</h2>
+        <h2 class="heading-dashboard">Your booking requests from other people</h2>
+        <p>Accept or decline</p>
+        <div class="books-container">
+        <ul>
+          <% unless @booking_requests.empty? %>
+            <% @booking_requests.each do |booking_request| %>
+              <div class="image">
+                <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <li><%= booking_request.book.title %></li>
+              <% unless booking_request.status %>
+                <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch} %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
         <div class="books-container">
         <ul>
           <% unless @drops.empty? %>

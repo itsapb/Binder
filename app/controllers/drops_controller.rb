@@ -4,6 +4,13 @@ class DropsController < ApplicationController
     @user = current_user
   end
 
+  def accept_drop
+    @drop = Drop.find(params[:id])
+    @drop.status = true
+    @drop.save
+    redirect_to dashboard_path
+  end
+
   def create
     @user = current_user
     @book = Book.find(params[:book_id])
