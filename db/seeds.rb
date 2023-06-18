@@ -42,7 +42,6 @@ book_temp.save!
 
 puts "Creating the user"
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686318265/development/3e6ihehjoigzve1noou0ijvxq53q.jpg")
 puts "got the picture"
 user = User.new(
   first_name: "Tristan",
@@ -50,10 +49,7 @@ user = User.new(
   email: "tm@lewagon.com",
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686318262/development/2z10wtuamz0w6428eyrcqd7wue9g.png")
 puts "got the picture"
 user1 = User.new(
   first_name: "Enrico",
@@ -61,10 +57,8 @@ user1 = User.new(
   email: "ej@lewagon.com",
   password: "EJ12345",
   address: "76-2 Revelon Rd, London SE4 2PN")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user1.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686318260/development/sp9lagnmsof956az3z8wirctke6v.jpg")
+
 puts "got the picture"
 user2 = User.new(
   first_name: "Georg",
@@ -72,10 +66,7 @@ user2 = User.new(
   email: "gg@lewagon.com",
   password: "GG12345",
   address: "51 Dundalk Rd, London SE4 2JJ")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user2.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686318256/development/8ohwd1m7gaws61xv3mox266uljtn.jpg")
 puts "got the picture"
 user3 = User.new(
   first_name: "Jay",
@@ -83,10 +74,8 @@ user3 = User.new(
   email: "js@lewagon.com",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user3.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686318264/development/psik5dwd759kqliphf8z6yxmudr3.jpg")
+
 puts "got the picture"
 user4 = User.new(
   first_name: "Alice",
@@ -94,8 +83,7 @@ user4 = User.new(
   email: "apb@lewagon.com",
   password: "APB12345",
   address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user4.save!
+
 
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
