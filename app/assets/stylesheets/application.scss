@@ -12,4 +12,15 @@
 @import "pages/index";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
+a {
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: $green;
+    text-decoration: none;
+  }
+}
 
+.flex-container {
+  display: flex;
+}
