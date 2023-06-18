@@ -15,8 +15,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @drops = @user.drops
-      # client = Goodreads.new(api_key: ENV['GOODREADS_API_KEY'])
-      # @books = client.listopia("interesting")
 
     @droppable_books = Book.where(droppable: true)
     @currently_reading = @user.books.where(currently_reading: true)

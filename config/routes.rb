@@ -2,10 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   resources :users, only: [:show]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  
   get "dashboard", to: "pages#dashboard"
-    # Defines the root path route ("/")
-    # root "articles#index"
     resources :books do
       resources :drops, only: [:new, :create]
       member do
@@ -30,6 +29,8 @@ Rails.application.routes.draw do
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
+
+  resources :chatrooms, only: :show
 
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
 end
