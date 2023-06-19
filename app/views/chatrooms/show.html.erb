@@ -1,17 +1,19 @@
 <div class="container chatroom">
   <h1 class="heading-profile">Get chatting 💬</h1>
 
-  <div class="messages">
-    <% @chatroom.messages.each do |message| %>
-      <div id="message-<%= message.id %>">
+ <% @chatroom.messages.each do |message| %>
+  <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
+    <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+    <div id="message-<%= message.id %>">
         <small>
-          <strong><%= message.user.first_name %></strong>
+          <h5><%= message.user.first_name %></h5>
           <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
         </small>
         <p><%= message.content %></p>
       </div>
-    <% end %>
+    </div>
   </div>
+<% end %>
 
   <%# Form for creating a message %>
   <%= simple_form_for [@chatroom, @message],
@@ -21,6 +23,6 @@
     placeholder: "'Procrastination is the thief of time'. Send a message...",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-green mb-3" %>
+  <%= f.submit "Send ✍️", class: "btn btn-green mb-3" %>
 <% end %>
 </div>

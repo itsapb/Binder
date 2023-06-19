@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :books, dependent: :destroy
   has_many :drops
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :user_chatrooms
   has_many :chatrooms, through: :user_chatrooms
   has_one_attached :photo
