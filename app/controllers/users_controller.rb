@@ -16,8 +16,8 @@ class UsersController < ApplicationController
     @books = @user.books
     @drops = @user.drops
 
-    @droppable_books = Book.where(droppable: true)
-    @currently_reading = @user.books.where(currently_reading: true)
+    @droppable_books = @books.where(droppable: true)
+    @currently_reading = @books.where(currently_reading: true)
       # @borrowed_books = current_user.books.where(borrowed: true)
     @read_books = @user.books.where(have_read: true)
   end

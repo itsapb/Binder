@@ -49,7 +49,7 @@ user = User.new(
   email: "tm@lewagon.com",
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
-
+user.save!
 puts "new user"
 user1 = User.new(
   first_name: "Enrico",
@@ -57,27 +57,25 @@ user1 = User.new(
   email: "ej@lewagon.com",
   password: "EJ12345",
   address: "43 Manor Ave, London SE4 1PE")
-
+user1.save!
 
 puts "new user"
-user2 = User.new(
+user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
-
 puts "new user"
-user3 = User.new(
+user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
 
-
 puts "new user"
-user4 = User.new(
+user4 = User.create!(
   first_name: "Alice",
   last_name: "PB",
   email: "apb@lewagon.com",
@@ -85,7 +83,7 @@ user4 = User.new(
   address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
 
 puts "new user"
-user5 = User.new(
+user5 = User.create!(
   first_name: "Jennifer",
   last_name: "Paige",
   email: "JP@lewagon.com",
@@ -93,7 +91,7 @@ user5 = User.new(
   address: "51 Cranfield Rd, London SE4 1TN")
 
 puts "new user"
-user6 = User.new(
+user6 = User.create!(
   first_name: "Isabella",
   last_name: "Wright",
   email: "IW@lewagon.com",
@@ -101,14 +99,14 @@ user6 = User.new(
   address: "22 Turnham Rd, London SE4 2LA")
 
 puts "new user"
-user7 = User.new(first_name: "James",
+user7 = User.create!(first_name: "James",
   last_name: "Turner",
   email: "JT@lewagon.com",
   password: "APB12345",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
 
 puts "new user"
-user8 = User.new(
+user8 = User.create!(
   first_name: "Emma",
   last_name: "Roberts",
   email: "ER@lewagon.com",
@@ -116,7 +114,7 @@ user8 = User.new(
   address: "1 Kitto Rd, London SE14 5SN")
 
 puts "new user"
-user9 = User.new(
+user9 = User.create!(
   first_name: "Andrew",
   last_name: "Anderson",
   email: "AA@lewagon.com",
@@ -124,7 +122,7 @@ user9 = User.new(
   address: "1 Stondon Park, London SE23 1LB")
 
 puts "new user"
-user10 = User.new(
+user10 = User.create!(
   first_name: "Olivia",
   last_name: "Walker",
   email: "OW@lewagon.com",
@@ -132,7 +130,7 @@ user10 = User.new(
   address: "1 Ewhurst Rd, London SE4 1AG")
 
 puts "new user"
-user11 = User.new(
+user11 = User.create!(
   first_name: "Matthew",
   last_name: "Wilson",
   email: "MW@lewagon.com",
@@ -141,7 +139,7 @@ user11 = User.new(
 
 
 puts "new user"
-user12 = User.new(
+user12 = User.create!(
   first_name: "Sophia",
   last_name: "Jackson",
   email: "SJ@lewagon.com",
@@ -149,7 +147,7 @@ user12 = User.new(
   address: "119 Brockley Rise, London SE23 1JP")
 
 puts "new user"
-user13 = User.new(
+user13 = User.create!(
   first_name: "Daniel",
   last_name: "Miller",
   email: "DM@lewagon.com",
@@ -157,7 +155,7 @@ user13 = User.new(
   address: "Erlanger Rd, London SE14 5TJ")
 
 puts "new user"
-user14 = User.new(
+user14 = User.create!(
   first_name: "Emily",
   last_name: "Thompson",
   email: "ET@lewagon.com",
@@ -165,7 +163,7 @@ user14 = User.new(
   address: "184 Brockley Rd, London SE4 2RR")
 
 puts "new user"
-user15 = User.new(
+user15 = User.create!(
   first_name: "Michael",
   last_name: "Scott",
   email: "MS@lewagon.com",
@@ -221,7 +219,7 @@ book = Book.new(title: "Olive Kitteridge",
                 Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
                 user: user3,
-                droppable: false,
+                droppable: true,
                 have_read: true,
                 currently_reading: false,
                 book_temp: book_temp)
@@ -336,7 +334,7 @@ book = Book.new(title: "1984",
                 becoming part of the fabric of everyday life and speech.",
                 isbn: "9780571334656",
                 user: user2,
-                droppable: false,
+                droppable: true,
                 have_read: true,
                 currently_reading: true,
                 book_temp: book_temp)
@@ -387,7 +385,7 @@ book = Book.new(title: "Cleopatra and Frankenstein",
                 New Year's Eve party changes everything, for better or worse.",
                 isbn: "9780571334666",
                 user: user1,
-                droppable: false,
+                droppable: true,
                 have_read: true,
                 currently_reading: true,
                 book_temp: book_temp)
@@ -409,7 +407,7 @@ book = Book.new(title: "Ultra-Processed People",
                 (hint: nothing good).",
                 isbn: "9780571334658",
                 user: user5,
-                droppable: false,
+                droppable: true,
                 have_read: false,
                 currently_reading: true,
                 book_temp: book_temp)
@@ -424,7 +422,7 @@ book = Book.new(title: "The Armour of Light",
                 the Middle Ages",
                 isbn: "9780571334658",
                 user: user6,
-                droppable: false,
+                droppable: true,
                 have_read: false,
                 currently_reading: true,
                 book_temp: book_temp)

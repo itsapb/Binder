@@ -1,5 +1,5 @@
 .card-book {
-  background-color: rgb(243, 241, 241);
+  // background-color: rgb(243, 241, 241);
   width: 250px;
   box-shadow: 5px 5px 20px grey;
   margin: 5px;
@@ -8,7 +8,14 @@
 
 .picture {
   width: 100%;
-  margin-left: 35px;
+}
+
+.card-book .btn {
+  display: none;
+}
+
+.card-book :hover .btn {
+  display: block;
 }
 
 .text {
@@ -27,9 +34,11 @@ margin: 8px;
 @media (max-width: 767px) {
   .carousel-inner .carousel-item > div {
       display: none;
+      color: chocolate;
   }
   .carousel-inner .carousel-item > div:first-child {
-      display: block;
+      display: block
+      color chocolate;
   }
 }
 
@@ -37,6 +46,7 @@ margin: 8px;
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
   display: flex;
+  color: black;
 }
 
 /* medium and up screens */
@@ -56,4 +66,5 @@ margin: 8px;
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
 transform: translateX(0);
+color: chocolate;
 }

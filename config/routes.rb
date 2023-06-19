@@ -9,17 +9,15 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :books do
     resources :drops, only: [:new, :create]
+    # member do
+    #   patch :have_read
+    # end
+    # member do
+    #   patch :unread
+    # end
     member do
-      patch :have_read
-    end
-    member do
-      patch :unread
-    end
-    member do
-      patch :currently_reading
-    end
-    member do
-      patch :not_reading
+      get "currently_reading"
+      post "not_currently_reading"
     end
   end
 
@@ -29,8 +27,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :new]
   end
 
-  resources :chatrooms, only: [:index, :show] do
+  resources :chatrooms, only: [:index, :show, :create] do
     resources :messages, only: :create
   end
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
+  patch "drops/:id/decline", to: "drops#decline_drop", as: :decline_drop
 end
