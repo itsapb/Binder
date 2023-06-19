@@ -1,6 +1,15 @@
   <div class="container">
-    <h1>Welcome to <%= @user.first_name%>’s profile!</h1>
+    <h1>Welcome to <%= @user.first_name%>’s profile 📚!</h1>
     <div class="main-container">
+
+
+<%= form_with url: user_chatrooms_path(@user) do |form| %>
+    <%= form.submit "Start a conversation 💬", class: "btn btn-green" %>
+<% end %>
+
+
+
+
       <br>
       <h2 class="heading-dashboard">Currently Reading</h2>
       <ul>

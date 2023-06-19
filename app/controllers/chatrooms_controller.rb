@@ -10,7 +10,6 @@ class ChatroomsController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
-
     if @chatroom = current_user.chatrooms.find { |chatroom| chatroom.users.include?(user) }
       redirect_to chatroom_path(@chatroom)
     else
@@ -18,10 +17,10 @@ class ChatroomsController < ApplicationController
       current_user.chatrooms << @chatroom
       user.chatrooms << @chatroom
       @chatroom.save
-      InboxChannel.broadcast_to(
-        user,
-        render_to_string(partial: "chatrooms/chat_preview", locals: {chatroom: @chatroom})
-      )
+      # InboxChannel.broadcast_to(
+      #   user,
+      #   render_to_string(partial: "chatrooms/chat_preview", locals: {chatroom: @chatroom})
+      # )
       redirect_to chatroom_path(@chatroom)
     end
   end
