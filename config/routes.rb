@@ -20,13 +20,37 @@ Rails.application.routes.draw do
         patch :not_reading
       end
     end
+  resources :users, only: [:show]
 
-    resources :drops, only: [:index, :update, ]
-    resources :chatrooms, only: :show do
-      resources :messages, only: :create
+
+  get "dashboard", to: "pages#dashboard"
+  resources :books do
+    resources :drops, only: [:new, :create]
+    member do
+      patch :have_read
     end
+    member do
+      patch :unread
+    end
+    member do
+      patch :currently_reading
+    end
+    member do
+      patch :not_reading
+    end
+  end
+
+  resources :drops, only: [:index, :update, ]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+  patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
 end
