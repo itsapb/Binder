@@ -1,12 +1,16 @@
 <div class = "container">
 <h1><%= @book.title %></h1>
 <br>
-<div class="d-flex mb-5">
-<%= cl_image_tag @book.photo.key, height: 500, width: 300, crop: :fill %>
+<div class="d-flex mb-3">
+<% if @book.photo.attached? %>
+<%= cl_image_tag @book.photo.key, height: 350, width: 250, crop: :fill %>
+ <% else %>
+      <%= image_tag "missing-image", height: 350, width: 250, crop: :fill  %>
+    <% end %>
 <br>
 <%= @book.description %>
 </div>
 <div class="pb-5">
-  <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none " %>
+  <%= link_to "Search again", search_path, class: "btn-green text-decoration-none " %>
   </div>
 </div>

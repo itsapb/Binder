@@ -26,7 +26,7 @@
           <% if  book.photo.attached?%>
             <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
           <% else %>
-          <%= image_tag "avatar.png", height: 280, width: 180, crop: :fill %>
+      <%= image_tag "missing-image", height: 280, width: 180, crop: :fill  %>
           <% end %>                </div>
                 <div class="text">
                   <p><%= book.title %><br>by <%= book.author %></p>
@@ -135,7 +135,7 @@
               <% end %>
             <% end %>
           <% else %>
-          <p> No booking request available!</p>
+          <p> No booking requests available!</p>
           <% end %>
         </ul>
         <br>
