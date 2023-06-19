@@ -4,4 +4,5 @@ class Book < ApplicationRecord
   has_one_attached :photo
   validates :author, :title, :description, presence: true
   enum status: [:unread, :reading, :read, :borrowed]
+  has_many :drops
 end

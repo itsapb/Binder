@@ -5,7 +5,7 @@
 <% if user_signed_in? %>
   <%= form_with(model: @drop, url: book_drops_path(@book), method: :post) do |form| %>
     <%= form.hidden_field :book_id, value: @book.id %>
-    <%= form.submit "Rent Book" %>
+    <%= form.submit "Borrow Book" %>
   <% end %>
 <% else %>
 <p>Please Log in to rent the book</p>

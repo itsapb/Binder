@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_102004) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_084521) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_102004) do
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status"
     t.index ["book_id"], name: "index_drops_on_book_id"
     t.index ["user_id"], name: "index_drops_on_user_id"
   end
@@ -101,6 +102,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_102004) do
     t.datetime "updated_at", null: false
     t.index ["book_temps_id"], name: "index_reviews_on_book_temps_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "user_chatrooms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "chatroom_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_user_chatrooms_on_chatroom_id"
+    t.index ["user_id"], name: "index_user_chatrooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -131,4 +141,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_102004) do
   add_foreign_key "messages", "users"
   add_foreign_key "reviews", "book_temps", column: "book_temps_id"
   add_foreign_key "reviews", "users"
+  add_foreign_key "user_chatrooms", "chatrooms"
+  add_foreign_key "user_chatrooms", "users"
 end

@@ -14,7 +14,6 @@ export default class extends Controller {
     fetch(`/books/${this.idValue}/currently_reading`)
     location.reload();
   }
-
   submit() {
     this.element.submit()
   }

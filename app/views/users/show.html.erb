@@ -1,0 +1,66 @@
+  <div class="container">
+    <h1>Welcome to <%= @user.first_name%>’s profile 📚!</h1>
+    <div class="main-container">
+
+
+<%= form_with url: user_chatrooms_path(@user) do |form| %>
+    <%= form.submit "Start a conversation 💬", class: "btn btn-green" %>
+<% end %>
+
+
+
+
+      <br>
+      <h2 class="heading-dashboard">Currently Reading</h2>
+      <ul>
+        <div class="books-container">
+          <% unless @user.books.empty? %>
+            <% @user.books.each do |book| %>
+              <div class="image">
+                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <div class="book-info">
+                <h5><%= book.title %><br>by <%= book.author %></h5>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </ul>
+      <br>
+      <h2 class="heading-dashboard"> <%=@user.first_name%> has read</h2>
+      <div class="books-container">
+        <ul>
+          <% unless @read_books.empty? %>
+            <% @read_books.each do |book| %>
+              <div class="image">
+                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <li><%= book.title %> by <%= book.author %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <br>
+      <h2 class="heading-dashboard">Books you can borrow</h2>
+      <div class="books-container">
+        <ul>
+          <% unless @droppable_books.empty? %>
+            <% @droppable_books.each do |book| %>
+              <div class="image">
+                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+              </div>
+              <% if user_signed_in? %>
+                <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
+                <%= form.hidden_field :book_id, value: book.id %>
+                <%= form.submit "Rent Book", class: "btn btn-black" %>
+                <% end %>
+              <% else %>
+                <p>Please Log in to rent the book</p>
+                <%= button_to "Log in", user_session_path, method: :get, class: "btn btn-black" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>

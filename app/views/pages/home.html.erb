@@ -1,8 +1,3 @@
-<% if user_signed_in? %>
-            <%= button_to "Log out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-            <% else %>
-            <%= button_to "Log in", user_session_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
-<% end %>
 <div style="width: 100%; height: 100vh;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

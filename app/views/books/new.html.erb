@@ -1,28 +1,30 @@
-<h1>New Book</h1>
-<!--
-<%= form_with(model: @book, url: books_path, local: true, html: { id: 'new_book_form' }) do |form| %>
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control', id: 'book_title' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :author %>
-    <%= form.text_field :author, class: 'form-control', id: 'book_author' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :description %>
-    <%= form.text_area :description, class: 'form-control', id: 'book_description' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn, class: 'form-control', id: 'book_isbn' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
-  </div>
-<% end %>
--->
+<div class="container text-center" data-controller="booktemp">
+  <h1 class="heading-profile">What are you currently reading? 🪸</h1>
+<br>
+  <div class="text-center">
+    <%= image_tag 'Follet.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag '1984.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'cleo.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'loverman.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'revenge.png', height: 200, width: 120, crop: :fill  %>
+    <br>
+    <br>
+</div>
+  <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "A reader lives a thousand lives...",
+            data: {target: "booktemp.input"}
+        %>
+      <%= submit_tag "Search", name: "", class: "btn-green" %>
+    <% end %>
+<ul id="results d-flex"
+    class="list-group list-group-horizontal"
+    data-booktemp-target="results"></ul>
+</div>
+<div class="container">
+<br>
+  <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none" %>
+</div>
+</div>
