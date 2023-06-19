@@ -43,44 +43,57 @@ book_temp.save!
 puts "Creating the user"
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
 user = User.new(
   first_name: "Tristan",
   last_name: "M",
   email: "tm@lewagon.com",
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save!
+
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
 user1 = User.new(
   first_name: "Enrico",
   last_name: "J",
   email: "ej@lewagon.com",
   password: "EJ12345",
   address: "43 Manor Ave, London SE4 1PE")
-user1.save!
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
 user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
+
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
 user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save!
 
 puts "new user"
-user4 = User.create!(
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+user4 = User.new(
   first_name: "Alice",
   last_name: "PB",
   email: "apb@lewagon.com",
   password: "APB12345",
   address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
+user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user4.save!
 
 puts "new user"
 user5 = User.create!(

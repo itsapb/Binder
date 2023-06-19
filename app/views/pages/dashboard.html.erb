@@ -23,8 +23,11 @@
                 <% end %>
               <% end %>
                 <div class ="picture">
-                  <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-                </div>
+          <% if  book.photo.attached?%>
+            <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+          <% else %>
+          <%= image_tag "avatar.png", height: 280, width: 180, crop: :fill %>
+          <% end %>                </div>
                 <div class="text">
                   <p><%= book.title %><br>by <%= book.author %></p>
                 </div>
@@ -75,7 +78,11 @@
         </div>
         <div class="user-info d-flex">
           <div class="picture">
+          <% if  book.photo.attached?%>
             <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+          <% else %>
+          <%= image_tag "avatar.png", height: 280, width: 180, crop: :fill %>
+          <% end %>
           </div>
           <div class="text">
             <p><%= book.title %></p>
@@ -87,17 +94,25 @@
     </div>
     <h2 class="heading-dashboard">Your booking requests</h2>
     <div class="books-container">
-          <ul>
-            <% unless @drops.empty? %>
-              <% @drops.each do |drop| %>
-                <div class="image">
-                  <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
-                </div>
-                <%= link_to "Delete", decline_drop_path(drop),data: {"turbo-method": :patch}, class: "btn btn-black" %>
-              <% end %>
+      <% unless @drops.empty? %>
+        <% @drops.each do |drop| %>
+          <div>
+          <div class="image">
+            <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
+            <% if drop.status.nil? %>
+              <i class="fas fa-question-circle yellow" title="Pending"></i>
+            <% elsif drop.status == true %>
+              <i class="fas fa-check-circle green" title="Accepted"></i>
+            <% else %>
+              <i class="fas fa-times-circle red" title="Declined"></i>
             <% end %>
-          </ul>
-        </div>
+          <%= link_to delete_drop_path(drop), data: { "turbo-method": :patch }, class: "btn-delete" do %>
+            <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
     <h2 class="heading-dashboard">Your booking requests from other people</h2>
       <div class="books-container">
@@ -105,18 +120,25 @@
           <% unless @booking_requests.empty? %>
           <p>Accept or decline</p>
           <% @booking_requests.each do |booking_request| %>
-              <% unless booking_request.status %>
+              <% if booking_request.status == nil %>
                 <p><%= link_to booking_request.user.first_name, user_path(booking_request.user), class: "btn btn-black" %> asks for </p>
                 <div class="image">
                   <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
+                  <%= link_to decline_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-delete" do %>
+                    <i class="fas fa-times-circle red" title="Decline"></i>
+                  <% end %>
+                  <%= link_to accept_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-accept" do %>
+                    <i class="fas fa-check-circle green" title="Accepted"></i>
+                  <% end %>
                 </div>
-                  <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
-                  <%= link_to "Decline", decline_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
+                  <%# <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
               <% end %>
             <% end %>
+          <% else %>
           <p> No booking request available!</p>
           <% end %>
         </ul>
+        <br>
       </div>
 
 
