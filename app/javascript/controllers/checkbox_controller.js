@@ -3,8 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="checkbox"
 export default class extends Controller {
   static values = { id: Number }
-    connect() {
-  console.log("Hello, Stimulus!", this.element)}
+  connect() {
+    console.log("Hello, Stimulus!", this.element)
+  }
 
   update() {
     console.log("submitting")
@@ -13,6 +14,7 @@ export default class extends Controller {
     fetch(`/books/${this.idValue}/currently_reading`)
     location.reload();
   }
-  submit(){
-  this.element.submit()
-}}
+  submit() {
+    this.element.submit()
+  }
+}
