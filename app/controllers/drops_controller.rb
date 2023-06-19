@@ -11,6 +11,17 @@ class DropsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def decline_drop
+    @drop = Drop.find(params[:id])
+    @user = @drop.user.first_name
+    @drop.destroy
+    if @drop.user == current_user
+      redirect_to dashboard_path, notice: "You deleted your booking request!"
+    else
+      redirect_to dashboard_path, notice: "Booking declined from #{@user}!"
+    end
+  end
+
   def create
     @user = current_user
     @book = Book.find(params[:book_id])
@@ -26,8 +37,5 @@ class DropsController < ApplicationController
   def new
     @book = Book.find(params[:book_id])
     @drop = Drop.new
-  end
-
-  def delete
   end
 end

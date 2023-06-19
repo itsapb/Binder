@@ -33,4 +33,5 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
+  patch "drops/:id/decline", to: "drops#decline_drop", as: :decline_drop
 end

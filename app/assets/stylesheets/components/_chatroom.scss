@@ -13,6 +13,10 @@
     padding: 1rem;
   }
 
+  .img-circle {
+    border-radius: 50%;
+  }
+
   .messages {
     height: 100%;
     overflow: scroll;
@@ -27,4 +31,5 @@
       margin-bottom: 0;
     }
   }
+
 }

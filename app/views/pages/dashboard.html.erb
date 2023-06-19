@@ -30,7 +30,6 @@
                 </div>
               </div>
             </div>
-
           <% end %>
         <% end %>
       </div>
@@ -86,39 +85,43 @@
       <% end %>
       <% end %>
     </div>
-
-<h2 class="heading-dashboard">Your booking requests from other people</h2>
-        <p>Accept or decline</p>
-        <div class="books-container">
-          <ul>
-            <% unless @booking_requests.empty? %>
-              <% @booking_requests.each do |booking_request| %>
-                <div class="image">
-                  <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
-                </div>
-                <li><%= booking_request.book.title %></li>
-                <% unless booking_request.status %>
-                  <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch} %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-        <div class="books-container">
+    <h2 class="heading-dashboard">Your booking requests</h2>
+    <div class="books-container">
           <ul>
             <% unless @drops.empty? %>
               <% @drops.each do |drop| %>
                 <div class="image">
                   <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
                 </div>
-                <li><%= drop.book.title %></li>
+                <%= link_to "Delete", decline_drop_path(drop),data: {"turbo-method": :patch}, class: "btn btn-black" %>
               <% end %>
             <% end %>
           </ul>
         </div>
 
-  </div>
+    <h2 class="heading-dashboard">Your booking requests from other people</h2>
+      <div class="books-container">
+        <ul>
+          <% unless @booking_requests.empty? %>
+          <p>Accept or decline</p>
+          <% @booking_requests.each do |booking_request| %>
+              <% unless booking_request.status %>
+                <p><%= link_to booking_request.user.first_name, user_path(booking_request.user), class: "btn btn-black" %> asks for </p>
+                <div class="image">
+                  <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
+                </div>
+                  <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
+                  <%= link_to "Decline", decline_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
+              <% end %>
+            <% end %>
+          <p> No booking request available!</p>
+          <% end %>
+        </ul>
+      </div>
 
+
+  </div>
 <%else%>
-<%= button_to "Log in", user_session_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
+<p>To see the dashboard you need to be signed in!</p>
+<%= button_to "Log in", user_session_path, method: :get, class: "btn btn-black" %>
 <%end%>
