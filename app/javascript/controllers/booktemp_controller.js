@@ -20,15 +20,9 @@ export default class extends Controller {
         console.log(data)
         data.items.forEach((item) => {
           let addButtonHtml =
-            ` <button class="btn btn-primary btn-sm">Add</button>  `
+            ` <button class="btn btn-primary btn-sm">Add</button> `
 
           let booktempTag =
-            // `
-            // <div class='booktemp pt-5'>
-            //   <img src='${item.volumeInfo.imageLinks.thumbnail}' data-toggle="modal" data-target="#addBookModal">
-            //   <p>${item.volumeInfo.title}</p></div>
-            // </div>
-            // `
             `
             <li class="list-group-item" data-action="click->booktemp#addBook">
               <div class="book-info">
@@ -39,6 +33,7 @@ export default class extends Controller {
               <p>${item.volumeInfo.title}</p>
               <p>${item.volumeInfo.authors[0]}</p>
               <p>${item.volumeInfo.description}</p>
+              <p hidden>${item.volumeInfo.imageLinks.thumbnail}</p>
             </li>
             `
 
@@ -59,6 +54,8 @@ export default class extends Controller {
     this.titleTarget.value = paragraphElements[0].innerText
     this.authorTarget.value = paragraphElements[1].innerText
     this.descriptionTarget.value = paragraphElements[2].innerText
+    // this.imageTarget.value = paragraphElements[3].innerText
+
     this.bookformTarget.submit()
   }
 }

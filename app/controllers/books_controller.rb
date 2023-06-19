@@ -53,9 +53,10 @@ class BooksController < ApplicationController
       @book.book_temp = @book_temp
     else
       @book.book_temp = BookTemp.create(book_params)
-
     end
+
     @book.user = current_user
+
     if @book.save
       redirect_to book_path(@book)
     else

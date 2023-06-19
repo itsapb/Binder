@@ -26,27 +26,19 @@
       data-booktemp-target="results">
     </ul>
 
-
-  <h2>New book</h2>
-  <!-- <%= simple_form_for @book do |f| %>
-      <%= f.input :title %>
-      <%= f.input :author %>
-      <%= f.input :description %>
-      <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %> -->
-
+  <!-- Get book data from API -->
     <%= simple_form_for @book, data: { booktemp_target: "bookform" } do |f| %>
           <%= f.input :title, input_html: { data: { booktemp_target: "title" } }  %>
           <%= f.input :author, input_html: {  data: { booktemp_target: "author" } } %>
           <%= f.input :description, input_html: { data: { booktemp_target: "description" } } %>
+          <%= f.input :photo, input_html: { data: { booktemp_target: "image" }, type: "text" } %>
           <%= f.submit "Submit", class: "btn btn-primary" %>
       <% end %>
   </div>
 
+</div>
 
-  </div>
-
-  <div class="container">
+<div class="container">
   <br>
     <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none" %>
-  </div>
+</div>
