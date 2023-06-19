@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :chatrooms, only: [:create]
+  end
 
 
   get "dashboard", to: "pages#dashboard"
@@ -22,15 +24,12 @@ Rails.application.routes.draw do
   end
 
   resources :drops, only: [:index, :update, ]
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
-  end
 
   resources :book_temps, only: [:new, :create, :show, :index] do
     resources :reviews, only: [:create, :new]
   end
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:index, :show] do
     resources :messages, only: :create
   end
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
