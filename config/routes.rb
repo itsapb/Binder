@@ -34,4 +34,5 @@ Rails.application.routes.draw do
   end
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
   patch "drops/:id/decline", to: "drops#decline_drop", as: :decline_drop
+  patch "drops/:id/delete", to: "drops#delete_drop", as: :delete_drop
 end

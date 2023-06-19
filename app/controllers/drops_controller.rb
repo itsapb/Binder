@@ -14,12 +14,16 @@ class DropsController < ApplicationController
   def decline_drop
     @drop = Drop.find(params[:id])
     @user = @drop.user.first_name
+    @drop.status = false
+    @drop.save
+    redirect_to dashboard_path, notice: "Booking declined from #{@user}!"
+  end
+
+  def delete_drop
+    @drop = Drop.find(params[:id])
+    @user = @drop.user.first_name
     @drop.destroy
-    if @drop.user == current_user
-      redirect_to dashboard_path, notice: "You deleted your booking request!"
-    else
-      redirect_to dashboard_path, notice: "Booking declined from #{@user}!"
-    end
+    redirect_to dashboard_path, notice: "You deleted your booking request!"
   end
 
   def create

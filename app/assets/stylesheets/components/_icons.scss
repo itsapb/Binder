@@ -1,0 +1,47 @@
+.books-container {
+  position: relative;
+}
+
+.image {
+  position: relative;
+  display: inline-block;
+}
+
+.image i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background-color: rgb(0, 0, 0);
+  opacity: 1 !important;
+}
+
+.green {
+  color: #25ff04
+}
+.red {
+  color: #ff0404
+}
+.yellow {
+  color: #dfd800
+}
+.btn-delete {
+  position: absolute;
+  bottom: 40px;
+  left: 35px;
+  color: #9d0303;
+  font-size: 24px;
+  background: white;
+  border: none;
+  padding: 0;
+}
+.btn-accept {
+  position: absolute;
+  bottom: 40px;
+  right: 0px;
+  color: #037a11;
+  font-size: 24px;
+  background: white;
+  border: none;
+  padding: 0;
+}
