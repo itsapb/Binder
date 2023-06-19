@@ -48,6 +48,7 @@ user = User.new(
   first_name: "Tristan",
   last_name: "M",
   email: "tm@lewagon.com",
+  bio: "My favourite book is Secret Diary of a Vampire. Don't like it? Fight me.",
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -59,6 +60,7 @@ user1 = User.new(
   first_name: "Enrico",
   last_name: "J",
   email: "ej@lewagon.com",
+  bio: "Fellow book nerds is my name, reading is my game.",
   password: "EJ12345",
   address: "43 Manor Ave, London SE4 1PE")
 user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -70,6 +72,7 @@ user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
+  bio: "immersing myself in diverse worlds and experiencing the power of words that stir my soul.",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
 user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -81,6 +84,7 @@ user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
+  bio: "Books have become my sanctuary, where imagination takes flight and knowledge blooms",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
 user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -93,6 +97,10 @@ user4 = User.new(
   last_name: "PB",
   email: "apb@lewagon.com",
   password: "APB12345",
+  bio: "From the moment I discovered the enchantment of books,
+  I have been captivated by their ability to transport me to different eras,
+  cultures, and realms, igniting my imagination and
+  fueling a never-ending thirst for knowledge.",
   address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
 user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user4.save!
@@ -104,6 +112,7 @@ user5 = User.create!(
   last_name: "Paige",
   email: "JP@lewagon.com",
   password: "APB12345",
+  bio: "I am an avid book lover, finding solace and joy within the pages of countless stories.",
   address: "51 Cranfield Rd, London SE4 1TN")
 user5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user5.save!
@@ -115,6 +124,8 @@ user6 = User.create!(
   last_name: "Wright",
   email: "IW@lewagon.com",
   password: "APB12345",
+  bio: "With each turn of a page, I am transported to realms unexplored,
+  forever enamored by the power of literature.",
   address: "22 Turnham Rd, London SE4 2LA")
 user6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user6.save!
@@ -125,6 +136,8 @@ user7 = User.create!(first_name: "James",
   last_name: "Turner",
   email: "JT@lewagon.com",
   password: "APB12345",
+  bio: "Just here, curating my list of books to read.
+  Would love to chat with likeminded book lovers",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
 user7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user7.save!

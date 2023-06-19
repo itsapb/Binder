@@ -11,7 +11,7 @@
     <% else %>
       <%= image_tag "avatar.png", class: "avatar-large"  %>
     <% end %>
-    
+
 <div>
     <h2><%= link_to chatroom.name, chatroom_path(chatroom), class: "heading-dashboard" %></h2>
     <p><%= chatroom.messages.last.content if chatroom.messages.any? %></p>
