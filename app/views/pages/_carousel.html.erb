@@ -1,0 +1,63 @@
+<div class="container text-center my-3">
+    <div class="row mx-auto my-auto justify-content-center">
+        <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+            <% books.each_with_index do |book, index| %>
+                <div class="carousel-item <%= "active" if index == 0 %>">
+                    <div class="col-md-3">
+                      <div class = "card-book">
+                <% unless book.currently_reading %>
+                  <div class="btn btn-green" data-controller="checkbox" data-checkbox-id-value="<%=book.id%>">
+                  <%= button_tag "Currently Reading", data: { action: "click->checkbox#update" }, class: "btn btn-green"%>
+                  </div>
+                <% else %>
+                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: not_reading_book_path(book)) do |f| %>
+                    <%= f.input :currently_reading, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } }, label: "Undo" %>
+                    <%= f.button :submit, class: "d-none" %>
+                  <% end %>
+                  <%= simple_form_for(book, data: { controller: "checkbox" }, url: have_read_book_path(book)) do |f| %>
+                    <%= f.input :have_read, as: :boolean, input_html: { data: { action: "change->checkbox#submit" } } %>
+                    <%= f.button :submit, class: "d-none" %>
+                  <% end %>
+                <% end %>
+                  <div class ="picture">
+                    <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                  </div>
+                  <div class="text">
+                    <p><%= book.title %><br>by <%= book.author %></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+                    </div>
+                </div>
+            <% end %>
+            </div>
+            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <h5 class="mt-2 fw-light">advances one slide at a time</h5>
+</div>
+
+<script>
+let items = document.querySelectorAll('.carousel .carousel-item')
+
+items.forEach((el) => {
+    const minPerSlide = 4
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+            // wrap carousel by using first child
+        	next = items[0]
+      	}
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+</script>
