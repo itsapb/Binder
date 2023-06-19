@@ -113,7 +113,7 @@
           <% unless @booking_requests.empty? %>
           <p>Accept or decline</p>
           <% @booking_requests.each do |booking_request| %>
-              <% unless booking_request.status %>
+              <% if booking_request.status == nil %>
                 <p><%= link_to booking_request.user.first_name, user_path(booking_request.user), class: "btn btn-black" %> asks for </p>
                 <div class="image">
                   <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
