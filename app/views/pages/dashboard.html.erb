@@ -23,8 +23,11 @@
                 <% end %>
               <% end %>
                 <div class ="picture">
-                  <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-                </div>
+          <% if  book.photo.attached?%>
+            <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+          <% else %>
+          <%= image_tag "avatar.png", height: 280, width: 180, crop: :fill %>
+          <% end %>                </div>
                 <div class="text">
                   <p><%= book.title %><br>by <%= book.author %></p>
                 </div>
@@ -75,7 +78,11 @@
         </div>
         <div class="user-info d-flex">
           <div class="picture">
+          <% if  book.photo.attached?%>
             <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+          <% else %>
+          <%= image_tag "avatar.png", height: 280, width: 180, crop: :fill %>
+          <% end %>
           </div>
           <div class="text">
             <p><%= book.title %></p>
