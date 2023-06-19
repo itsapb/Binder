@@ -43,7 +43,7 @@ book_temp.save!
 puts "Creating the user"
 
 puts "new user"
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195304/T02NE0241-U053T86GEAJ-g5ed5954d6f7-512_kuzch2.png")
 user = User.new(
   first_name: "Tristan",
   last_name: "M",
@@ -54,35 +54,37 @@ user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save!
 
 puts "new user"
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195176/T02NE0241-U0541PVH7QX-ecdf1277a3f0-512_vqdha9.jpg")
 user1 = User.new(
   first_name: "Enrico",
   last_name: "J",
   email: "ej@lewagon.com",
   password: "EJ12345",
   address: "43 Manor Ave, London SE4 1PE")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save!
+user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user1.save!
 
 puts "new user"
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195265/T02NE0241-U053R1BRNFQ-b37bf278476b-512_yf5xxx.jpg")
 user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
+user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user2.save!
 
 puts "new user"
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195270/T02NE0241-U0548RXBZ6Z-1b4f3e853d3c-512_viooxz.png")
 user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save!
+user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user3.save!
 
 puts "new user"
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
@@ -96,27 +98,36 @@ user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user4.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304156/development/h81hxatj2p0wqlvyqy260k8q08xa.jpg")
 user5 = User.create!(
   first_name: "Jennifer",
   last_name: "Paige",
   email: "JP@lewagon.com",
   password: "APB12345",
   address: "51 Cranfield Rd, London SE4 1TN")
+user5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user5.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304523/development/w6w5upk7q90i4yvfpf1hjtofjuq9.png")
 user6 = User.create!(
   first_name: "Isabella",
   last_name: "Wright",
   email: "IW@lewagon.com",
   password: "APB12345",
   address: "22 Turnham Rd, London SE4 2LA")
+user6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user6.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304400/development/pb04s4i2gseyml2nq3zodduotm7z.jpg")
 user7 = User.create!(first_name: "James",
   last_name: "Turner",
   email: "JT@lewagon.com",
   password: "APB12345",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
+user7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user7.save!
 
 puts "new user"
 user8 = User.create!(
@@ -142,46 +153,46 @@ user10 = User.create!(
   password: "APB12345",
   address: "1 Ewhurst Rd, London SE4 1AG")
 
-puts "new user"
-user11 = User.create!(
-  first_name: "Matthew",
-  last_name: "Wilson",
-  email: "MW@lewagon.com",
-  password: "APB12345",
-  address: "N125 3, 8005-412 Faro, Portugal")
+# puts "new user"
+# user11 = User.create!(
+#   first_name: "Matthew",
+#   last_name: "Wilson",
+#   email: "MW@lewagon.com",
+#   password: "APB12345",
+#   address: "N125 3, 8005-412 Faro, Portugal")
 
 
-puts "new user"
-user12 = User.create!(
-  first_name: "Sophia",
-  last_name: "Jackson",
-  email: "SJ@lewagon.com",
-  password: "APB12345",
-  address: "8005-429 Faro, Portugal")
+# puts "new user"
+# user12 = User.create!(
+#   first_name: "Sophia",
+#   last_name: "Jackson",
+#   email: "SJ@lewagon.com",
+#   password: "APB12345",
+#   address: "8005-429 Faro, Portugal")
 
-puts "new user"
-user13 = User.create!(
-  first_name: "Daniel",
-  last_name: "Miller",
-  email: "DM@lewagon.com",
-  password: "APB12345",
-  address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
+# puts "new user"
+# user13 = User.create!(
+#   first_name: "Daniel",
+#   last_name: "Miller",
+#   email: "DM@lewagon.com",
+#   password: "APB12345",
+#   address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
 
-puts "new user"
-user14 = User.create!(
-  first_name: "Emily",
-  last_name: "Thompson",
-  email: "ET@lewagon.com",
-  password: "APB12345",
-  address: "Estrada Nacional 125/10. 322 A, 8005-146 Faro, Portugal")
+# puts "new user"
+# user14 = User.create!(
+#   first_name: "Emily",
+#   last_name: "Thompson",
+#   email: "ET@lewagon.com",
+#   password: "APB12345",
+#   address: "Estrada Nacional 125/10. 322 A, 8005-146 Faro, Portugal")
 
-puts "new user"
-user15 = User.create!(
-  first_name: "Michael",
-  last_name: "Scott",
-  email: "MS@lewagon.com",
-  password: "APB12345",
-  address: "sitio dos virgilios, 8005-144 Faro, Portugal")
+# puts "new user"
+# user15 = User.create!(
+#   first_name: "Michael",
+#   last_name: "Scott",
+#   email: "MS@lewagon.com",
+#   password: "APB12345",
+#   address: "sitio dos virgilios, 8005-144 Faro, Portugal")
 
 puts "Binding the books"
 
