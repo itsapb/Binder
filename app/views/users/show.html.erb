@@ -1,5 +1,13 @@
+  <br>
   <div class="container">
-    <h1>Welcome to <%= @user.first_name%>’s profile 📚!</h1>
+  <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, class: "avatar-x-large"%>
+    <% else %>
+      <%= image_tag "avatar.png", class: "avatar-x-large"  %>
+    <% end %>
+
+    <h1><%= @user.first_name%>’s shelves 📚</h1>
+    <p><%= @user.bio %></p>
     <div class="main-container">
 
 
@@ -9,7 +17,7 @@
 
 
 
-
+<%# Currently reading with book image %>
       <br>
       <h2 class="heading-dashboard">Currently Reading</h2>
       <ul>
@@ -27,6 +35,8 @@
         </div>
       </ul>
       <br>
+
+<%# has read with book images %>
       <h2 class="heading-dashboard"> <%=@user.first_name%> has read</h2>
       <div class="books-container">
         <ul>
@@ -41,6 +51,9 @@
         </ul>
       </div>
       <br>
+
+<%# borrow books with book image %>
+
       <h2 class="heading-dashboard">Books you can borrow</h2>
       <div class="books-container">
         <ul>
