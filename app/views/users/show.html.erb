@@ -1,39 +1,43 @@
   <br>
-  <div class="container">
+  <div class="container d-flex">
+        <br>
+<%# Currently reading with book image %>
+<div>
+      <h2 class="heading-dashboard text-center">Currently Reading</h2>
+        <div class="books-container">
+          <% unless @user.books.empty? %>
+            <% @user.books.each do |book| %>
+              <div class="image">
+                <%= link_to book_path(book) do %>
+                <%= cl_image_tag book.photo.key, height: 380, width: 250, crop: :fill %>
+                <%end %>
+              </div>
+              <div class="book-info">
+                <%# <h5><%= book.title %><br> <%#= book.author %></h5>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+</div>
+
+
+  <div>
+  <div class="text-center">
   <% if @user.photo.attached? %>
       <%= cl_image_tag @user.photo.key, class: "avatar-x-large"%>
     <% else %>
       <%= image_tag "avatar.png", class: "avatar-x-large"  %>
     <% end %>
-
     <h1><%= @user.first_name%>’s shelves 📚</h1>
     <p><%= @user.bio %></p>
     <div class="main-container">
 
-
 <%= form_with url: user_chatrooms_path(@user) do |form| %>
-    <%= form.submit "Start a conversation 💬", class: "btn btn-green" %>
+    <%= form.submit " Start a conversation 💬 ", class: "btn btn-green" %>
 <% end %>
+</div>
+<hr>
 
-
-
-<%# Currently reading with book image %>
-      <br>
-      <h2 class="heading-dashboard">Currently Reading</h2>
-      <ul>
-        <div class="books-container">
-          <% unless @user.books.empty? %>
-            <% @user.books.each do |book| %>
-              <div class="image">
-                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              </div>
-              <div class="book-info">
-                <h5><%= book.title %><br>by <%= book.author %></h5>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </ul>
       <br>
 
 <%# has read with book images %>
@@ -43,15 +47,17 @@
           <% unless @read_books.empty? %>
             <% @read_books.each do |book| %>
               <div class="image">
+              <%= link_to book_path(book) do %>
                 <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+              <% end %>
               </div>
-              <li><%= book.title %> by <%= book.author %></li>
+              <%# <li><%= book.title %>  <%#= book.author %></li>
             <% end %>
           <% end %>
         </ul>
-      </div>
-      <br>
 
+      <br>
+</div>
 <%# borrow books with book image %>
 
       <h2 class="heading-dashboard">Books you can borrow</h2>
@@ -76,4 +82,5 @@
         </ul>
       </div>
     </div>
+          </div>
   </div>

@@ -84,7 +84,9 @@ user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
-  bio: "Books have become my sanctuary, where imagination takes flight and knowledge blooms",
+  bio: "Books have become my sanctuary, where imagination takes flight and knowledge blooms. I just love reading and would like to meet and chat to some
+  other book nerds like me. My favrouite genres are fantasy fiction and historical fiction.
+  Welcome to borrow from me any time 👻 ",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
 user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -137,7 +139,7 @@ user7 = User.create!(first_name: "James",
   email: "JT@lewagon.com",
   password: "APB12345",
   bio: "Just here, curating my list of books to read.
-  Would love to chat with likeminded book lovers",
+  Would love to chat with likeminded book lovers.",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
 user7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user7.save!
@@ -235,7 +237,7 @@ book = Book.new(title: "The Armour of Light",
                 France's neighbours are on high alert.",
                 isbn: "9780571334653",
                 user: user3,
-                currently_reading: true,
+                currently_reading: false,
                 have_read: true,
                 droppable: true,
                 book_temp: book_temp)
@@ -255,7 +257,7 @@ book = Book.new(title: "Olive Kitteridge",
                 Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
                 user: user3,
-                droppable: true,
+                droppable: false,
                 have_read: true,
                 currently_reading: false,
                 book_temp: book_temp)
@@ -277,7 +279,7 @@ book = Book.new(title: "1984",
                 isbn: "9780571334656",
                 user: user3,
                 droppable: false,
-                have_read: true,
+                have_read: false,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
