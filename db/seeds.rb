@@ -27,6 +27,7 @@ require "open-uri"
 
 puts "Cleaning database..."
 User.destroy_all
+Book.destroy_all
 
 book_temp = BookTemp.new(
   title: "Normal People",

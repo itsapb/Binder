@@ -1,10 +1,7 @@
-//= require jquery3
-//= require popper
-//= require bootstrap
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["input", "results"]
+  static targets = ["input", "results", "form", "modal", "title", "author", "description", "bookform"]
   connect() {
     console.log("booktemp controller connected :)")
   }
@@ -22,15 +19,46 @@ export default class extends Controller {
       .then(data => {
         console.log(data)
         data.items.forEach((item) => {
+          let addButtonHtml =
+            ` <button class="btn btn-primary btn-sm">Add</button>  `
+
           let booktempTag =
+            // `
+            // <div class='booktemp pt-5'>
+            //   <img src='${item.volumeInfo.imageLinks.thumbnail}' data-toggle="modal" data-target="#addBookModal">
+            //   <p>${item.volumeInfo.title}</p></div>
+            // </div>
+            // `
             `
-            <div class='booktemp pt-5'>
-              <img src='${item.volumeInfo.imageLinks.thumbnail}' data-toggle="modal" data-target="#addBookModal">
-              <p>${item.volumeInfo.title}</p></div>
-            </div>
+            <li class="list-group-item" data-action="click->booktemp#addBook">
+              <div class="book-info">
+                <img src="${item.volumeInfo.imageLinks.thumbnail}" alt="${item.volumeInfo.title}">
+                <div class="d-flex justify-content-center align-items-center mt-2">${addButtonHtml}</div>
+                </div>
+              </div>
+              <p>${item.volumeInfo.title}</p>
+              <p>${item.volumeInfo.authors[0]}</p>
+              <p>${item.volumeInfo.description}</p>
+            </li>
             `
+
           this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
         })
       })
+  }
+
+  addBook(event) {
+    event.preventDefault()
+    const addButton = event.target
+    addButton.innerHTML = ' ✓ '
+    addButton.classList.remove('btn-primary')
+    addButton.classList.add('btn-success')
+
+    let paragraphElements = event.currentTarget.querySelectorAll("p")
+    console.log(paragraphElements[0].innerText)
+    this.titleTarget.value = paragraphElements[0].innerText
+    this.authorTarget.value = paragraphElements[1].innerText
+    this.descriptionTarget.value = paragraphElements[2].innerText
+    this.bookformTarget.submit()
   }
 }

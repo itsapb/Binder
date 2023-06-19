@@ -15,7 +15,7 @@ Rails.application.routes.draw do
         patch :unread
       end
       member do
-        patch :currently_reading
+        get :currently_reading
       end
       member do
         patch :not_reading
