@@ -1,0 +1,7 @@
+ <% current_user.chatrooms.each do |chatroom| %>
+ <ul>
+   <li><%= link_to chatroom.name, chatrooms_path(chatroom) %>
+   <%= chatroom.messages.last %>
+  </li>
+ </ul>
+ <%end %>
