@@ -1,106 +1,117 @@
 <div class="container text-center my-3">
   <div class="row mx-auto my-auto justify-content-center">
     <div id="<%="#{section}_carousel"%>" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-          <% activeclass = true %>
-              <% books.each_cons(4) do |book_one, book_two, book_three, book_four| %>
-                <div class="carousel-item <%= "active" if activeclass %>">
-                    <div class="col-md-3">
-                        <div class="card-book">
-                          <div class="picture">
-                              <%= cl_image_tag book_one.photo.key, height: 280, width: 180, crop: :fill %>
-                                  <% if section == "currently_reading" %>
-                                  <%= link_to (book_one.currently_reading ? "undo" : "Have read"), have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
-                                  <% elsif section == "books to borrow" %>
-                                  <%= link_to "undo", undrop_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
-                                  <% else %>
-                                  <%= link_to "undo", have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
-                                  <% end %>
-                          </div>
-                          <div class="text">
-                              <p><%= book_one.title %><br>by <%= book_one.author %></p>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-book">
-                          <div class="picture">
-                              <%= cl_image_tag book_two.photo.key, height: 280, width: 180, crop: :fill %>
-                                  <% if section == "currently_reading" %>
-                                  <%= link_to (book_two.currently_reading ? "undo" : "Have read"), have_read_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
-                                  <% elsif section == "books to borrow" %>
-                                  <%= link_to "undo", undrop_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
-                                  <% else %>
-                                  <%= link_to "undo", have_read_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
-                                  <% end %>
-                          </div>
-                          <div class="text">
-                              <p><%= book_two.title %><br>by <%= book_two.author %></p>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-book">
-                          <div class="picture">
-                              <%= cl_image_tag book_three.photo.key, height: 280, width: 180, crop: :fill %>
-                                  <% if section == "currently_reading" %>
-                                  <%= link_to (book_three.currently_reading ? "undo" : "Have read"), have_read_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
-                                  <% elsif section == "books to borrow" %>
-                                  <%= link_to "undo", undrop_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
-                                  <% else %>
-                                  <%= link_to "undo", have_read_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
-                                  <% end %>
-                          </div>
-                          <div class="text">
-                              <p><%= book_three.title %><br>by <%= book_three.author %></p>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-book">
-                          <div class="picture">
-                              <%= cl_image_tag book_four.photo.key, height: 280, width: 180, crop: :fill %>
-                                  <% if section == "currently_reading" %>
-                                  <%= link_to (book_four.currently_reading ? "undo" : "Have read"), have_read_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
-                                  <% elsif section == "books to borrow" %>
-                                  <%= link_to "undo", undrop_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
-                                  <% else %>
-                                  <%= link_to "undo", have_read_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
-                                  <% end %>
-                          </div>
-                          <div class="text">
-                              <p><%= book_four.title %><br>by <%= book_four.author %></p>
-                          </div>
-                        </div>
-                    </div>
+      <div class="carousel-inner" role="listbox">
+        <% activeclass = true %>
+
+        <% count = books.count >= 4 ? 4 : books.count %>
+        <%  %>
+        <% books.each_cons(count) do |book_one, book_two, book_three, book_four| %>
+          <div class="carousel-item <%= "active" if activeclass %>">
+            <div class="col-md-3">
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book_one.photo.key, height: 280, width: 180, crop: :fill %>
+                  <% if section == "currently_reading" %>
+                    <%= link_to (book_one.currently_reading ? "undo" : "Have read"), have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                  <% elsif section == "books_to_borrow" %>
+                    <%= link_to "undo", undrop_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                  <% else %>
+                    <%= link_to "undo", have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                  <% end %>
                 </div>
-              <% activeclass=false %>
-            <% end %>
+                <div class="text">
+                  <p><%= book_one.title %><br>by <%= book_one.author %></p>
+                </div>
+              </div>
             </div>
-            <a class="carousel-control-prev bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-        </div>
+            <% if book_two %>
+            <div class="col-md-3">
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book_two.photo.key, height: 280, width: 180, crop: :fill %>
+                  <% if section == "currently_reading" %>
+                    <%= link_to (book_two.currently_reading ? "undo" : "Have read"), have_read_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
+                  <% elsif section == "books_to_borrow" %>
+                    <%= link_to "undo", undrop_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
+                  <% else %>
+                    <%= link_to "undo", have_read_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <p><%= book_two.title %><br>by <%= book_two.author %></p>
+                </div>
+              </div>
+            </div>
+            <%end%>
+            <% if book_three %>
+            <div class="col-md-3">
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book_three.photo.key, height: 280, width: 180, crop: :fill %>
+                  <% if section == "currently_reading" %>
+                    <%= link_to (book_three.currently_reading ? "undo" : "Have read"), have_read_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
+                  <% elsif section == "books_to_borrow" %>
+                    <%= link_to "undo", undrop_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
+                  <% else %>
+                    <%= link_to "undo", have_read_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <p><%= book_three.title %><br>by <%= book_three.author %></p>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          <% if book_four %>
+            <div class="col-md-3">
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book_four.photo.key, height: 280, width: 180, crop: :fill %>
+                  <% if section == "currently_reading" %>
+                    <%= link_to (book_four.currently_reading ? "undo" : "Have read"), have_read_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
+                  <% elsif section == "books_to_borrow" %>
+                    <%= link_to "undo", undrop_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
+                  <% else %>
+                    <%= link_to "undo", have_read_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <p><%= book_four.title %><br>by <%= book_four.author %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        <% activeclass = false %>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
     </div>
+  </div>
 </div>
 
- <script>
-let items = document.querySelectorAll('.carousel .carousel-item')
+<script>
+  let items = document.querySelectorAll('.carousel .carousel-item');
 
-items.forEach((el) => {
-    const minPerSlide = 5
-    let next = el.nextElementSibling
-    for (var i=1; i<minPerSlide; i++) {
-        if (!next) {
-            // wrap carousel by using first child
-        	next = items[0]
-      	}
-        // let cloneChild = next.cloneNode(true)
-        // el.appendChild(cloneChild.children[0])
-        next = next.nextElementSibling
+  items.forEach((el) => {
+    const minPerSlide = 5;
+    let next = el.nextElementSibling;
+
+    for (var i = 1; i < minPerSlide; i++) {
+      if (!next) {
+        // wrap carousel by using first child
+        next = items[0];
+      }
+
+      // let cloneChild = next.cloneNode(true)
+      // el.appendChild(cloneChild.children[0])
+      next = next.nextElementSibling;
     }
-})
+  });
 </script>
