@@ -90,7 +90,7 @@ user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
-  bio: "immersing myself in diverse worlds and experiencing the power of words that stir my soul.",
+  bio: "I love immersing myself in diverse worlds and experiencing the power of words that stir my soul.",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
 user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")

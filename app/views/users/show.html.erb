@@ -1,77 +1,11 @@
-  <br>
-<div class="container d-flex">
-        <br>
-<%# Currently reading with book image %>
-  <div>
-    <h2 class="heading-dashboard text-center">Currently Reading</h2>
-      <div class="books-container">
-        <% unless @user.books.empty? %>
-          <% @user.books.each do |book| %>
-            <%if book.currently_reading%>
-              <div class="image">
-                <%= link_to book_path(book) do %>
-                <%= cl_image_tag book.photo.key, height: 380, width: 250, crop: :fill %>
-                <%end %>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
+
+<div class="container">
+  <div class="d-flex">
+    <%= render "currently_reading" %>
+    <%= render "profile" %>
   </div>
-
-
-  <div>
-    <div class="text-center">
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, class: "avatar-x-large"%>
-      <% else %>
-        <%= image_tag "avatar.png", class: "avatar-x-large"  %>
-      <% end %>
-      <h1><%= @user.first_name%>’s shelves 📚</h1>
-      <p><%= @user.bio %></p>
-      <div class="main-container">
-        <%= form_with url: user_chatrooms_path(@user) do |form| %>
-          <%= form.submit " Start a conversation 💬 ", class: "btn btn-green" %>
-        <% end %>
-      </div>
-  <hr>
-  <br>
-
-<%# has read with book images %>
-
-    <h2 class="heading-dashboard"><%=@user.first_name%> has read 📖</h2>
-    <br>
-    <div class="books-container1">
-      <% unless @read_books.empty? %>
-        <% @read_books.each do |book| %>
-          <div class="image1">
-            <%= link_to book_path(book) do %>
-              <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-            <% end %>
-            <% if book.droppable && user_signed_in? %>
-              <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
-                <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Rent Book", class: "btn btn-black" %>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      <% end %>
-      <% unless @droppable_books.empty? %>
-        <% @droppable_books.each do |book| %>
-          <% unless book.have_read %>
-            <div class="image1">
-              <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              <% if user_signed_in? %>
-                <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
-                <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Rent Book", class: "btn btn-black" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <%# Currently reading with book image %>
+  <%# has read with book images %>
+  <%= render "has_read" %>
+  <%= render "book_tracking" %>
 </div>

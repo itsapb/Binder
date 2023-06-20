@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def map
     @users = User.all
     @book_temp = BookTemp.last
     @markers = @users.geocoded.map do |user|
@@ -54,5 +54,13 @@ class PagesController < ApplicationController
       "'When I discover who I am, I'll be free.' - Ralph Ellison, Invisible Man",
     ]
     @book_quote = @book_quotes.sample
+  end
+
+  def booking_tracker_edit
+    @pages = User.find(params[:id])
+  end
+
+  def booking_tracker_update
+
   end
 end
