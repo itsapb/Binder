@@ -3,12 +3,15 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  # For displaying API search results
+  def search
+    @book = Book.new
+  end
+
   # For getting info from user about which book they want to view
   def new
     @book = Book.new
   end
-
-  # For displaying API search results
 
   def show
     @book = Book.find(params[:id])
@@ -44,7 +47,16 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
+    @book_temp = BookTemp.find_by(title: @book.title)
+
+    if @book_temp
+      @book.book_temp = @book_temp
+    else
+      @book.book_temp = BookTemp.create(book_params)
+    end
+
     @book.user = current_user
+
     if @book.save
       redirect_to book_path(@book)
     else

@@ -20,9 +20,9 @@
   </div>
     <div class="popup-footer">
     <%if current_user == book.user %>
-    <%= link_to "Your Dashboard", dashboard_path, class: "btn btn-black" %>
+    <%= link_to "Your Dashboard", dashboard_path, class: "btn btn-green" %>
     <%else%>
-    <%= link_to "Visit Profile", user_path(book.user), class: "btn btn-black" %>
+    <%= link_to "Visit Profile", user_path(book.user), class: "btn btn-green" %>
     <% end %>
   </div>
   <% end %>

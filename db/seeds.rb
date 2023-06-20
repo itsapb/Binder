@@ -43,67 +43,106 @@ book_temp.save!
 puts "Creating the user"
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195304/T02NE0241-U053T86GEAJ-g5ed5954d6f7-512_kuzch2.png")
 user = User.new(
   first_name: "Tristan",
   last_name: "M",
   email: "tm@lewagon.com",
+  bio: "My favourite book is Secret Diary of a Vampire. Don't like it? Fight me.",
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save!
+
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195176/T02NE0241-U0541PVH7QX-ecdf1277a3f0-512_vqdha9.jpg")
 user1 = User.new(
   first_name: "Enrico",
   last_name: "J",
   email: "ej@lewagon.com",
+  bio: "Fellow book nerds is my name, reading is my game.",
   password: "EJ12345",
   address: "43 Manor Ave, London SE4 1PE")
+user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user1.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195265/T02NE0241-U053R1BRNFQ-b37bf278476b-512_yf5xxx.jpg")
 user2 = User.create(
   first_name: "Georg",
   last_name: "G",
   email: "gg@lewagon.com",
+  bio: "immersing myself in diverse worlds and experiencing the power of words that stir my soul.",
   password: "GG12345",
   address: "51 Aspinall Rd, London SE4 2JJ")
+user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user2.save!
+
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195270/T02NE0241-U0548RXBZ6Z-1b4f3e853d3c-512_viooxz.png")
 user3 = User.create(
   first_name: "Jay",
   last_name: "S",
   email: "js@lewagon.com",
+  bio: "Books have become my sanctuary, where imagination takes flight and knowledge blooms. I just love reading and would like to meet and chat to some
+  other book nerds like me. My favrouite genres are fantasy fiction and historical fiction.
+  Welcome to borrow from me any time 👻 ",
   password: "JS12345",
   address: "13 St Norbert Rd, London SE4 2EY")
+user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user3.save!
 
 puts "new user"
-user4 = User.create!(
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686049559/b2344430-b52f-4327-a75d-98954ffe3407_kkseel.jpg")
+user4 = User.new(
   first_name: "Alice",
   last_name: "PB",
   email: "apb@lewagon.com",
   password: "APB12345",
+  bio: "From the moment I discovered the enchantment of books,
+  I have been captivated by their ability to transport me to different eras,
+  cultures, and realms, igniting my imagination and
+  fueling a never-ending thirst for knowledge.",
   address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
+user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user4.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304156/development/h81hxatj2p0wqlvyqy260k8q08xa.jpg")
 user5 = User.create!(
   first_name: "Jennifer",
   last_name: "Paige",
   email: "JP@lewagon.com",
   password: "APB12345",
+  bio: "I am an avid book lover, finding solace and joy within the pages of countless stories.",
   address: "51 Cranfield Rd, London SE4 1TN")
+user5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user5.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304523/development/w6w5upk7q90i4yvfpf1hjtofjuq9.png")
 user6 = User.create!(
   first_name: "Isabella",
   last_name: "Wright",
   email: "IW@lewagon.com",
   password: "APB12345",
+  bio: "With each turn of a page, I am transported to realms unexplored,
+  forever enamored by the power of literature.",
   address: "22 Turnham Rd, London SE4 2LA")
+user6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user6.save!
 
 puts "new user"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304400/development/pb04s4i2gseyml2nq3zodduotm7z.jpg")
 user7 = User.create!(first_name: "James",
   last_name: "Turner",
   email: "JT@lewagon.com",
   password: "APB12345",
+  bio: "Just here, curating my list of books to read.
+  Would love to chat with likeminded book lovers.",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
+user7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user7.save!
 
 puts "new user"
 user8 = User.create!(
@@ -129,46 +168,46 @@ user10 = User.create!(
   password: "APB12345",
   address: "1 Ewhurst Rd, London SE4 1AG")
 
-puts "new user"
-user11 = User.create!(
-  first_name: "Matthew",
-  last_name: "Wilson",
-  email: "MW@lewagon.com",
-  password: "APB12345",
-  address: "Honor Oak Park, London SE23 3LB")
+# puts "new user"
+# user11 = User.create!(
+#   first_name: "Matthew",
+#   last_name: "Wilson",
+#   email: "MW@lewagon.com",
+#   password: "APB12345",
+#   address: "N125 3, 8005-412 Faro, Portugal")
 
 
-puts "new user"
-user12 = User.create!(
-  first_name: "Sophia",
-  last_name: "Jackson",
-  email: "SJ@lewagon.com",
-  password: "APB12345",
-  address: "119 Brockley Rise, London SE23 1JP")
+# puts "new user"
+# user12 = User.create!(
+#   first_name: "Sophia",
+#   last_name: "Jackson",
+#   email: "SJ@lewagon.com",
+#   password: "APB12345",
+#   address: "8005-429 Faro, Portugal")
 
-puts "new user"
-user13 = User.create!(
-  first_name: "Daniel",
-  last_name: "Miller",
-  email: "DM@lewagon.com",
-  password: "APB12345",
-  address: "Erlanger Rd, London SE14 5TJ")
+# puts "new user"
+# user13 = User.create!(
+#   first_name: "Daniel",
+#   last_name: "Miller",
+#   email: "DM@lewagon.com",
+#   password: "APB12345",
+#   address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
 
-puts "new user"
-user14 = User.create!(
-  first_name: "Emily",
-  last_name: "Thompson",
-  email: "ET@lewagon.com",
-  password: "APB12345",
-  address: "184 Brockley Rd, London SE4 2RR")
+# puts "new user"
+# user14 = User.create!(
+#   first_name: "Emily",
+#   last_name: "Thompson",
+#   email: "ET@lewagon.com",
+#   password: "APB12345",
+#   address: "Estrada Nacional 125/10. 322 A, 8005-146 Faro, Portugal")
 
-puts "new user"
-user15 = User.create!(
-  first_name: "Michael",
-  last_name: "Scott",
-  email: "MS@lewagon.com",
-  password: "APB12345",
-  address: "258 Brockley Rd, London SE4 2SF")
+# puts "new user"
+# user15 = User.create!(
+#   first_name: "Michael",
+#   last_name: "Scott",
+#   email: "MS@lewagon.com",
+#   password: "APB12345",
+#   address: "sitio dos virgilios, 8005-144 Faro, Portugal")
 
 puts "Binding the books"
 
@@ -198,14 +237,13 @@ book = Book.new(title: "The Armour of Light",
                 France's neighbours are on high alert.",
                 isbn: "9780571334653",
                 user: user3,
-                currently_reading: true,
+                currently_reading: false,
                 have_read: true,
                 droppable: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
-# # users
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
 book = Book.new(title: "Olive Kitteridge",
@@ -219,7 +257,7 @@ book = Book.new(title: "Olive Kitteridge",
                 Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
                 user: user3,
-                droppable: true,
+                droppable: false,
                 have_read: true,
                 currently_reading: false,
                 book_temp: book_temp)
@@ -241,7 +279,7 @@ book = Book.new(title: "1984",
                 isbn: "9780571334656",
                 user: user3,
                 droppable: false,
-                have_read: true,
+                have_read: false,
                 currently_reading: true,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -477,3 +515,91 @@ book = Book.new(title: "Cleopatra and Frankenstein",
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
+
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
+# book = Book.new(title: "The History of the Siege of Lisbon",
+#   author: "José Saramago",
+#   description: "What happens when the facts of history are replaced by the mysteries of love?
+#   When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
+#   inserts a negative into a sentence of a historical text,
+#   he alters the whole course of the 1147 Siege of Lisbon.
+#   Fearing censure he is met instead with admiration:
+#   Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
+#   As his retelling draws on all his imaginative powers,
+#   Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
+#   so can the details of his own dusty bachelor present.",
+#                 isbn: "9780571334658",
+#                 user: user14,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
+
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
+# book = Book.new(title: "The History of the Siege of Lisbon",
+#   author: "José Saramago",
+#   description: "What happens when the facts of history are replaced by the mysteries of love?
+#   When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
+#   inserts a negative into a sentence of a historical text,
+#   he alters the whole course of the 1147 Siege of Lisbon.
+#   Fearing censure he is met instead with admiration:
+#   Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
+#   As his retelling draws on all his imaginative powers,
+#   Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
+#   so can the details of his own dusty bachelor present.",
+#                 isbn: "9780571334658",
+#                 user: user15,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
+
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174498/1860466850_os6auj.jpg")
+# book = Book.new(title: "Blindness",
+#   author: "José Saramago",
+#   description: "A driver waiting at the traffic lights goes blind.
+#   An opthamologist tries to diagnose his distinctive blindness, but is affected before he can read the textbooks.
+#   It becomes a contagion, spreading throughout the city. Trying to stem the epidemic, the authorities herd the afflicted
+#   into a mental asylum where the wards are terrorised by blind thugs.",
+#                 isbn: "9780571334658",
+#                 user: user13,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
+
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174496/9788532511669-uk_u1w1kj.jpg")
+# book = Book.new(title: "Harry Potter: E A Camara Secreta",
+#   author: "JK Rowling",
+#   description: "Harry Potter e a camara secreta esta repleto de aventuras
+#   fantasticas e recheado de supresas, que irao proporcionar ao leitor o
+#   magico prazer da leitura",
+#                 isbn: "9780571334658",
+#                 user: user12,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
+
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174958/this_sorrow_that_lifts_me_up_book_cover_yxzq98.jpg")
+# book = Book.new(title: "A tristeza que me vive",
+#   author: "Florbela Espanca",
+#   description: "After her untimely demise in 1930, Espanca quickly became the stuff of legend,
+#   thanks to the captivating ombination of a tumultuous life-story and a string of signature sonnets
+#   that alternate between feelings of crushing failure and proclamations of lust for life.",
+#                 isbn: "9780571334658",
+#                 user: user11,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-
+  get "/search", to: "books#search"
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
     resources :chatrooms, only: [:create]
   end
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
   end
   patch "drops/:id/accept", to: "drops#accept_drop", as: :accept_drop
   patch "drops/:id/decline", to: "drops#decline_drop", as: :decline_drop
+  patch "drops/:id/delete", to: "drops#delete_drop", as: :delete_drop
 end

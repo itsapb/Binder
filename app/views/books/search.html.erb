@@ -1,0 +1,44 @@
+<div class="container text-center" data-controller="booktemp" data-search-target="items">
+  <h1 class="heading-profile">What are you currently reading? 🪸</h1>
+  <br>
+  <div class="text-center">
+    <%= image_tag 'Follet.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag '1984.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'cleo.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'loverman.png', height: 200, width: 120, crop: :fill  %>
+    <%= image_tag 'revenge.png', height: 200, width: 120, crop: :fill  %>
+    <br>
+    <br>
+  </div>
+
+  <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+    <%= text_field_tag :query,
+            params[:query],
+            class: "form-control me-2",
+            placeholder: "A reader lives a thousand lives...",
+            data: {target: "booktemp.input"}
+    %>
+      <%= submit_tag "Search", name: "", class: "btn-green" %>
+  <% end %>
+
+    <ul id="results"
+      class="list-group list-group-horizontal"
+      data-booktemp-target="results">
+    </ul>
+
+  <!-- Get book data from API -->
+    <%= simple_form_for @book, data: { booktemp_target: "bookform" } do |f| %>
+          <%= f.input :title, input_html: { data: { booktemp_target: "title" } }  %>
+          <%= f.input :author, input_html: {  data: { booktemp_target: "author" } } %>
+          <%= f.input :description, input_html: { data: { booktemp_target: "description" } } %>
+          <%= f.input :photo, input_html: { data: { booktemp_target: "image" }, type: "text" } %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+
+</div>
+
+<div class="container">
+  <br>
+    <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none" %>
+</div>
