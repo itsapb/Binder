@@ -1,7 +1,7 @@
 .card-book {
   // background-color: rgb(243, 241, 241);
   width: 250px;
-  box-shadow: 5px 5px 20px grey;
+  // box-shadow: 5px 5px 20px grey;
   margin: 5px;
   border-radius: 16px;
 }
@@ -23,16 +23,17 @@
   text-align: center;
 }
 
-.btn-green {
+.btn-dashboard {
   position: absolute;
   top: 42%;
   left: 45%;
   transform: translate(-50%, -50%);
-  opacity: 25%;
+  opacity: 15%;
   transition: opacity 0.2s ease-in-out;
+  border-radius : 25px
 }
 
-.card-book:hover .btn-green {
+.card-book:hover .btn-dashboard {
   opacity: 3;
 }
 
