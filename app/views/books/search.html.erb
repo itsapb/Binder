@@ -13,10 +13,10 @@
 
   <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
     <%= text_field_tag :query,
-            params[:query],
-            class: "form-control me-2",
-            placeholder: "A reader lives a thousand lives...",
-            data: {target: "booktemp.input"}
+        params[:query],
+        class: "form-control me-2",
+        placeholder: "A reader lives a thousand lives...",
+        data: {target: "booktemp.input"}
     %>
       <%= submit_tag "Search", name: "", class: "btn-green" %>
   <% end %>
@@ -29,18 +29,17 @@
   <!-- Get book data from API -->
   <div style="display: none;">
     <%= simple_form_for @book, data: { booktemp_target: "bookform" } do |f| %>
-          <%= f.input :title, input_html: { data: { booktemp_target: "title" } }  %>
-          <%= f.input :author, input_html: {  data: { booktemp_target: "author" } } %>
-          <%= f.input :description, input_html: { data: { booktemp_target: "description" } } %>
-          <%= f.input :google_photo, input_html: { data: { booktemp_target: "image" }, type: "text" } %>
-          <%= f.input :isbn, input_html: { data: { booktemp_target: "isbn" } } %>
-          <%= f.input :currently_reading, input_html: { data: { booktemp_target: "currently_reading" }, value: true } %>
-          <%= f.input :have_read, input_html: { data: { booktemp_target: "have_read" }, value: false } %>
-          <%= f.input :droppable, input_html: { data: { booktemp_target: "droppable" }, value: false } %>
-
-          <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>
-   </div>
+        <%= f.input :title, input_html: { data: { booktemp_target: "title" } }  %>
+        <%= f.input :author, input_html: {  data: { booktemp_target: "author" } } %>
+        <%= f.input :description, input_html: { data: { booktemp_target: "description" } } %>
+        <%= f.input :google_photo, input_html: { data: { booktemp_target: "image" }, type: "text" } %>
+        <%= f.input :isbn, input_html: { data: { booktemp_target: "isbn" } } %>
+        <%= f.input :currently_reading, input_html: { data: { booktemp_target: "currently_reading" }, value: true } %>
+        <%= f.input :have_read, input_html: { data: { booktemp_target: "have_read" }, value: false } %>
+        <%= f.input :droppable, input_html: { data: { booktemp_target: "droppable" }, value: false } %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   </div>
 </div>
 
