@@ -280,7 +280,7 @@ book = Book.new(title: "1984",
                 user: user3,
                 droppable: false,
                 have_read: false,
-                currently_reading: true,
+                currently_reading: false,
                 book_temp: book_temp)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
@@ -444,7 +444,7 @@ book = Book.new(title: "Ultra-Processed People",
                 and what UPF is really doing to our bodies, our health, our weight, and the planet
                 (hint: nothing good).",
                 isbn: "9780571334658",
-                user: user5,
+                user: user3,
                 droppable: true,
                 have_read: false,
                 currently_reading: true,
