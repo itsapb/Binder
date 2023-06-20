@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     member do
       get :have_read
     end
+    member do
+      get :undrop
+    end
     # member do
     #   patch :unread
     # end

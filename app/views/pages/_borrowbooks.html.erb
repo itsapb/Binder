@@ -2,6 +2,6 @@
               <h2 class="heading-dashboard">Books ready to borrow</h2>
               <div class="d-flex">
                 <% unless @droppable_books.empty? %>
-                  <%= render "carousel", books: @droppable_books %>
+                  <%= render "carousel", books: @droppable_books, section: "books_to_borrow" %>
                 <% end %>
               </div>

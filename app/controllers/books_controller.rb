@@ -23,8 +23,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.currently_reading = !@book.currently_reading
     @book.save
-    render json: {currently_reading: @book.currently_reading}
-    # redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
   # def not_currently_reading
@@ -37,9 +36,9 @@ class BooksController < ApplicationController
   def have_read
     @book = Book.find(params[:id])
     @book.have_read = !@book.have_read
+    @book.currently_reading = !@book.have_read
     @book.save
-    render json: {have_read: @book.have_read}
-    # redirect_to dashboard_path
+    redirect_to dashboard_path
   end
 
   # def unread
@@ -85,6 +84,13 @@ class BooksController < ApplicationController
 
     redirect_to books_path, status: :see_other
   end
+
+  def undrop
+    @book = Book.find(params[:id])
+    @book.droppable = false
+    @book.save
+    redirect_to dashboard_path
+  end 
 
   private
 
