@@ -1,79 +1,23 @@
 <div class="container">
   <% if user_signed_in? %>
     <h1>Welcome to the dashboard, <%= current_user.first_name %>!</h1>
+        <p><%= link_to "Update your shelves, what are you reading?", search_path, class: "btn btn-green" %></p>
+
+
     <div class="main div">
-      <h2 class="heading-dashboard">My books</h2>
-      <div class="d-flex">
-        <div class="user-info d-flex">
-          <% unless @books.empty? %>
-            <%= render "carousel", books: @books %>
-          <% end %>
-          <br>
-          <div class="main div">
-            <h2 class="heading-dashboard">Books you have read</h2>
-            <div class="d-flex">
-              <% unless @read_books.empty? %>
-                <%= render "carousel", books: @read_books %>
-              <% end %>
-            </div>
-            <br>
-            <div class="main div">
-              <h2 class="heading-dashboard">Droppable books</h2>
-              <div class="d-flex">
-                <% unless @droppable_books.empty? %>
-                  <%= render "carousel", books: @droppable_books %>
-                <% end %>
-              </div>
+      <h2 class="heading-dashboard">Currently Reading:</h2>
+
+      <%= render "currentlyreading" %>
+      <%= render "haveread" %>
+      <%= render "borrowbooks" %>
 
               <h2 class="heading-dashboard">Your booking requests</h2>
-    <div class="books-container">
-      <% unless @drops.empty? %>
-        <% @drops.each do |drop| %>
-          <div>
-          <div class="image">
-            <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
-            <% if drop.status.nil? %>
-              <i class="fas fa-question-circle yellow" title="Pending"></i>
-            <% elsif drop.status == true %>
-              <i class="fas fa-check-circle green" title="Accepted"></i>
-            <% else %>
-              <i class="fas fa-times-circle red" title="Declined"></i>
-            <% end %>
-          <%= link_to delete_drop_path(drop), data: { "turbo-method": :patch }, class: "btn-delete" do %>
-            <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
-          <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+
+    <%= render "bookingrequest" %>
 
 
     <h2 class="heading-dashboard">Your booking requests from other people</h2>
-      <div class="books-container">
-        <ul>
-          <% unless @booking_requests.empty? %>
-          <p>Accept or decline</p>
-          <% @booking_requests.each do |booking_request| %>
-              <% if booking_request.status == nil %>
-                <p><%= link_to booking_request.user.first_name, user_path(booking_request.user), class: "btn btn-black" %> asks for </p>
-                <div class="image">
-                  <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
-                  <%= link_to decline_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-delete" do %>
-                    <i class="fas fa-times-circle red" title="Decline"></i>
-                  <% end %>
-                  <%= link_to accept_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-accept" do %>
-                    <i class="fas fa-check-circle green" title="Accepted"></i>
-                  <% end %>
-                </div>
-                  <%# <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
-              <% end %>
-            <% end %>
-          <% else %>
-          <p> No booking requests available!</p>
-          <% end %>
-        </ul>
-        <br>
-      </div>
+     <%= render "requestsfromotherpeople" %>
 
 
   </div>
