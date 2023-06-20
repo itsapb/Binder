@@ -24,6 +24,30 @@
                   <%= render "carousel", books: @droppable_books %>
                 <% end %>
               </div>
+
+              <h2 class="heading-dashboard">Your booking requests</h2>
+    <div class="books-container">
+      <% unless @drops.empty? %>
+        <% @drops.each do |drop| %>
+          <div>
+          <div class="image">
+            <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
+            <% if drop.status.nil? %>
+              <i class="fas fa-question-circle yellow" title="Pending"></i>
+            <% elsif drop.status == true %>
+              <i class="fas fa-check-circle green" title="Accepted"></i>
+            <% else %>
+              <i class="fas fa-times-circle red" title="Declined"></i>
+            <% end %>
+          <%= link_to delete_drop_path(drop), data: { "turbo-method": :patch }, class: "btn-delete" do %>
+            <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
+          <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+
     <h2 class="heading-dashboard">Your booking requests from other people</h2>
       <div class="books-container">
         <ul>
