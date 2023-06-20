@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "pages#inspire"
   get "/search", to: "books#search"
   get "/inspire", to: "pages#inspire", as: :inspire
+  get "/map", to: "pages#map", as: :map
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
     resources :chatrooms, only: [:create]
