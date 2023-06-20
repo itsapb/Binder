@@ -5,15 +5,16 @@
 <% current_user.chatrooms.each do |chatroom| %>
  <ul>
    <li>
+
 <div class="d-flex ">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-large dropdown-toggle"%>
+    <% if chatroom.other_user(current_user).photo.attached? %>
+      <%= cl_image_tag chatroom.other_user(current_user).photo.key, class: "avatar-large dropdown-toggle"%>
     <% else %>
       <%= image_tag "avatar.png", class: "avatar-large"  %>
     <% end %>
 
 <div>
-    <h2><%= link_to chatroom.name, chatroom_path(chatroom), class: "heading-dashboard" %></h2>
+    <h2><%= link_to chatroom.other_user(current_user).first_name, chatroom_path(chatroom), class: "heading-dashboard" %></h2>
     <p><%= chatroom.messages.last.content if chatroom.messages.any? %></p>
 </div>
 </div>

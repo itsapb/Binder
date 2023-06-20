@@ -10,28 +10,25 @@
 .image i {
   position: absolute;
   top: 10px;
-  right: 10px;
-  font-size: 24px;
-  background-color: rgb(0, 0, 0);
-  opacity: 1 !important;
+  right: 5px;
+  font-size: 30px;
 }
 
 .green {
-  color: #25ff04
+  color: #D5D507
 }
 .red {
-  color: #ff0404
+  color: #FF4702
 }
 .yellow {
-  color: #dfd800
+  color: #FFD00A
 }
 .btn-delete {
   position: absolute;
   bottom: 40px;
   left: 35px;
-  color: #9d0303;
+  color: black;
   font-size: 24px;
-  background: white;
   border: none;
   padding: 0;
 }
@@ -39,9 +36,8 @@
   position: absolute;
   bottom: 40px;
   right: 0px;
-  color: #037a11;
+  color: #D5D507;
   font-size: 24px;
-  background: white;
   border: none;
   padding: 0;
 }
