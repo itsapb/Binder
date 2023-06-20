@@ -5,17 +5,19 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.book_temp = @book_temp
     @review.user = current_user
+    @book = Book.find(params[:review][:book_id])
     if @review.save
-      redirect_to root_path
+      redirect_to book_path(@book)
     else
       render "books/show", status: :unprocessable_entity
     end
   end
 
   def destroy
+    @book = Book.find(params[:book_id])
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to root_path, notice: "Review has been deleted!"
+    redirect_to book_path(@book), notice: "Review has been deleted!"
   end
 
   private
