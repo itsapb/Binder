@@ -34,6 +34,7 @@ export default class extends Controller {
               <p>${item.volumeInfo.authors[0]}</p>
               <p>${item.volumeInfo.description}</p>
               <p hidden>${item.volumeInfo.imageLinks.thumbnail}</p>
+              <p hidden>${item.volumeInfo.industryIdentifiers[1]}</p>
             </li>
             `
 
@@ -54,8 +55,8 @@ export default class extends Controller {
     this.titleTarget.value = paragraphElements[0].innerText
     this.authorTarget.value = paragraphElements[1].innerText
     this.descriptionTarget.value = paragraphElements[2].innerText
-    // this.imageTarget.value = paragraphElements[3].innerText
-
+    this.imageTarget.value = paragraphElements[3].innerText
+    this.imageTarget.value = paragraphElements[4].innerText
     this.bookformTarget.submit()
   }
 }
