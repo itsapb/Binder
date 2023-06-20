@@ -27,7 +27,7 @@
               <strong>Rating:</strong> <%= review.rating %>
               <strong>User:</strong> <%= review.user.first_name %>
               <% if current_user == review.user %>
-                <%= link_to delete_review_path(review), data: { "turbo-method": :patch } do %>
+                <%= link_to delete_review_path(review, book_id: @book.id), data: { "turbo-method": :patch } do %>
                   <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
                 <% end %>
               <% end %>
@@ -38,6 +38,7 @@
     <%= simple_form_for([@book_temp, @review]) do |f| %>
       <%= f.input :content %>
       <%= f.input :rating %>
+      <%= f.input :book_id, :as => :hidden, :input_html => { :value => @book.id } %>
       <%= f.button :submit, class: "btn btn-green" %>
     <% end %>
   </div>
