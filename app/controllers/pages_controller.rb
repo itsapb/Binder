@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def map
     @users = User.all
     @book_temp = BookTemp.last
     @markers = @users.geocoded.map do |user|
@@ -55,4 +55,5 @@ class PagesController < ApplicationController
     ]
     @book_quote = @book_quotes.sample
   end
+
 end

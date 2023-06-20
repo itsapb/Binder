@@ -8,13 +8,9 @@
                           <div class="card-book" data-controller="checkbox" data-checkbox-id-value="<%= book.id %>">
                             <div class="picture">
                               <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-                              <div class="btn btn-dashboard">
-                                <% if book.currently_reading %>
-                                  <%= button_tag "Undo", data: { action: "click->checkbox#remove", checkbox_book_value: book.id }, class: "btn btn-dashboard btn-currently-reading", id: "reading-button" %>
-                                <% else %>
-                                  <%= button_tag "Currently Reading", data: { action: "click->checkbox#update" }, class: "btn btn-dashboard", id: "reading-button" %>
-                                <% end %>
-                              </div>
+
+                                  <%= button_tag book.currently_reading ? "undo" : "Have read", data: { action: "click->checkbox#update", checkbox_target: "button" }, class: "btn btn-success btn-dashboard" %>
+                          
                             </div>
                             <div class="text">
                               <p><%= book.title %><br>by <%= book.author %></p>
