@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import BooktempController from "./booktemp_controller"
 application.register("booktemp", BooktempController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import CheckboxController from "./checkbox_controller"
 application.register("checkbox", CheckboxController)
 
