@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   resources :drops, only: [:index, :update, ]
 
-  resources :book_temps, only: [:new, :create, :show, :index] do
-    resources :reviews, only: [:create, :new]
+  resources :book_temps, only: [:show, :index] do
+    resources :reviews, only: [:create]
   end
 
   resources :chatrooms, only: [:index, :show, :create] do

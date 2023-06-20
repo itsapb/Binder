@@ -13,4 +13,24 @@
 <div class="pb-5">
   <%= link_to "Search again", search_path, class: "btn-green text-decoration-none " %>
   </div>
+
+
+<h2><%= pluralize @book_temp.reviews.size, "review" %></h2>
+
+<div>
+  <% if @book_temp.reviews.blank? %>
+    Be the first to leave a review for <%= @book.title %>
+  <% else %>
+    <% @book_temp.reviews.each do |review| %>
+      <p> <strong>Content:</strong> <%= review.content %> <strong>Rating:</strong> <%= review.rating %> <strong>User:</strong> <%= review.user.first_name %></p>
+    <% end %>
+  <% end %>
+</div>
+<%= simple_form_for([@book_temp, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Back to the Map", root_path %>
 </div>
