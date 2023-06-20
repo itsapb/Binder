@@ -28,8 +28,24 @@ require "open-uri"
 puts "Cleaning database..."
 Drop.destroy_all
 User.destroy_all
+BookTemp.destroy_all
 Book.destroy_all
+puts "Cleaned database"
 
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
+book_temp = BookTemp.new(
+  title: "Revenge",
+  author: "Yoko Ogawa",
+  description: "A woman goes into a bakery to buy a strawberry cream tart.
+  The place is immaculate but there is no one serving so she waits.
+  Another customer comes in. The woman tells the new arrival that she is buying her son a treat for his birthday.
+  Every year she buys him his favourite cake;
+  even though he died in an accident when he was six years old. A hanuting tale of love and loss.",
+  isbn: "9780571334653")
+book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
 book_temp = BookTemp.new(
   title: "Normal People",
   author: "Sally Rooney",
@@ -38,7 +54,9 @@ book_temp = BookTemp.new(
   But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
   Normal People is a story of mutual fascination, friendship and love.",
   isbn: "9780571334630")
+book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book_temp.save!
+
 
 puts "Creating the user"
 

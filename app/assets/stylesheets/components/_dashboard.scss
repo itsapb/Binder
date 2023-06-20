@@ -23,7 +23,7 @@
   text-align: center;
 }
 
-.btn-green {
+.btn-dashboard {
   position: absolute;
   top: 42%;
   left: 45%;
@@ -32,7 +32,7 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.card-book:hover .btn-green {
+.card-book:hover .btn-dashboard {
   opacity: 3;
 }
 
