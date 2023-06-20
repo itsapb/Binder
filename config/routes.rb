@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
   get "/search", to: "books#search"
+  get "/inspire", to: "pages#inspire", as: :inspire
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do
     resources :chatrooms, only: [:create]
@@ -24,8 +25,8 @@ Rails.application.routes.draw do
 
   resources :drops, only: [:index, :update, ]
 
-  resources :book_temps, only: [:new, :create, :show, :index] do
-    resources :reviews, only: [:create, :new]
+  resources :book_temps, only: [:show, :index] do
+    resources :reviews, only: [:create]
   end
 
   resources :chatrooms, only: [:index, :show, :create] do
