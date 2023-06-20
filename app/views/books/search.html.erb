@@ -20,11 +20,15 @@
     %>
       <%= submit_tag "Search", name: "", class: "btn-green" %>
   <% end %>
+    <br>
+    <br>
 
+  <div class="text-center">
     <ul id="results"
       class="list-group list-group-horizontal"
       data-booktemp-target="results">
     </ul>
+  </div>
 
   <!-- Get book data from API -->
   <div style="display: none;">
