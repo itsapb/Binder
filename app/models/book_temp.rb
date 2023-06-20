@@ -6,4 +6,5 @@ class BookTemp < ApplicationRecord
    :author,
    # :description,
    presence: true
+  attribute :google_photo, :string
 end
