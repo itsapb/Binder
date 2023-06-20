@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # For displaying API search results
   def search
-    @book = Book.new
+    @book = Book.new(currently_reading: true)
   end
 
   # For getting info from user about which book they want to view
@@ -15,6 +15,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @book_temp = @book.book_temp
+    @review = Review.new
   end
 
   def currently_reading
@@ -87,6 +89,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author, :description)
+    params.require(:book).permit(:title, :author, :description, :google_photo, :isbn)
   end
 end
