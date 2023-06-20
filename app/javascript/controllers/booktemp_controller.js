@@ -1,9 +1,10 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   static targets = ["input", "results", "form", "modal", "title", "author", "description", "image", "isbn", "bookform"]
   connect() {
     console.log("booktemp controller connected :)")
+    this.readMore = new ReadMore(this);
   }
 
   search(event) {
@@ -20,6 +21,7 @@ export default class extends Controller {
         console.log(data)
         data.items.forEach((item) => {
           let addButtonHtml =
+            // ` <button class="btn btn-primary btn-sm">Add</button> `
             ` <button class="btn btn-primary btn-sm">Add</button> `
 
           let booktempTag =
@@ -30,18 +32,52 @@ export default class extends Controller {
                 <div class="d-flex justify-content-center align-items-center mt-2">${addButtonHtml}</div>
                 </div>
               </div>
-              <p>${item.volumeInfo.title}</p>
+              <br>
+              <p><strong>${item.volumeInfo.title}</strong></p>
               <p>${item.volumeInfo.authors[0]}</p>
-              <p>${item.volumeInfo.description}</p>
+              <p hidden>${item.volumeInfo.description}</p>
               <p hidden>${item.volumeInfo.imageLinks['thumbnail']}</p>
               <p hidden>${item.volumeInfo.industryIdentifiers[1].identifier}</p>
-            </li>
-            `
+              </li>
+              `
 
           this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
         })
       })
   }
+
+
+
+  // fetchBooktemp(query) {
+  //   fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyC1kURKAfO5p22IwVMlAJ0A2bfmG8s9YKY&printsec=frontcover&img=1&zoom=0&edge=curl&source=gbs_api`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(data)
+  //       data.items.forEach((item) => {
+  //         let addButtonHtml =
+  //           ` <button class="btn btn-primary btn-sm">Add</button> `
+
+  //         let booktempTag =
+  //           `
+  //           <li class="list-group-item" data-action="click->booktemp#addBook">
+  //             <div class="book-info">
+  //               <img src="${item.volumeInfo.imageLinks.thumbnail}" alt="${item.volumeInfo.title}">
+  //               <div class="d-flex justify-content-center align-items-center mt-2">${addButtonHtml}</div>
+  //               </div>
+  //             </div>
+  //             <p>${item.volumeInfo.title}</p>
+  //             <p>${item.volumeInfo.authors[0]}</p>
+  //             <p>${item.volumeInfo.description}</p>
+  //             <p hidden>${item.volumeInfo.imageLinks['thumbnail']}</p>
+  //             <p hidden>${item.volumeInfo.industryIdentifiers[1].identifier}</p>
+  //             </li>
+  //             `
+
+  //         this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
+  //       })
+  //     })
+  // }
+
 
   addBook(event) {
     event.preventDefault()
