@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     # end
     member do
       get "currently_reading"
-      post "not_currently_reading"
+      get "not_currently_reading"
     end
   end
 

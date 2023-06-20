@@ -23,8 +23,17 @@
   text-align: center;
 }
 
-.btn {
-margin: 8px;
+.btn-green {
+  position: absolute;
+  top: 42%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  opacity: 25%;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.card-book:hover .btn-green {
+  opacity: 3;
 }
 
 .flex-container {
@@ -34,19 +43,16 @@ margin: 8px;
 @media (max-width: 767px) {
   .carousel-inner .carousel-item > div {
       display: none;
-      color: chocolate;
   }
   .carousel-inner .carousel-item > div:first-child {
-      display: block
-      color chocolate;
+      display: block;
   }
 }
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-  display: flex;
-  color: black;
+  display: flex;;
 }
 
 /* medium and up screens */
@@ -66,5 +72,4 @@ margin: 8px;
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
 transform: translateX(0);
-color: chocolate;
 }
