@@ -1,0 +1,26 @@
+.books-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.image1 {
+  position: relative;
+  width: 180px; /* Adjust the width as needed */
+  margin-right: 20px; /* Adjust the margin as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+.image1 img {
+  width: 100%;
+  height: auto;
+}
+
+.btn-rent {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ff0000;
+  font-size: 24px;
+}

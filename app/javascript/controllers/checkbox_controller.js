@@ -8,13 +8,25 @@ export default class extends Controller {
   }
 
   update() {
-    console.log("submitting")
-    // this.element.submit(toggle(event) {
+    console.log("submitting");
+    const button = this.element.querySelector("#reading-button");
+    const checkbox = this.element.querySelector("#currently-reading-checkbox");
 
-    fetch(`/books/${this.idValue}/currently_reading`)
-    location.reload();
+      fetch(`/books/${this.idValue}/currently_reading`);
+      window.location.reload();
+
+      button.textContent = "Currently reading";
   }
-  submit() {
-    this.element.submit()
+
+    remove() {
+      fetch(`/books/${this.idValue}/not_currently_reading`);
+      window.location.reload();
   }
 }
+//     fetch(`/books/${this.idValue}/currently_reading`)
+//     location.reload();
+//   }
+//   submit() {
+//     this.element.submit()
+//   }
+// }
