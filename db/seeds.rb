@@ -45,6 +45,8 @@ book_temp = BookTemp.new(
 book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book_temp.save!
 
+puts "First Book_Temp"
+
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
 book_temp = BookTemp.new(
   title: "Normal People",
@@ -57,11 +59,11 @@ book_temp = BookTemp.new(
 book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book_temp.save!
 
-
 puts "Creating the user"
 
 puts "new user"
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687195304/T02NE0241-U053T86GEAJ-g5ed5954d6f7-512_kuzch2.png")
+puts "got first picture"
 user = User.new(
   first_name: "Tristan",
   last_name: "M",
@@ -70,6 +72,7 @@ user = User.new(
   password: "TM12345",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+puts "user photo attached"
 user.save!
 
 puts "new user"
