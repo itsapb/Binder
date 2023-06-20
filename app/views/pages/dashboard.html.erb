@@ -4,14 +4,13 @@
         <p><%= link_to "Update your shelves, what are you reading?", search_path, class: "btn btn-green" %></p>
 
 
-    <div class="main div">
-      <h2 class="heading-dashboard">Currently Reading:</h2>
 
       <%= render "currentlyreading" %>
+
       <%= render "haveread" %>
       <%= render "borrowbooks" %>
 
-              <h2 class="heading-dashboard">Your booking requests</h2>
+    <h2 class="heading-dashboard">Your booking requests</h2>
 
     <%= render "bookingrequest" %>
 
@@ -19,8 +18,7 @@
     <h2 class="heading-dashboard">Your booking requests from other people</h2>
      <%= render "requestsfromotherpeople" %>
 
-
-  </div>
+ 
 <%else%>
 <p>To see the dashboard you need to be signed in!</p>
 <%= button_to "Log in", user_session_path, method: :get, class: "btn btn-black" %>
