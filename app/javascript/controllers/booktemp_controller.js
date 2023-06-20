@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["input", "results", "form", "modal", "title", "author", "description", "bookform"]
+  static targets = ["input", "results", "form", "modal", "title", "author", "description", "image", "isbn", "bookform"]
   connect() {
     console.log("booktemp controller connected :)")
   }
