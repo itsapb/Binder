@@ -33,8 +33,8 @@ export default class extends Controller {
               <p>${item.volumeInfo.title}</p>
               <p>${item.volumeInfo.authors[0]}</p>
               <p>${item.volumeInfo.description}</p>
-              <p hidden>${item.volumeInfo.imageLinks.thumbnail}</p>
-              <p hidden>${item.volumeInfo.industryIdentifiers[1]}</p>
+              <p hidden>${item.volumeInfo.imageLinks['thumbnail']}</p>
+              <p hidden>${item.volumeInfo.industryIdentifiers[1].identifier}</p>
             </li>
             `
 
@@ -52,11 +52,12 @@ export default class extends Controller {
 
     let paragraphElements = event.currentTarget.querySelectorAll("p")
     console.log(paragraphElements[0].innerText)
+
     this.titleTarget.value = paragraphElements[0].innerText
     this.authorTarget.value = paragraphElements[1].innerText
     this.descriptionTarget.value = paragraphElements[2].innerText
     this.imageTarget.value = paragraphElements[3].innerText
-    this.imageTarget.value = paragraphElements[4].innerText
+    this.isbnTarget.value = paragraphElements[4].innerText
     this.bookformTarget.submit()
   }
 }
