@@ -11,17 +11,15 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :books do
     resources :drops, only: [:new, :create]
+    # member do
+    #   patch :have_read
+    # end
+    # member do
+    #   patch :unread
+    # end
     member do
-      patch :have_read
-    end
-    member do
-      patch :unread
-    end
-    member do
-      patch :currently_reading
-    end
-    member do
-      patch :not_reading
+      get "currently_reading"
+      get "not_currently_reading"
     end
   end
 
