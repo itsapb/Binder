@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
   def dashboard
     if user_signed_in?
-      @books = current_user.books
+      @books = current_user.books.distinct
       # my booking requests
       @drops = current_user.drops
       @booking_requests = current_user.books.map(&:drops).flatten
