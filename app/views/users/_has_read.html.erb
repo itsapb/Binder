@@ -1,6 +1,6 @@
     <h2 class="heading-dashboard text-center"><%=@user.first_name%> has read 📖</h2>
     <br>
-    <div class="books-container1 pb-5">
+    <div class="books-container1 align-items-center justify-content-center pb-5">
       <% unless @read_books.empty? %>
         <% @read_books.each do |book| %>
           <div class="image1 text-center">

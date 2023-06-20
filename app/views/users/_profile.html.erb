@@ -1,12 +1,14 @@
  <div class="text-center">
+    <div class="pb-2">
       <% if @user.photo.attached? %>
         <%= cl_image_tag @user.photo.key, class: "avatar-x-large"%>
       <% else %>
         <%= image_tag "avatar.png", class: "avatar-x-large"  %>
       <% end %>
+    </div>
       <h1><%= @user.first_name%>’s shelves 📚</h1>
       <br>
-      <p><%= @user.bio %></p>
+      <p ><%= @user.bio %></p>
       <div class="main-container">
         <%= form_with url: user_chatrooms_path(@user) do |form| %>
           <%= form.submit " Start a conversation 💬 ", class: "btn btn-green" %>
