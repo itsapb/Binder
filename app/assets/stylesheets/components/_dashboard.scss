@@ -70,6 +70,20 @@
   }
 }
 
+.carousel-control-prev-icon {
+  margin-left: -95px;
+  background-color: red;
+  color: black;
+  border-radius: 50%;
+}
+
+.carousel-control-next-icon {
+  margin-right: -50px;
+  background-color: red;
+  color: black;
+  border-radius: 50%;
+}
+
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
 transform: translateX(0);
