@@ -1,0 +1,37 @@
+  .list-group-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .list-group-item {
+    flex: 0 0 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    list-style-type: none;
+    border: none;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    max-width: 750px;
+    margin: 0 auto;
+    border-radius: 24px;
+    background-color: #f2f2f2;
+    padding: 6px 12px;
+  }
+
+  .search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 6px;
+    font-size: 16px;
+    background: none;
+    color: #333333;
+  }
+
+  .search-button:hover {
+    background-color: #1656e0;
+  }

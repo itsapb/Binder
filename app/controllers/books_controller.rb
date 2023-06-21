@@ -21,7 +21,11 @@ class BooksController < ApplicationController
 
   def currently_reading
     @book = Book.find(params[:id])
-    @book.currently_reading = !@book.currently_reading
+    @books = current_user.books.where(currently_reading: true)
+    @books.each do |book|
+      book.update(currently_reading: false)
+    end
+    @book.currently_reading = true
     @book.save
     redirect_to dashboard_path
   end
@@ -59,7 +63,9 @@ class BooksController < ApplicationController
     end
 
     @book.user = current_user
-    @book.currently_reading = true
+    @book.currently_reading = false
+    @book.droppable = true
+
     if @book.save
       redirect_to book_path(@book)
     else
@@ -90,7 +96,7 @@ class BooksController < ApplicationController
     @book.droppable = false
     @book.save
     redirect_to dashboard_path
-  end 
+  end
 
   private
 

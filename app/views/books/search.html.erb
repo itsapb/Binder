@@ -11,19 +11,19 @@
     <br>
   </div>
 
-  <%= form_with url: new_book_path, method: :get, class: "d-flex", data: {action: "submit->booktemp#search"} do %>
+  <%= form_with url: new_book_path, method: :get, class: "search-bar", data: { action: "submit->booktemp#search" } do %>
     <%= text_field_tag :query,
         params[:query],
-        class: "form-control me-2",
+        class: "search-input",
         placeholder: "A reader lives a thousand lives...",
-        data: {target: "booktemp.input"}
+        data: { target: "booktemp.input" }
     %>
-      <%= submit_tag "Search", name: "", class: "btn-green" %>
+    <%= submit_tag "Search", name: "", class: "btn-green" %>
   <% end %>
-    <br>
-    <br>
+  <br>
+  <br>
 
-  <div class="text-center">
+  <div class="search-result">
     <ul id="results"
       class="list-group list-group-horizontal"
       data-booktemp-target="results">
