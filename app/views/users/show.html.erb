@@ -2,10 +2,12 @@
 <div class="container pt-3">
   <div class="d-flex">
     <%= render "currently_reading" %>
-    <%= render "profile" %>
+    <div>
+      <%= render "profile" %>
+      <%# Currently reading with book image %>
+      <%# has read with book images %>
+      <%= render "has_read" %>
+    </div>
   </div>
-  <%# Currently reading with book image %>
-  <%# has read with book images %>
-  <%= render "has_read" %>
   <%= render "book_tracking" %>
 </div>
