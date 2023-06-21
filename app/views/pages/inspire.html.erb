@@ -1,5 +1,12 @@
 <div class="quote-body pt-3">
   <div class="container quote content">
     <%= @book_quote %>
+    <hr>
+    <div style = "width: 50%; margin: auto">
+    <p style = "font-size: 20px">See what people in your area are reading</h6>
+    <br>
+    <br>
+    <%= link_to "Find community", map_path, class: "btn btn-green" %>
+    </div>
   </div>
 </div>

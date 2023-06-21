@@ -1,20 +1,23 @@
  <div class="books-container">
       <% unless @drops.empty? %>
+      <div class="row">
         <% @drops.each do |drop| %>
-          <div>
-          <div class="image">
-            <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
-            <% if drop.status.nil? %>
-              <i class="fas fa-question-circle yellow" title="Pending"></i>
-            <% elsif drop.status == true %>
-              <i class="fas fa-check-circle green" title="Accepted"></i>
-            <% else %>
-              <i class="fas fa-times-circle red" title="Declined"></i>
-            <% end %>
-          <%= link_to delete_drop_path(drop), data: { "turbo-method": :patch }, class: "btn-delete" do %>
-            <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
-          <% end %>
+          <div class="col-3">
+            <div class="image">
+              <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
+              <% if drop.status.nil? %>
+                <i class="fas fa-question-circle yellow" title="Pending"></i>
+              <% elsif drop.status == true %>
+                <i class="fas fa-check-circle green" title="Accepted"></i>
+              <% else %>
+                <i class="fas fa-times-circle red" title="Declined"></i>
+              <% end %>
+              <%= link_to delete_drop_path(drop), data: { "turbo-method": :patch }, class: "btn-delete" do %>
+                <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
+              <% end %>
+            </div>
           </div>
         <% end %>
+       </div>
       <% end %>
-    </div>
+  </div>

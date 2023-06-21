@@ -1,7 +1,8 @@
-<div class="d-flex">
+    <div class="main div">
+      <h2 class="heading-dashboard">My Shelves</h2>
         <div class="d-flex">
-          <% unless @currently_reading.empty? %>
-            <%= render "carousel", books: @currently_reading %>
+          <% unless @books.empty? %>
+            <%= render "my_shelves", books: @books, section: "currently_reading" %>
           <% end %>
           <br>
         </div>

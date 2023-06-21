@@ -3,7 +3,7 @@
             <h2 class="heading-dashboard">Books you have read</h2>
             <div class="d-flex">
               <% unless @read_books.empty? %>
-                <%= render "carousel", books: @read_books %>
+                <%= render "carousel", books: @read_books, section: "have_read" %>
               <% end %>
             </div>
-            <br>
+            </div>

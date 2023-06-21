@@ -1,15 +1,13 @@
 <div>
   <h2 class="heading-dashboard text-center">Currently Reading</h2>
     <div class="books-container">
-      <% unless @user.books.empty? %>
-        <% @user.books.each do |book| %>
-          <%if book.currently_reading%>
+      <% unless @user.books.where(currently_reading: true).empty? %>
+        <% @user.books.where(currently_reading: true).each do |book| %>
             <div class="image">
               <%= link_to book_path(book) do %>
               <%= cl_image_tag book.photo.key, height: 380, width: 250, crop: :fill %>
               <%end %>
             </div>
-          <% end %>
         <% end %>
       <% end %>
     </div>

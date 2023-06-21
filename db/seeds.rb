@@ -26,38 +26,12 @@ require "open-uri"
 # end
 
 puts "Cleaning database..."
+Review.destroy_all
 Drop.destroy_all
 User.destroy_all
 BookTemp.destroy_all
 Book.destroy_all
 puts "Cleaned database"
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
-book_temp = BookTemp.new(
-  title: "Revenge",
-  author: "Yoko Ogawa",
-  description: "A woman goes into a bakery to buy a strawberry cream tart.
-  The place is immaculate but there is no one serving so she waits.
-  Another customer comes in. The woman tells the new arrival that she is buying her son a treat for his birthday.
-  Every year she buys him his favourite cake;
-  even though he died in an accident when he was six years old. A hanuting tale of love and loss.",
-  isbn: "9780571334653")
-book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book_temp.save!
-
-puts "First Book_Temp"
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
-book_temp = BookTemp.new(
-  title: "Normal People",
-  author: "Sally Rooney",
-  description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-  but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-  But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-  Normal People is a story of mutual fascination, friendship and love.",
-  isbn: "9780571334630")
-book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book_temp.save!
 
 puts "Creating the user"
 
@@ -230,121 +204,20 @@ user10 = User.create!(
 #   password: "APB12345",
 #   address: "sitio dos virgilios, 8005-144 Faro, Portugal")
 
-puts "Binding the books"
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
+book_temp = BookTemp.new(
+  title: "Revenge",
+  author: "Yoko Ogawa",
+  description: "A woman goes into a bakery to buy a strawberry cream tart.
+  The place is immaculate but there is no one serving so she waits.
+  Another customer comes in. The woman tells the new arrival that she is buying her son a treat for his birthday.
+  Every year she buys him his favourite cake;
+  even though he died in an accident when he was six years old. A hanuting tale of love and loss.",
+  isbn: "9780571334653")
+book_temp.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334652",
-                user: user3,
-                droppable: true,
-                have_read: true,
-                currently_reading: false,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
-book = Book.new(title: "The Armour of Light",
-                author: "Ken Follet",
-                description: "Revolution is in the air. 1792.
-                A tyrannical government is determined to make England a mighty commercial empire.
-                In France, Napoleon Bonaparte begins his rise to power, and with dissent rife,
-                France's neighbours are on high alert.",
-                isbn: "9780571334653",
-                user: user3,
-                currently_reading: false,
-                have_read: true,
-                droppable: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
-book = Book.new(title: "Olive Kitteridge",
-                author: "Elizabeth Strout",
-                description: "The first story centers on Henry Kitteridge,
-                the pharmacist of the town of Crosby and husband of Olive,
-                and his relationship with an employee, Denise Thibodeau.
-                Henry daydreams of taking care of Denise after the death of her husband,
-                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
-                eventually proposes to Denise and the couple move to Texas.
-                Denise maintains contact with Henry through a yearly birthday letter.",
-                isbn: "9780571334655",
-                user: user3,
-                droppable: false,
-                have_read: true,
-                currently_reading: false,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
-book = Book.new(title: "1984",
-                author: "George Orwell",
-                description: "Who controls the past controls the future: who controls the present controls the past.
-
-                As much a cultural and historical marker as an absorbing thriller,
-                George Orwell’s 1984 changed and continues to change the way we think about the past and imagine
-                the future. Perhaps the most pervasively influential novel of the twentieth century,
-                1984 resonates so completely have to become part of our commonplace lexicon,
-                with words like doublethink and Big Brother (it was also Orwell who first coined the term ‘Cold War’)
-                becoming part of the fabric of everyday life and speech.",
-                isbn: "9780571334656",
-                user: user3,
-                droppable: false,
-                have_read: false,
-                currently_reading: false,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-# books
-
-
-
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/loverman_xqywcg.png")
-book = Book.new(title: "Mr Loverman",
-                author: "Bernardine Evaristo",
-                description: "Barrington Jedidiah Walker is seventy-four and leads a double life. Born and bred in Antigua,
-                he's lived in Hackney since the sixties.
-                A flamboyant, wise-cracking local character with a dapper taste in retro suits and a fondness for quoting
-                 Shakespeare, Barrington is a husband, father and grandfather -
-                 but he is also secretly homosexual, lovers with his great childhood friend, Morris.
-
-                His deeply religious and disappointed wife, Carmel, thinks he sleeps with other women.
-                When their marriage goes into meltdown, Barrington wants to divorce Carmel and live with Morris,
-                but after a lifetime of fear and deception, will he manage to break away?",
-                isbn: "9780571334630",
-                user: user8,
-                droppable: true,
-                have_read: true,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
-book = Book.new(title: "Normal People",
-                author: "Sally Rooney",
-                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
-                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
-                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
-                Normal People is a story of mutual fascination, friendship and love.",
-                isbn: "9780571334652",
-                user: user,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+puts "First Book_Temp, now associated books"
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
 book = Book.new(title: "Revenge",
@@ -362,6 +235,191 @@ book = Book.new(title: "Revenge",
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
+puts "Got one book"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book_temp1 = BookTemp.new(
+  title: "Normal People",
+  author: "Sally Rooney",
+  description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+  but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+  But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+  Normal People is a story of mutual fascination, friendship and love.",
+  isbn: "9780571334630")
+book_temp1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp1.save!
+
+puts "Second Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334652",
+                user: user3,
+                droppable: true,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp1)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738876/719lp7aAAxL_lytkav.jpg")
+book = Book.new(title: "Normal People",
+                author: "Sally Rooney",
+                description: "Connell and Marianne grow up in the same small town in the west of Ireland,
+                but the similarities end there. In school, Connell is popular and well-liked, while Marianne is a loner.
+                But when the two strike up a conversation - awkward but electrifying - something life-changing begins.
+                Normal People is a story of mutual fascination, friendship and love.",
+                isbn: "9780571334652",
+                user: user,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got two books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
+book_temp2 = BookTemp.new(
+  title: "The Armour of Light",
+  author: "Ken Follet",
+  description: "Revolution is in the air. 1792.
+  A tyrannical government is determined to make England a mighty commercial empire.
+  In France, Napoleon Bonaparte begins his rise to power, and with dissent rife,
+  France's neighbours are on high alert.",
+  isbn: "9780571334653")
+book_temp2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp2.save!
+
+puts "Third Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
+book = Book.new(title: "The Armour of Light",
+                author: "Ken Follet",
+                description: "Revolution is in the air. 1792.
+                A tyrannical government is determined to make England a mighty commercial empire.
+                In France, Napoleon Bonaparte begins his rise to power, and with dissent rife,
+                France's neighbours are on high alert.",
+                isbn: "9780571334653",
+                user: user3,
+                currently_reading: false,
+                have_read: true,
+                droppable: true,
+                book_temp: book_temp2)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
+book = Book.new(title: "The Armour of Light",
+                author: "Ken Follett",
+                description: "Ken Follett's newest book! A thrilling and addictive new novel--
+                a prequel to The Pillars of the Earth--set in England at the dawn of a new era:
+                the Middle Ages",
+                isbn: "9780571334658",
+                user: user6,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp2)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
+book = Book.new(title: "The Armour of Light",
+                author: "Ken Follet",
+                description: "Revolution is in the air. 1792.
+                A tyrannical government is determined to make England a mighty commercial empire.
+                In France, Napoleon Bonaparte begins his rise to power, and with dissent rife,
+                France's neighbours are on high alert.",
+                isbn: "9780571334653",
+                user: user1,
+                currently_reading: true,
+                have_read: false,
+                droppable: false,
+                book_temp: book_temp2)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got two books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book_temp3 = BookTemp.new(
+  title: "Olive Kitteridge",
+  author: "Elizabeth Strout",
+  description: "The first story centers on Henry Kitteridge,
+  the pharmacist of the town of Crosby and husband of Olive,
+  and his relationship with an employee, Denise Thibodeau.
+  Henry daydreams of taking care of Denise after the death of her husband,
+  though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+  eventually proposes to Denise and the couple move to Texas.
+  Denise maintains contact with Henry through a yearly birthday letter.",
+  isbn: "9780571334655")
+book_temp3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp3.save!
+
+puts "Forth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
+                isbn: "9780571334655",
+                user: user3,
+                droppable: false,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp3)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
+                isbn: "9780571334655",
+                user: user6,
+                droppable: true,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp3)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
+book = Book.new(title: "Olive Kitteridge",
+                author: "Elizabeth Strout",
+                description: "The first story centers on Henry Kitteridge,
+                the pharmacist of the town of Crosby and husband of Olive,
+                and his relationship with an employee, Denise Thibodeau.
+                Henry daydreams of taking care of Denise after the death of her husband,
+                though he still loves his cantankerous wife Olive. Jerry McCarthy, the delivery boy,
+                eventually proposes to Denise and the couple move to Texas.
+                Denise maintains contact with Henry through a yearly birthday letter.",
+                isbn: "9780571334655",
+                user: user4,
+                droppable: true,
+                currently_reading: false,
+                have_read: true,
+                book_temp: book_temp3)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738923/61TxrF1alKL_nbqwvk.jpg")
 book = Book.new(title: "Olive Kitteridge",
                 author: "Elizabeth Strout",
@@ -375,8 +433,112 @@ book = Book.new(title: "Olive Kitteridge",
                 isbn: "9780571334655",
                 user: user4,
                 currently_reading: false,
+                droppable: false,
                 have_read: true,
                 book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got four books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/loverman_xqywcg.png")
+book_temp4 = BookTemp.new(
+  title: "Mr Loverman",
+  author: "Bernardine Evaristo",
+  description: "Barrington Jedidiah Walker is seventy-four and leads a double life. Born and bred in Antigua,
+  he's lived in Hackney since the sixties.
+  A flamboyant, wise-cracking local character with a dapper taste in retro suits and a fondness for quoting
+    Shakespeare, Barrington is a husband, father and grandfather -
+    but he is also secretly homosexual, lovers with his great childhood friend, Morris.
+
+  His deeply religious and disappointed wife, Carmel, thinks he sleeps with other women.
+  When their marriage goes into meltdown, Barrington wants to divorce Carmel and live with Morris,
+  but after a lifetime of fear and deception, will he manage to break away?",
+  isbn: "9780571334630")
+book_temp4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp4.save!
+
+puts "Fifth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/loverman_xqywcg.png")
+book = Book.new(title: "Mr Loverman",
+                author: "Bernardine Evaristo",
+                description: "Barrington Jedidiah Walker is seventy-four and leads a double life. Born and bred in Antigua,
+                he's lived in Hackney since the sixties.
+                A flamboyant, wise-cracking local character with a dapper taste in retro suits and a fondness for quoting
+                 Shakespeare, Barrington is a husband, father and grandfather -
+                 but he is also secretly homosexual, lovers with his great childhood friend, Morris.
+
+                His deeply religious and disappointed wife, Carmel, thinks he sleeps with other women.
+                When their marriage goes into meltdown, Barrington wants to divorce Carmel and live with Morris,
+                but after a lifetime of fear and deception, will he manage to break away?",
+                isbn: "9780571334630",
+                user: user8,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp4)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/loverman_xqywcg.png")
+book = Book.new(title: "Mr Loverman",
+                author: "Bernardine Evaristo",
+                description: "Barrington Jedidiah Walker is seventy-four and leads a double life. Born and bred in Antigua,
+                he's lived in Hackney since the sixties.
+                A flamboyant, wise-cracking local character with a dapper taste in retro suits and a fondness for quoting
+                 Shakespeare, Barrington is a husband, father and grandfather -
+                 but he is also secretly homosexual, lovers with his great childhood friend, Morris.
+
+                His deeply religious and disappointed wife, Carmel, thinks he sleeps with other women.
+                When their marriage goes into meltdown, Barrington wants to divorce Carmel and live with Morris,
+                but after a lifetime of fear and deception, will he manage to break away?",
+                isbn: "9780571334630",
+                user: user4,
+                droppable: true,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp4)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got two books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
+book_temp5 = BookTemp.new(
+  title: "1984",
+  author: "George Orwell",
+  description: "Who controls the past controls the future: who controls the present controls the past.
+
+  As much a cultural and historical marker as an absorbing thriller,
+  George Orwell’s 1984 changed and continues to change the way we think about the past and imagine
+  the future. Perhaps the most pervasively influential novel of the twentieth century,
+  1984 resonates so completely have to become part of our commonplace lexicon,
+  with words like doublethink and Big Brother (it was also Orwell who first coined the term ‘Cold War’)
+  becoming part of the fabric of everyday life and speech.",
+  isbn: "9780571334656")
+book_temp5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp5.save!
+
+puts "Sixth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686738926/1528719018.01._SCLZZZZZZZ_SX500__lysqgt.jpg")
+book = Book.new(title: "1984",
+                author: "George Orwell",
+                description: "Who controls the past controls the future: who controls the present controls the past.
+
+                As much a cultural and historical marker as an absorbing thriller,
+                George Orwell’s 1984 changed and continues to change the way we think about the past and imagine
+                the future. Perhaps the most pervasively influential novel of the twentieth century,
+                1984 resonates so completely have to become part of our commonplace lexicon,
+                with words like doublethink and Big Brother (it was also Orwell who first coined the term ‘Cold War’)
+                becoming part of the fabric of everyday life and speech.",
+                isbn: "9780571334656",
+                user: user3,
+                droppable: false,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp5)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
@@ -393,10 +555,54 @@ book = Book.new(title: "1984",
                 becoming part of the fabric of everyday life and speech.",
                 isbn: "9780571334656",
                 user: user2,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp5)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got two books!!"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686913936/816N1Kv6gfL_bvharw.jpg")
+book_temp6 = BookTemp.new(
+  title: "Ultra-Processed People",
+  author: "Chris van Tulleken",
+  description: "An eye-opening investigation into the science, economics,
+  history and production of ultra-processed food.
+  It's not you, it's the food.
+  We have entered a new 'age of eating' where most of our calories come from an entirely
+  novel set of substances called Ultra-Processed Food, food which is industrially processed
+  and designed and marketed to be addictive. But do we really know what it's doing to our bodies?
+  Join Chris in his travels through the world of food science and a UPF diet
+  to discover what's really going on. Find out why exercise and willpower can't save us,
+  and what UPF is really doing to our bodies, our health, our weight, and the planet
+  (hint: nothing good).",
+  isbn: "9780571334658")
+book_temp6.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp6.save!
+
+puts "Seventh Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686913936/816N1Kv6gfL_bvharw.jpg")
+book = Book.new(title: "Ultra-Processed People",
+                author: "Chris van Tulleken",
+                description: "An eye-opening investigation into the science, economics,
+                history and production of ultra-processed food.
+                It's not you, it's the food.
+                We have entered a new 'age of eating' where most of our calories come from an entirely
+                novel set of substances called Ultra-Processed Food, food which is industrially processed
+                and designed and marketed to be addictive. But do we really know what it's doing to our bodies?
+                Join Chris in his travels through the world of food science and a UPF diet
+                to discover what's really going on. Find out why exercise and willpower can't save us,
+                and what UPF is really doing to our bodies, our health, our weight, and the planet
+                (hint: nothing good).",
+                isbn: "9780571334658",
+                user: user2,
                 droppable: true,
                 have_read: true,
-                currently_reading: true,
-                book_temp: book_temp)
+                currently_reading: false,
+                book_temp: book_temp6)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
@@ -415,12 +621,63 @@ book = Book.new(title: "Ultra-Processed People",
                 (hint: nothing good).",
                 isbn: "9780571334658",
                 user: user3,
-                droppable: true,
-                have_read: true,
-                currently_reading: false,
-                book_temp: book_temp)
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp6)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686913936/816N1Kv6gfL_bvharw.jpg")
+book = Book.new(title: "Ultra-Processed People",
+                author: "Chris van Tulleken",
+                description: "An eye-opening investigation into the science, economics,
+                history and production of ultra-processed food.
+                It's not you, it's the food.
+                We have entered a new 'age of eating' where most of our calories come from an entirely
+                novel set of substances called Ultra-Processed Food, food which is industrially processed
+                and designed and marketed to be addictive. But do we really know what it's doing to our bodies?
+                Join Chris in his travels through the world of food science and a UPF diet
+                to discover what's really going on. Find out why exercise and willpower can't save us,
+                and what UPF is really doing to our bodies, our health, our weight, and the planet
+                (hint: nothing good).",
+                isbn: "9780571334658",
+                user: user7,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp6)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got three books!!"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081148/development/cleo_lbwee0.png")
+book_temp7 = BookTemp.new(
+  title: "Cleopatra and Frankenstein",
+  author: "Coco Mellors",
+  description: "New York is slipping from Cleo's grasp.
+  Sure, she's at a different party every other night,
+  but she barely knows anyone. Her student visa is running out,
+  and she doesn't even have money for cigarettes. But then she meets Frank.
+  Twenty years older, Frank's life is full of all the success and excess that Cleo's lacks.
+  He offers her the chance to be happy, the freedom to paint,
+  and the opportunity to apply for a green card.
+  She offers him a life imbued with beauty and art-and,
+  hopefully, a reason to cut back on his drinking.
+  He is everything she needs right now.
+
+  Cleo and Frank run head-first into a romance that neither of them can quite keep up with.
+  It reshapes their lives and the lives of those around them,
+  whether that's Cleo's best friend struggling to embrace his gender identity in the wake of her marriage,
+  or Frank's financially dependent sister arranging sugar daddy dates after being
+  cut off. Ultimately, this chance meeting between two strangers outside of a
+  New Year's Eve party changes everything, for better or worse.",
+  isbn: "9780571334666")
+book_temp7.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp7.save!
+
+puts "Seventh Book_Temp, now associated books"
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081148/development/cleo_lbwee0.png")
 book = Book.new(title: "Cleopatra and Frankenstein",
@@ -446,65 +703,8 @@ book = Book.new(title: "Cleopatra and Frankenstein",
                 user: user1,
                 droppable: true,
                 have_read: true,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686913936/816N1Kv6gfL_bvharw.jpg")
-book = Book.new(title: "Ultra-Processed People",
-                author: "Chris van Tulleken",
-                description: "An eye-opening investigation into the science, economics,
-                history and production of ultra-processed food.
-                It's not you, it's the food.
-                We have entered a new 'age of eating' where most of our calories come from an entirely
-                novel set of substances called Ultra-Processed Food, food which is industrially processed
-                and designed and marketed to be addictive. But do we really know what it's doing to our bodies?
-                Join Chris in his travels through the world of food science and a UPF diet
-                to discover what's really going on. Find out why exercise and willpower can't save us,
-                and what UPF is really doing to our bodies, our health, our weight, and the planet
-                (hint: nothing good).",
-                isbn: "9780571334658",
-                user: user3,
-                droppable: true,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081147/development/Follet_rhercx.png")
-book = Book.new(title: "The Armour of Light",
-                author: "Ken Follett",
-                description: "Ken Follett's newest book! A thrilling and addictive new novel--
-                a prequel to The Pillars of the Earth--set in England at the dawn of a new era:
-                the Middle Ages",
-                isbn: "9780571334658",
-                user: user6,
-                droppable: true,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
-
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081145/development/1984_zad8kc.png")
-book = Book.new(title: "1984: Special Edition",
-                author: "George Orwell",
-                description: "Who controls the past controls the future: who controls the present controls the past.
-
-                As much a cultural and historical marker as an absorbing thriller,
-                George Orwell’s 1984 changed and continues to change the way we think about the past and imagine
-                the future. Perhaps the most pervasively influential novel of the twentieth century,
-                1984 resonates so completely have to become part of our commonplace lexicon,
-                with words like doublethink and Big Brother (it was also Orwell who first coined the term ‘Cold War’)
-                becoming part of the fabric of everyday life and speech.",
-                isbn: "9780571334658",
-                user: user7,
-                droppable: false,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
+                currently_reading: false,
+                book_temp: book_temp7)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
@@ -533,7 +733,7 @@ book = Book.new(title: "Cleopatra and Frankenstein",
                 droppable: false,
                 have_read: false,
                 currently_reading: true,
-                book_temp: book_temp)
+                book_temp: book_temp7)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
