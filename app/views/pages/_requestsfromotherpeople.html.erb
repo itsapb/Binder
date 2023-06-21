@@ -2,9 +2,10 @@
         <ul>
           <% unless @booking_requests.empty? %>
           <p>Accept or decline</p>
+          <div></div>
           <% @booking_requests.each do |booking_request| %>
               <% if booking_request.status == nil %>
-                <p><%= link_to booking_request.user.first_name, user_path(booking_request.user), class: "btn btn-black" %> asks for </p>
+                <p><%= link_to booking_request.user.first_name, user_path(booking_request.user) %> asks for </p>
                 <div class="image">
                   <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
                   <%= link_to decline_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-delete" do %>
@@ -23,3 +24,4 @@
         </ul>
         <br>
       </div>
+

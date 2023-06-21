@@ -1,0 +1,25 @@
+<div class="main div">
+        <div class="row">
+          <% unless @books.empty? %>
+            <% @books.each do |book| %>
+
+              <div class="col-md-3">
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                </div>
+                <div class="text">
+                  <p><%= book.title %><br>by <%= book.author %></p>
+                </div>
+              </div>
+              <% if book.currently_reading %>
+                <%= link_to "finish", have_read_book_path(book), class: "btn btn-green" %>
+              <% else %>
+                <%= link_to "currently reading", currently_reading_book_path(book), class: "btn btn-green" %>
+              <% end %>
+              </div>
+            <% end%>
+          <% end %>
+          <br>
+        </div>
+</div>
