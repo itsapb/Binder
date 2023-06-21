@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["input", "results", "form", "modal", "title", "author", "description", "image", "isbn", "bookform"]
   connect() {
     console.log("booktemp controller connected :)")
-    this.readMore = new ReadMore(this);
   }
 
   search(event) {
@@ -21,15 +20,14 @@ export default class extends Controller {
         console.log(data)
         data.items.forEach((item) => {
           let addButtonHtml =
-            ` <button class="Btn btn-green btn-sm">Add</button> `
+            ` <button class="Btn btn-green btn-sm">&plus; Add</button> `
 
           let booktempTag =
             `
             <li class="list-group-item" data-action="click->booktemp#addBook">
               <div class="book-info">
-                <img src="${item.volumeInfo.imageLinks.thumbnail}" alt="${item.volumeInfo.title}">
+                <img src="${item.volumeInfo.imageLinks['thumbnail']}" alt="${item.volumeInfo.title}">
                 <div class="d-flex justify-content-center align-items-center mt-2">${addButtonHtml}</div>
-                </div>
               </div>
               <br>
               <p><strong>${item.volumeInfo.title}</strong></p>
@@ -37,29 +35,33 @@ export default class extends Controller {
               <p hidden>${item.volumeInfo.description}</p>
               <p hidden>${item.volumeInfo.imageLinks['thumbnail']}</p>
               <p hidden>${item.volumeInfo.industryIdentifiers[1].identifier}</p>
-              </li>
-              `
+            </li>
+          `
 
           this.resultsTarget.insertAdjacentHTML("beforeend", booktempTag)
         })
+        console.log(addBook)
       })
   }
 
   addBook(event) {
     event.preventDefault()
-    const addButton = event.target
-    addButton.innerHTML = ' ✓ '
-    addButton.classList.remove('btn-primary')
-    addButton.classList.add('btn-success')
+    if (event.target.tagName == "BUTTON") {
+      console.dir(event.target)
+      const addButton = event.target
+      addButton.innerHTML = ' ✓ '
+      addButton.classList.remove('btn-primary')
+      addButton.classList.add('btn-success')
 
-    let paragraphElements = event.currentTarget.querySelectorAll("p")
-    console.log(paragraphElements[0].innerText)
+      let paragraphElements = event.currentTarget.querySelectorAll("p")
+      console.log(paragraphElements[0].innerText)
 
-    this.titleTarget.value = paragraphElements[0].innerText
-    this.authorTarget.value = paragraphElements[1].innerText
-    this.descriptionTarget.value = paragraphElements[2].innerText
-    this.imageTarget.value = paragraphElements[3].innerText
-    this.isbnTarget.value = paragraphElements[4].innerText
-    this.bookformTarget.submit()
+      this.titleTarget.value = paragraphElements[0].innerText
+      this.authorTarget.value = paragraphElements[1].innerText
+      this.descriptionTarget.value = paragraphElements[2].innerText
+      this.imageTarget.value = paragraphElements[3].innerText
+      this.isbnTarget.value = paragraphElements[4].innerText
+      this.bookformTarget.submit()
+    }
   }
 }
