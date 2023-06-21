@@ -1,6 +1,8 @@
 
           <div class="main div">
             <h2 class="heading-dashboard">Books you've read</h2>
+                  <p class="greyed-p">Ooh! Look at all the books you've read</p>
+
             <div class="d-flex">
               <% unless @read_books.empty? %>
                 <%= render "carousel", books: @read_books, section: "have_read" %>

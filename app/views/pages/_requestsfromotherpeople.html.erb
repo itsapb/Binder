@@ -1,6 +1,7 @@
-<div class=" pb-5">
+<div class="pb-5">
           <% unless @booking_requests.empty? %>
-      <h2 class="heading-dashboard">Your booking requests from other people</h2>
+      <h2 class="heading-dashboard">People want to borrow these books from you!</h2>
+
         <ul>
           <% @booking_requests.each do |booking_request| %>
               <% if booking_request.status == nil %>
@@ -21,4 +22,4 @@
           <% end %>
         </ul>
         <br>
-      </div>
+</div>
