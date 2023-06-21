@@ -1,4 +1,4 @@
-<div class="quote-body pt-3">
+<!-- <div class="quote-body pt-3">
   <div class="container quote content">
     <%= @book_quote %>
     <hr>
@@ -7,6 +7,25 @@
     <br>
     <br>
     <%= link_to "Find community", map_path, class: "btn btn-green" %>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="quote-body pt-1">
+  <div class="container quote content">
+    <% quote_parts = @book_quote.split(" — ") %>
+    <% quote_parts.each_with_index do |quote_part, index| %>
+      <% if index == 0 %>
+        <p style="font-size: 55px; font-weight: bold; text-align: left;"><%= quote_part %></p>
+      <% else %>
+        <p style="font-size: 30px; text-align: left;"><%= quote_part %></p>
+      <% end %>
+    <% end %>
+    <hr>
+    <div style="width: 50%; margin: auto">
+      <p style="font-size: 20px; margin-bottom: 2px;">See what people in your area are reading</p>
+      <%= link_to "Find community", map_path, class: "btn btn-green" , style: "margin-top: 0;"%>
     </div>
   </div>
 </div>
