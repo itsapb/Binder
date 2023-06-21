@@ -1,50 +1,81 @@
+<%# A Helper is included for the method star_rating() in line 24. You can find it under helpers %>
 <div class = "container">
-<h1><%= @book.title %></h1>
-<br>
-<div class="d-flex mb-3">
-  <div>
-    <% if @book.photo.attached? %>
-      <%= cl_image_tag @book.photo.key, height: 350, width: 250, crop: :fill %>
-    <% else %>
-      <%= image_tag "missing-image", height: 350, width: 250, crop: :fill  %>
-    <% end %>
-    <div class="pb-5 center_review">
-      <%= link_to "Search again", search_path, class: "btn-green text-decoration-none " %>
-    </div>
-  </div>
-  <div>
-    <p><%= @book.description%></p>
-    <div class="center_review">
-    <hr>
-      <% if @book_temp.reviews.blank? %>
-        Be the first to leave a review for <%= @book.title %>
-      <% else %>
-        <% @book_temp.reviews.each do |review| %>
-            <div class = "rating"> <%= review.rating%> <strong>⭐️</strong></div>
-          <p>  "<%= review.content %>" ⁓ <strong> <%= review.user.first_name %></strong>
-              <% if current_user == review.user %>
-                <%= link_to delete_review_path(review, book_id: @book.id), data: { "turbo-method": :patch } do %>
-                  <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
-                <% end %>
-              <% end %>
-          </p>
-          <hr>
+  <div class = "d-flex pt-1">
+    <h2 style = "width: 450px"><%= @book.title %></h2>
+    <br>
+    <div class="pt-1">
+      <%# <%= link_to "Book it", search_path, class: "btn btn-green" %>
+      <% if @book.droppable && user_signed_in? && @book.user != current_user%>
+        <%= form_with(model: @drop, url: book_drops_path(@book), method: :post) do |form| %>
+          <%= form.hidden_field :book_id, value: @book.id %>
+          <%= form.submit "Book it", class: "btn btn-green" %>
         <% end %>
       <% end %>
     </div>
-    <br>
-    <br>
-    <div class="shadow p-3 mb-5 bg-body rounded-3">
-    <h3 class= "center_review">Create your own review ⭐️</h3>
-    <br>
-    <%= simple_form_for([@book_temp, @review]) do |f| %>
-      <%= f.input :content %>
-      <%= f.input :rating %>
-      <%= f.input :book_id, :as => :hidden, :input_html => { :value => @book.id } %>
-      <%= f.button :submit, class: "btn btn-green" %>
-    <% end %>
-    </div>
   </div>
+  <div class="d-flex mb-3">
+    <div>
+      <% if @book.photo.attached? %>
+        <%= cl_image_tag @book.photo.key, height: 630, width: 450 , crop: :fill %>
+      <% else %>
+        <%= image_tag "missing-image", height: 350, width: 250, crop: :fill  %>
+      <% end %>
+    </div>
+    <div>
+      <p><%= @book.description%></p>
+      <% if user_signed_in? %>
+        <button class="btn btn-green pull-right" id="toggle-review">Leave a Review</button>
+      <% else %>
+        <%= link_to "Sign in to leave a review", new_user_session_path, class: "btn btn-green" %>
+      <% end %>
+      <div class="p-3 mb-5" id="review-form" style="display: none;">
+          <%= simple_form_for([@book_temp, @review]) do |f| %>
+            <%= f.label :rating, "⭐️"%>
+            <%= f.number_field :rating, placeholder: "1-5", class: "form-control" %>
+            <%= f.label :content, "💬"%>
+            <%= f.text_area :content, placeholder: "Enter your review...", class: "form-control" %>
+            <%= f.input :book_id, :as => :hidden, :input_html => { :value => @book.id } %>
+            <%= f.button :submit, "Submit", class: "btn btn-outline-secondary rounded-pill" %>
+          <% end %>
+      </div>
+      <div class="center_review">
+      <hr>
+        <% if @book_temp.reviews.blank? %>
+          Be the first to leave a review for <%= @book.title %>
+        <% else %>
+          <% @book_temp.reviews.each do |review| %>
+              <div class = "rating"> <%= star_rating(review.rating)%></div>
+            <p>  "<%= review.content %>" ⁓ <strong> <%= review.user.first_name %></strong>
+                <% if current_user == review.user %>
+                  <%= link_to delete_review_path(review, book_id: @book.id), data: { "turbo-method": :patch } do %>
+                    <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
+                  <% end %>
+                <% end %>
+            </p>
+            <hr>
+          <% end %>
+        <% end %>
+      </div>
+      <br>
+      <br>
+
+  </div>
+<br>
+<br>
 </div>
-<br>
-<br>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.getElementById("toggle-review");
+    const reviewForm = document.getElementById("review-form");
+
+    toggleButton.addEventListener("click", function() {
+      if (reviewForm.style.display === "none") {
+        reviewForm.style.display = "block";
+      } else {
+        reviewForm.style.display = "none";
+      }
+    });
+  });
+</script>
