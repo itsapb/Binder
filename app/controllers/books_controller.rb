@@ -37,6 +37,11 @@ class BooksController < ApplicationController
   #   redirect_to dashboard_path
   # end
 
+  def droppable
+    @book = Book.find(params[:id])
+    @book.update(droppable: true)
+  end
+
   def have_read
     @book = Book.find(params[:id])
     @book.have_read = !@book.have_read
@@ -64,7 +69,7 @@ class BooksController < ApplicationController
 
     @book.user = current_user
     @book.currently_reading = false
-    @book.droppable = true
+    @book.droppable = false
 
     if @book.save
       redirect_to book_path(@book)

@@ -1,5 +1,6 @@
     <div class="main div">
       <h2 class="heading-dashboard">My Shelves</h2>
+
         <div class="d-flex">
           <% unless @books.empty? %>
             <%= render "my_shelves", books: @books, section: "currently_reading" %>

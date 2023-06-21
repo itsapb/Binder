@@ -1,20 +1,21 @@
 <div class="container">
   <% if user_signed_in? %>
-    <h1>Welcome to the dashboard, <%= current_user.first_name %>!</h1>
-        <p><%= link_to "Update your shelves, what are you reading?", search_path, class: "btn btn-green" %></p>
+    <h1 class="text-center pt-5 pb-2">Welcome to the dashboard, <%= current_user.first_name %>!</h1>
+        <p class="pb-2 text-center"><%= link_to "Update your shelves, what are you reading?", search_path, class: "btn btn-green" %></p>
 
       <%= render "currentlyreading" %>
 
+      <div class="container">
       <%= render "haveread" %>
 
-    <h2 class="heading-dashboard">Your booking requests</h2>
+      <h2 class="heading-dashboard">Your booking requests</h2>
 
-    <%= render "bookingrequest" %>
+      <%= render "bookingrequest" %>
 
 
-    <h2 class="heading-dashboard">Your booking requests from other people</h2>
+
      <%= render "requestsfromotherpeople" %>
-
+</div>
 
 <%else%>
 <p>To see the dashboard you need to be signed in!</p>
