@@ -2,6 +2,7 @@
     <br>
     <h1 class="heading-profile text-center">Your messages 🛎️</h1>
 <br>
+<% unless current_user.chatrooms.empty?  %>
 <% current_user.chatrooms.each do |chatroom| %>
  <ul>
    <li>
@@ -26,4 +27,5 @@
   <br>
  </ul>
  <%end %>
+<%end %>
 </div>
