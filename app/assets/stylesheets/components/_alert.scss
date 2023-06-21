@@ -4,3 +4,34 @@
   right: 16px;
   z-index: 1000;
 }
+
+.col-12-container{
+  margin-top:100px;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+}
+
+p{
+  color:#fff;
+  font-size: 1.1em;
+}
+
+.alert-heading{
+  color:#fff;
+}
+
+.bg-success {
+background-color: #D4D405!important;
+opacity: 2.4;
+}
+
+
+
+.btn-white {
+color: #5e676f;
+background-color: #fff;
+border-color: transparent;
+box-shadow: 0 1px 2px rgba(0, 0, 0, .05)
+}
