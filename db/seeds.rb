@@ -26,6 +26,7 @@ require "open-uri"
 # end
 
 puts "Cleaning database..."
+Reviews.destroy_all
 Drop.destroy_all
 User.destroy_all
 BookTemp.destroy_all
