@@ -1,7 +1,7 @@
 <div class="container text-center my-3">
   <div class="row mx-auto my-auto justify-content-center">
     <div id="<%="#{section}_carousel"%>" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner" style="height: 45vh;" role="listbox">
+      <div class="carousel-inner" style="height: 50vh;" role="listbox">
         <% activeclass = true %>
 
         <% count = books.count >= 4 ? 4 : books.count %>
@@ -12,21 +12,22 @@
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_one.photo.key, height: 280, width: 180, crop: :fill %>
-                  <% if section == "currently_reading" %>
-                    <%= link_to (book_one.currently_reading ? "undo" : "Have read"), have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
-                  <% elsif section == "books_to_borrow" %>
-                    <%= link_to "undo", undrop_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                <% if section == "currently_reading" %>
+                  <%= link_to (book_one.currently_reading ? "undo" : "Have read"), have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                <% elsif section == "books_to_borrow" %>
+                  <%= link_to "undo", undrop_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                <% else %>
+                  <%= link_to "undo", have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                <% end %>
+                </div>
+                </div>
+                <div class = "text">
+                  <%unless book_one.droppable%>
+                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_one.id) , method: :patch, class: "btn btn-green" %>
                   <% else %>
-                    <%= link_to "undo", have_read_book_path(book_one.id), class: "btn btn-success btn-dashboard" %>
+                    <p>already droppable </p>
                   <% end %>
-                </div>
-                <div class="text">
-                  <p><strong><%= book_one.title %></strong>
-                  <br>
-                  <%= book_one.author %></p>
-                </div>
               </div>
-
             </div>
             <% if book_two %>
             <div class="col-md-3">
@@ -41,11 +42,13 @@
                     <%= link_to "undo", have_read_book_path(book_two.id), class: "btn btn-success btn-dashboard" %>
                   <% end %>
                 </div>
-                <div class="text">
-                  <p><strong><%= book_two.title %></strong>
-                  <br>
-                  <%= book_two.author %></p>
                 </div>
+                <div class="text">
+                  <%unless book_two.droppable%>
+                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_two.id) , method: :patch, class: "btn btn-green" %>
+                  <% else %>
+                    <p>already droppable </p>
+                  <% end %>
               </div>
             </div>
             <%end%>
@@ -62,11 +65,13 @@
                     <%= link_to "undo", have_read_book_path(book_three.id), class: "btn btn-success btn-dashboard" %>
                   <% end %>
                 </div>
-                <div class="text">
-                  <p><strong><%= book_three.title %></strong>
-                  <br>
-                  <%= book_three.author %></p>
-                </div>
+              </div>
+              <div class="text">
+                  <%unless book_three.droppable%>
+                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_three.id) , method: :patch, class: "btn btn-green" %>
+                  <% else %>
+                    <p>already droppable </p>
+                  <% end %>
               </div>
             </div>
             <% end %>
@@ -83,11 +88,13 @@
                     <%= link_to "undo", have_read_book_path(book_four.id), class: "btn btn-success btn-dashboard" %>
                   <% end %>
                 </div>
-                <div class="text">
-                  <p><strong><%= book_four.title %></strong>
-                  <br>
-                  <%= book_four.author %></p>
-                </div>
+              </div>
+              <div class="text">
+                <%unless book_four.droppable%>
+                  <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_four.id) , method: :patch, class: "btn btn-green" %>
+                <% else %>
+                  <p>already droppable </p>
+                <% end %>
               </div>
             </div>
           </div>
@@ -95,10 +102,10 @@
         <% activeclass = false %>
         <% end %>
       </div>
-      <a class="carousel-control-prev bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="prev">
+      <a class="carousel-control-prev bg-transparent" style="width: 1%" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </a>
-      <a class="carousel-control-next bg-transparent w-aut" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="next">
+      <a class="carousel-control-next bg-transparent w-aut" style="width: 1%" href="#<%="#{section}_carousel"%>" role="button" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </a>
     </div>

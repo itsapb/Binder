@@ -37,6 +37,12 @@ class BooksController < ApplicationController
   #   redirect_to dashboard_path
   # end
 
+  def update_droppable
+    @book = Book.find(params[:book_id])
+    @book.update(droppable: true)
+    redirect_to dashboard_path, notice: "Bookable enabled."
+  end
+
   def droppable
     @book = Book.find(params[:id])
     @book.update(droppable: true)
