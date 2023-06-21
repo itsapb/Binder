@@ -22,6 +22,7 @@
 </head>
 
   <body>
+  <div class = "mb-100">
   <% if flash[:notice] %>
     <div class="col-12 container">
       <div class="alert bg-success mb-4 py-3 alert-p" role="notice" id="booking-alert">
@@ -48,6 +49,7 @@
   <% end %>
       <%= render "pages/navbar" %>
       <%= yield %>
+  </div>
   </div>
     <%= render "pages/footer" %>
     <script>
