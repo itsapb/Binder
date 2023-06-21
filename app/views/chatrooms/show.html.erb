@@ -2,8 +2,8 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
+ <%= link_to "go back", user_path(@chatroom.friend)  %>
   <h1 class="heading-profile">Get chatting 💬</h1>
-
   <div>
     <div data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>

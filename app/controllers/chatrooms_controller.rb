@@ -13,7 +13,7 @@ class ChatroomsController < ApplicationController
     if @chatroom = current_user.chatrooms.find { |chatroom| chatroom.users.include?(user) }
       redirect_to chatroom_path(@chatroom)
     else
-      @chatroom = Chatroom.new(name: "#{user.first_name}")
+      @chatroom = Chatroom.new(name: "#{user.first_name}", friend: user.id)
       current_user.chatrooms << @chatroom
       user.chatrooms << @chatroom
       @chatroom.save
@@ -25,4 +25,3 @@ class ChatroomsController < ApplicationController
     end
   end
 end
-
