@@ -19,8 +19,12 @@
 }
 
 .text {
-  // display: flex;
+  display: flex;
   text-align: center;
+  max-width: 180px;
+  margin: 0 auto;
+  padding-top: 10px;
+  font-size: 14px;
 }
 
 .btn-dashboard {
@@ -30,7 +34,7 @@
   transform: translate(-50%, -50%);
   opacity: 15%;
   transition: opacity 0.2s ease-in-out;
-  border-radius : 25px
+  border-radius: 25px
 }
 
 .card-book:hover .btn-dashboard {
@@ -42,18 +46,20 @@
 }
 
 @media (max-width: 767px) {
-  .carousel-inner .carousel-item > div {
-      display: none;
+  .carousel-inner .carousel-item>div {
+    display: none;
   }
-  .carousel-inner .carousel-item > div:first-child {
-      display: block;
+
+  .carousel-inner .carousel-item>div:first-child {
+    display: block;
   }
 }
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
-  display: flex;;
+  display: flex;
+  ;
 }
 
 /* medium and up screens */
@@ -87,5 +93,5 @@
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start {
-transform: translateX(0);
+  transform: translateX(0);
 }
