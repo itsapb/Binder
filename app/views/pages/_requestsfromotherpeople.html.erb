@@ -1,8 +1,7 @@
-<div>
-        <ul>
+<div class=" pb-5">
           <% unless @booking_requests.empty? %>
-          <p>Accept or decline</p>
-          <div></div>
+      <h2 class="heading-dashboard">Your booking requests from other people</h2>
+        <ul>
           <% @booking_requests.each do |booking_request| %>
               <% if booking_request.status == nil %>
                 <p><%= link_to booking_request.user.first_name, user_path(booking_request.user) %> asks for </p>
@@ -19,9 +18,7 @@
               <% end %>
             <% end %>
           <% else %>
-          <p> No booking requests available!</p>
           <% end %>
         </ul>
         <br>
       </div>
-

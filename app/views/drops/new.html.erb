@@ -1,4 +1,4 @@
-<h1>Rent Book</h1>
+<h1>Borrow Book</h1>
 
 <%= image_tag @book.photo, class: "book-image", crop: :fill%>
 <h2><%= @book.title %></h2>
@@ -8,6 +8,6 @@
     <%= form.submit "Borrow Book" %>
   <% end %>
 <% else %>
-<p>Please Log in to rent the book</p>
+<p>Please Log in to borrow the book</p>
 <%= button_to "Log in", user_session_path, method: :get, class: "no-underline text-orange-300 hover:bg-orange-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" %>
 <% end %>

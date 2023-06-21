@@ -1,0 +1,10 @@
+              <div class="card-book">
+                <div class="picture">
+                  <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                </div>
+                <div class="text">
+                  <p><strong><%= book.title %></strong>
+                  <br>
+                  <%= book.author %></p>
+                </div>
+              </div>
