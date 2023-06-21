@@ -11,10 +11,12 @@
 @import "components/index";
 @import "pages/index";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+@import "components/search";
 
 a {
   color: $black;
   text-decoration: none;
+
   &:hover {
     color: $green;
     text-decoration: none;
@@ -25,6 +27,6 @@ a {
   display: flex;
 }
 
-.d-flex{
-  gap:50px;
+.d-flex {
+  gap: 50px;
 }
