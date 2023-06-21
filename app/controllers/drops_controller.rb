@@ -32,7 +32,11 @@ class DropsController < ApplicationController
     @drop = Drop.new(user_id: @user.id, book_id: @book.id)
 
     if @drop.save
-      redirect_to dashboard_path, notice: "Booking requested."
+      if params[:clicked_continue]
+        redirect_to dashboard_path
+      else
+        redirect_to user_path(@book.user), notice: "Booking request sent!", extra: "blah blah"
+      end
     else
       redirect_to user_path(@book.user), alert: "Booking could not be created."
     end
