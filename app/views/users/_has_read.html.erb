@@ -1,6 +1,6 @@
     <h2 class="heading-dashboard text-center"><%=@user.first_name%> has read 📖</h2>
     <br>
-    <div class="books-container1 align-items-center justify-content-center pb-5">
+    <div class="books-container1 justify-content-center pb-5">
       <% unless @read_books.empty? %>
         <% @read_books.each do |book| %>
           <div class="image1 text-center">
@@ -10,7 +10,7 @@
             <% if book.droppable && user_signed_in? %>
               <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
                 <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Rent Book", class: "btn btn-black" %>
+                <%= form.submit "Rent the book", class: "btn btn-green" %>
               <% end %>
             <% end %>
           </div>
@@ -19,14 +19,14 @@
       <% unless @droppable_books.empty? %>
         <% @droppable_books.each do |book| %>
           <% unless book.have_read %>
-            <div class="image1">
-              <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
-              <% if user_signed_in? %>
-                <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
-                <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Rent Book", class: "btn btn-black text-center pt-2" %>
+              <div class="image1 text-center">
+                <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
+                <% if user_signed_in? %>
+                  <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
+                  <%= form.hidden_field :book_id, value: book.id %>
+                  <%= form.submit "Rent the book", class: "btn btn-green" %>
+                  <% end %>
                 <% end %>
-              <% end %>
             </div>
           <% end %>
         <% end %>
