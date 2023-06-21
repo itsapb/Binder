@@ -22,14 +22,43 @@
 </head>
 
   <body>
-  <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-  </div>
-  <div>
+  <% if flash[:notice] %>
+    <div class="col-12 container">
+      <div class="alert bg-success mb-4 py-3 alert-p" role="notice" id="booking-alert">
+        <div class="d-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <div class="px-3">
+              <h5 class="alert-heading"><%= notice %></h5><% extra = extra || nil %>
+              <%= extra if extra %>
+              <a href="#" class="btn text-white" data-abc="true" id="dismiss-alert">Dismiss</a>
+              <a href="<%= dashboard_path(clicked_continue: true) %>" class="btn btn-white mx-1" data-abc="true">
+                  Continue
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
       <%= render "pages/navbar" %>
       <%= yield %>
   </div>
     <%= render "pages/footer" %>
+    <script>
+  // Hide the alert when the "Dismiss" button is clicked
+  document.getElementById("dismiss-alert").addEventListener("click", function() {
+    document.getElementById("booking-alert").style.display = "none";
+  });
+  //Hide the alert after 10 seconds
+  setTimeout(function() {
+    document.getElementById("booking-alert").style.display = "none";
+  }, 10000);
+</script>
   </body>
 </html>

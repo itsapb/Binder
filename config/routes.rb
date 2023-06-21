@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     member do
       get "currently_reading"
     end
+
+    member do
+      get "droppable"
+    end
   end
 
   resources :drops, only: [:index, :update, ]

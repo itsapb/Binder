@@ -2,8 +2,9 @@
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
 >
-  <h1 class="heading-profile">Get chatting 💬</h1>
 
+
+  <h1 class="heading-profile">Get chatting 💬</h1>
   <div>
     <div data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
@@ -11,7 +12,7 @@
       <% end %>
     </div>
       <%# Form for creating a message %>
-    <div class="pb-5">
+    <div >
       <%= simple_form_for [@chatroom, @message],
         html: {data: { action: "turbo:submit-end->chatroom-subscription#resetForm"}, class: "d-flex"} do |f| %>
         <%= f.input :content,
@@ -21,6 +22,7 @@
         %>
         <%= f.submit "Send ✍️", class: "btn btn-green mb-3" %>
       <% end %>
+    <%= link_to "Back to their profile", user_path(@chatroom.friend), class: "btn btn-green"  %>
     </div>
   </div>
 </div>
