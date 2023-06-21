@@ -8,39 +8,42 @@
     <% else %>
       <%= image_tag "missing-image", height: 350, width: 250, crop: :fill  %>
     <% end %>
-    <div class="pb-5">
+    <div class="pb-5 center_review">
       <%= link_to "Search again", search_path, class: "btn-green text-decoration-none " %>
     </div>
   </div>
   <div>
-    <%= @book.description %>
-    <br>
-    <div>
-    <br>
-      <h2>All the reviews</h2>
-    <br>
+    <p><%= @book.description%></p>
+    <div class="center_review">
+    <hr>
       <% if @book_temp.reviews.blank? %>
         Be the first to leave a review for <%= @book.title %>
       <% else %>
         <% @book_temp.reviews.each do |review| %>
-          <p> <strong>Content:</strong> <%= review.content %>
-              <strong>Rating:</strong> <%= review.rating %>
-              <strong>User:</strong> <%= review.user.first_name %>
+            <div class = "rating"> <%= review.rating%> <strong>⭐️</strong></div>
+          <p>  "<%= review.content %>" ⁓ <strong> <%= review.user.first_name %></strong>
               <% if current_user == review.user %>
                 <%= link_to delete_review_path(review, book_id: @book.id), data: { "turbo-method": :patch } do %>
                   <i class="fa-solid fa-trash" style="color: #d11515;" title= "Delete"></i>
                 <% end %>
               <% end %>
           </p>
+          <hr>
         <% end %>
       <% end %>
     </div>
+    <br>
+    <br>
+    <div class="shadow p-3 mb-5 bg-body rounded-3">
+    <h3 class= "center_review">Create your own review ⭐️</h3>
+    <br>
     <%= simple_form_for([@book_temp, @review]) do |f| %>
       <%= f.input :content %>
       <%= f.input :rating %>
       <%= f.input :book_id, :as => :hidden, :input_html => { :value => @book.id } %>
       <%= f.button :submit, class: "btn btn-green" %>
     <% end %>
+    </div>
   </div>
 </div>
 <br>
