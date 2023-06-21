@@ -1,0 +1,10 @@
+<div class="p-3 mb-5" id="review-form">
+  <%= simple_form_for([@book_temp, @review]) do |f| %>
+    <%= f.label :rating, "⭐️" %>
+    <%= f.number_field :rating, placeholder: "1-5", class: "form-control" %>
+    <%= f.label :content, "💬" %>
+    <%= f.text_area :content, placeholder: "Enter your review...", class: "form-control" %>
+    <%= f.input :book_id, as: :hidden, input_html: { value: @book.id } %>
+    <%= f.button :submit, "Submit", class: "btn btn-outline-secondary rounded-pill" %>
+  <% end %>
+</div>

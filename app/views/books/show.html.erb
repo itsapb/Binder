@@ -67,14 +67,14 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    const toggleButton = document.getElementById("toggle-review");
-    const reviewForm = document.getElementById("review-form");
-
-    toggleButton.addEventListener("click", function() {
-      if (reviewForm.style.display === "none") {
-        reviewForm.style.display = "block";
-      } else {
-        reviewForm.style.display = "none";
+    document.addEventListener("click", function(event) {
+      if (event.target && event.target.id === "toggle-review") {
+        const reviewForm = document.getElementById("review-form");
+        if (reviewForm.style.display === "none") {
+          reviewForm.style.display = "block";
+        } else {
+          reviewForm.style.display = "none";
+        }
       }
     });
   });
