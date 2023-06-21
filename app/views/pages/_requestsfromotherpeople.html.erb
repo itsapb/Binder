@@ -1,7 +1,6 @@
 <div>
         <ul>
           <% unless @booking_requests.empty? %>
-          <p>Accept or decline</p>
           <div></div>
           <% @booking_requests.each do |booking_request| %>
               <% if booking_request.status == nil %>
@@ -24,4 +23,3 @@
         </ul>
         <br>
       </div>
-

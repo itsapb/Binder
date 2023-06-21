@@ -163,30 +163,30 @@ user10 = User.create!(
   password: "APB12345",
   address: "1 Ewhurst Rd, London SE4 1AG")
 
-# puts "new user"
-# user11 = User.create!(
-#   first_name: "Matthew",
-#   last_name: "Wilson",
-#   email: "MW@lewagon.com",
-#   password: "APB12345",
-#   address: "N125 3, 8005-412 Faro, Portugal")
+puts "new user"
+user11 = User.create!(
+  first_name: "Matthew",
+  last_name: "Wilson",
+  email: "MW@lewagon.com",
+  password: "MW@lewagon.com",
+  address: "N125 3, 8005-412 Faro, Portugal")
 
 
-# puts "new user"
-# user12 = User.create!(
-#   first_name: "Sophia",
-#   last_name: "Jackson",
-#   email: "SJ@lewagon.com",
-#   password: "APB12345",
-#   address: "8005-429 Faro, Portugal")
+puts "new user"
+user12 = User.create!(
+  first_name: "Sophia",
+  last_name: "Jackson",
+  email: "SJ@lewagon.com",
+  password: "SJ@lewagon.com",
+  address: "8005-429 Faro, Portugal")
 
-# puts "new user"
-# user13 = User.create!(
-#   first_name: "Daniel",
-#   last_name: "Miller",
-#   email: "DM@lewagon.com",
-#   password: "APB12345",
-#   address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
+puts "new user"
+user13 = User.create!(
+  first_name: "Daniel",
+  last_name: "Miller",
+  email: "DM@lewagon.com",
+  password: "DM@lewagon.com",
+  address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
 
 # puts "new user"
 # user14 = User.create!(
@@ -758,57 +758,57 @@ book.save!
 # book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 # book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
-# book = Book.new(title: "The History of the Siege of Lisbon",
-#   author: "José Saramago",
-#   description: "What happens when the facts of history are replaced by the mysteries of love?
-#   When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
-#   inserts a negative into a sentence of a historical text,
-#   he alters the whole course of the 1147 Siege of Lisbon.
-#   Fearing censure he is met instead with admiration:
-#   Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
-#   As his retelling draws on all his imaginative powers,
-#   Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
-#   so can the details of his own dusty bachelor present.",
-#                 isbn: "9780571334658",
-#                 user: user15,
-#                 droppable: false,
-#                 have_read: false,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
+book = Book.new(title: "The History of the Siege of Lisbon",
+  author: "José Saramago",
+  description: "What happens when the facts of history are replaced by the mysteries of love?
+  When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
+  inserts a negative into a sentence of a historical text,
+  he alters the whole course of the 1147 Siege of Lisbon.
+  Fearing censure he is met instead with admiration:
+  Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
+  As his retelling draws on all his imaginative powers,
+  Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
+  so can the details of his own dusty bachelor present.",
+                isbn: "9780571334658",
+                user: user11,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174498/1860466850_os6auj.jpg")
-# book = Book.new(title: "Blindness",
-#   author: "José Saramago",
-#   description: "A driver waiting at the traffic lights goes blind.
-#   An opthamologist tries to diagnose his distinctive blindness, but is affected before he can read the textbooks.
-#   It becomes a contagion, spreading throughout the city. Trying to stem the epidemic, the authorities herd the afflicted
-#   into a mental asylum where the wards are terrorised by blind thugs.",
-#                 isbn: "9780571334658",
-#                 user: user13,
-#                 droppable: false,
-#                 have_read: false,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174498/1860466850_os6auj.jpg")
+book = Book.new(title: "Blindness",
+  author: "José Saramago",
+  description: "A driver waiting at the traffic lights goes blind.
+  An opthamologist tries to diagnose his distinctive blindness, but is affected before he can read the textbooks.
+  It becomes a contagion, spreading throughout the city. Trying to stem the epidemic, the authorities herd the afflicted
+  into a mental asylum where the wards are terrorised by blind thugs.",
+                isbn: "9780571334658",
+                user: user12,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
-# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174496/9788532511669-uk_u1w1kj.jpg")
-# book = Book.new(title: "Harry Potter: E A Camara Secreta",
-#   author: "JK Rowling",
-#   description: "Harry Potter e a camara secreta esta repleto de aventuras
-#   fantasticas e recheado de supresas, que irao proporcionar ao leitor o
-#   magico prazer da leitura",
-#                 isbn: "9780571334658",
-#                 user: user12,
-#                 droppable: false,
-#                 have_read: false,
-#                 currently_reading: true,
-#                 book_temp: book_temp)
-# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-# book.save!
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174496/9788532511669-uk_u1w1kj.jpg")
+book = Book.new(title: "Harry Potter: E A Camara Secreta",
+  author: "JK Rowling",
+  description: "Harry Potter e a camara secreta esta repleto de aventuras
+  fantasticas e recheado de supresas, que irao proporcionar ao leitor o
+  magico prazer da leitura",
+                isbn: "9780571334658",
+                user: user13,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
 # file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174958/this_sorrow_that_lifts_me_up_book_cover_yxzq98.jpg")
 # book = Book.new(title: "A tristeza que me vive",
