@@ -1,3 +1,4 @@
+
 <div class="container text-center" data-controller="booktemp" data-search-target="items">
   <h1 class="heading-profile">What are you currently reading? 🪸</h1>
   <br>
@@ -18,10 +19,12 @@
         placeholder: "A reader lives a thousand lives...",
         data: {target: "booktemp.input"}
     %>
-      <%= submit_tag "Search", name: "", class: "btn-green" %>
+
+    <%= submit_tag "Search", name: "", class: "btn-green" %>
   <% end %>
-    <br>
-    <br>
+
+  <br>
+  <br>
 
   <div class="text-center">
     <ul id="results"
@@ -51,3 +54,21 @@
   <br>
     <%= link_to "Back to Home", root_path, class: "btn-green text-decoration-none" %>
 </div>
+
+
+<style>
+  .list-group-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .list-group-item {
+    flex: 0 0 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    list-style-type: none;
+    border: none;
+  }
+</style>
