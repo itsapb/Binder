@@ -72,7 +72,8 @@ class BooksController < ApplicationController
     @book.droppable = false
 
     if @book.save
-      redirect_to book_path(@book)
+      # redirect_to book_path(@book)
+      redirect_to dashboard_path
     else
       render 'new'
     end
