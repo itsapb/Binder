@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#inspire"
   get "/search", to: "books#search"
   get "/inspire", to: "pages#inspire", as: :inspire
+  get "inspiration", to: "pages#inspiration", as: :inspiration
   get "/map", to: "pages#map", as: :map
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :users, only: [:show] do

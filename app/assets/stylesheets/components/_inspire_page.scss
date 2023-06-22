@@ -4,11 +4,17 @@
 	background-attachment: fixed;
 }
 
+.quote-body-inspiration {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #F8ECDD 50%, #D5D507 50%);
+	background-attachment: fixed;
+}
+
 .quote {
   margin-top: 10vh;
   font-size: 4em;
   line-height: normal;
   text-align: center;
-  position: fixed;
-  padding-left: 6%;
+  // position: fixed;
+ // padding-left: 6%;
 }
