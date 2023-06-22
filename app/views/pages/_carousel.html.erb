@@ -8,7 +8,7 @@
         <%  %>
         <% books.each_cons(count) do |book_one, book_two, book_three, book_four| %>
           <div class="carousel-item <%= "active" if activeclass %>">
-            <div class="col">
+            <div class="col-3">
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_one.photo.key, height: 280, width: 180, crop: :fill %>
@@ -28,14 +28,14 @@
                   <div class="d-flex justify-content-center">
                     <p>Available</p>
                     <%= link_to update_not_droppable_book_path(book_id: book_one.id), data: { "turbo-method": :patch } do %>
-                      <i class="fa-solid fa-rotate-left" style="color: #e90707;" title="Unbookable"></i>
+                      <i class="fa-solid fa-rotate-left" style="-3or: #e90707;" title="Unbookable"></i>
                     <% end %>
                   </div>
                   <% end %>
               </div>
             </div>
             <% if book_two %>
-            <div class="col">
+            <div class="col-3">
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_two.photo.key, height: 280, width: 180, crop: :fill %>
@@ -63,7 +63,7 @@
             </div>
             <%end%>
             <% if book_three %>
-            <div class="col">
+            <div class="col-3">
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_three.photo.key, height: 280, width: 180, crop: :fill %>
@@ -91,7 +91,7 @@
             </div>
             <% end %>
           <% if book_four %>
-            <div class="col">
+            <div class="col-3">
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_four.photo.key, height: 280, width: 180, crop: :fill %>
