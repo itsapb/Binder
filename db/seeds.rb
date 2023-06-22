@@ -662,7 +662,7 @@ book = Book.new(title: "Ultra-Processed People",
                 isbn: "9780571334658",
                 user: user3,
                 droppable: false,
-                have_read: false,
+                have_read: true,
                 currently_reading: true,
                 book_temp: book_temp6)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -974,7 +974,7 @@ book = Book.new(
   user: user3,
   droppable: true,
   have_read: true,
-  currently_reading: true,
+  currently_reading: false,
   book_temp: book_temp11)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
