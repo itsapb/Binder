@@ -23,10 +23,10 @@
                 </div>
                 <div class = "text">
                   <%unless book_one.droppable%>
-                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_one.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_one.id) , method: :patch, class: "btn btn-green" %>
                   <% else %>
                   <div class="d-flex justify-content-center">
-                    <p>📖-able</p>
+                    <p>Available</p>
                     <%= link_to update_not_droppable_book_path(book_id: book_one.id), data: { "turbo-method": :patch } do %>
                       <i class="fa-solid fa-rotate-left" style="color: #e90707;" title="Unbookable"></i>
                     <% end %>
@@ -50,10 +50,10 @@
                 </div>
                 <div class="text">
                   <%unless book_two.droppable%>
-                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_two.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_two.id) , method: :patch, class: "btn btn-green" %>
                   <% else %>
                     <div class="d-flex justify-content-center">
-                    <p>📖-able</p>
+                    <p>Available</p>
                     <%= link_to update_not_droppable_book_path(book_id: book_two.id), data: { "turbo-method": :patch } do %>
                       <i class="fa-solid fa-rotate-left" style="color: #e90707;" title="Unbookable"></i>
                     <% end %>
@@ -78,10 +78,10 @@
               </div>
               <div class="text">
                   <%unless book_three.droppable%>
-                    <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_three.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_three.id) , method: :patch, class: "btn btn-green" %>
                   <% else %>
                     <div class="d-flex justify-content-center">
-                    <p>📖-able</p>
+                    <p>Available</p>
                     <%= link_to update_not_droppable_book_path(book_id: book_three.id), data: { "turbo-method": :patch } do %>
                       <i class="fa-solid fa-rotate-left" style="color: #e90707;" title="Unbookable"></i>
                     <% end %>
@@ -106,10 +106,10 @@
               </div>
               <div class="text">
                 <%unless book_four.droppable%>
-                  <%= button_to "Enable Bookable", update_droppable_book_path(book_id: book_four.id) , method: :patch, class: "btn btn-green" %>
+                  <%= button_to "Make available?", update_droppable_book_path(book_id: book_four.id) , method: :patch, class: "btn btn-green" %>
                 <% else %>
                   <div class="d-flex justify-content-center">
-                    <p>📖-able</p>
+                    <p>Available</p>
                     <%= link_to update_not_droppable_book_path(book_id: book_four.id), data: { "turbo-method": :patch } do %>
                       <i class="fa-solid fa-rotate-left" style="color: #e90707;" title="Unbookable"></i>
                     <% end %>
