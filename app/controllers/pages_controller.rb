@@ -40,7 +40,7 @@ class PagesController < ApplicationController
       "'If you can concentrate always on the present, you'll be a happy man.'
       — Paulo Coelho, The Alchemist",
       "'Isn't it nice to think that tomorrow is a new day with no mistakes in it yet?'
-      - L.M. Montgomery, Anne of Green Gables",
+      — L.M. Montgomery, Anne of Green Gables",
       "'I am no bird; and no net ensnares me: I am a free human being with an independent will.'
       - Charlotte Brontë, Jane Eyre",
       "Everything was beautiful, and nothing hurt. — Kurt Vonnegut, Slaughterhouse-Five",

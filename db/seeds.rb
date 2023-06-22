@@ -942,9 +942,42 @@ book = Book.new(
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
+puts "Got another book file. Sorry for so many seeds Binder crew..."
 
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687426185/missing_image_2_rmshqg.png")
+book_temp11 = BookTemp.new(
+  title: "Coding for Dummies",
+  author: "Nikhil Abraham",
+  description: "While this version features an older Dummies cover and design,
+  the content is the same as the new release and should not be considered a different product.
+  Hands-on exercises help you learn to code like a pro No coding experience is required for Coding For Dummies,
+  your one-stop guide to building a foundation of knowledge in writing computer code for web, application,
+  and software development. It doesn't matter if you've dabbled in coding or never written a line of code,
+  this book guides you through the basics.",
+  isbn: "9790577334444")
+book_temp11.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp11.save!
 
+puts "Tenth Book_Temp, now associated books"
 
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687426185/missing_image_2_rmshqg.png")
+book = Book.new(
+  title: "Coding for Dummies",
+  author: "Nikhil Abraham",
+  description: "While this version features an older Dummies cover and design,
+  the content is the same as the new release and should not be considered a different product.
+  Hands-on exercises help you learn to code like a pro No coding experience is required for Coding For Dummies,
+  your one-stop guide to building a foundation of knowledge in writing computer code for web, application,
+  and software development. It doesn't matter if you've dabbled in coding or never written a line of code,
+  this book guides you through the basics.",
+  isbn: "9790577334444",
+  user: user3,
+  droppable: true,
+  have_read: true,
+  currently_reading: true,
+  book_temp: book_temp11)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
 
 
 
