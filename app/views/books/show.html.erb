@@ -36,7 +36,7 @@
             <%= f.label :content, "💬"%>
             <%= f.text_area :content, placeholder: "Enter your review...", class: "form-control" %>
             <%= f.input :book_id, :as => :hidden, :input_html => { :value => @book.id } %>
-            <%= f.button :submit, "Submit", class: "btn btn-outline-secondary rounded-pill" %>
+            <%= f.button :submit, "Submit", class: "btn btn-green" %>
           <% end %>
       </div>
       <div class="center_review">
