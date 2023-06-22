@@ -36,11 +36,23 @@
 .btn-dashboard {
   position: absolute;
   top: 42%;
-  left: 45%;
+  left: 34%;
   transform: translate(-50%, -50%);
   opacity: 15%;
   transition: opacity 0.2s ease-in-out;
-  border-radius: 25px
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $black;
+  background-color: white;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .card-book:hover .btn-dashboard {
