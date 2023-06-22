@@ -18,7 +18,7 @@
 <div>
     <h2><%= link_to chatroom.other_user(current_user).first_name, chatroom_path(chatroom), class: "heading-dashboard" %></h2>
     <strong><%= chatroom.messages.last.content if chatroom.messages.any? %></strong>
-    <% if chatrooms.messages.present?  %>
+    <% if chatroom.messages.present?  %>
     <p><%= time_ago_in_words(chatroom.messages.last.created_at) %> ago</p>
     <% end %>
 
