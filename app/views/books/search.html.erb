@@ -18,7 +18,12 @@
         placeholder: "A reader lives a thousand lives...",
         data: { target: "booktemp.input" }
     %>
+    <!-- for the default the green round button
     <%= submit_tag "Search", name: "", class: "btn-green" %>
+    -->
+
+    <!-- for the white square button -->
+    <%= submit_tag "Search", name: "", class: "btn-green square-button", style: "border-radius: 25px" %>
   <% end %>
   <br>
   <br>

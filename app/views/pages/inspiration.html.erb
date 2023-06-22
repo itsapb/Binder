@@ -1,11 +1,19 @@
 <div class="quote-body-inspiration pt-1 ">
   <div class="container quote content">
-    <%= @book_quote %>
+    <% quote_parts = @book_quote.split(" — ") %>
+    <% quote_parts.each_with_index do |quote_part, index| %>
+      <% if index == 0 %>
+        <p style="font-size: 45px; font-weight: bold; text-align: center;"><%= quote_part %></p>
+      <% else %>
+        <p style="font-size: 30px; text-align: center;"><%= quote_part %></p>
+      <% end %>
+    <% end %>
     <hr>
-     <div>
-  <h3 class="text-center pt-3 pb-3">What we're listening to 🎧</h3>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/6rmlywSTpLeXbHUSwPd22n?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/4KnB6LzFr1PHPs8NWdr96Q?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+    <h3 class="text-center pt-3 pb-3">What we're listening to 🎧</h3>
+    <div style="display: flex; justify-content: center;">
+      <iframe style="border-radius:12px; width: 500px; margin-right: 10px;" src="https://open.spotify.com/embed/show/6rmlywSTpLeXbHUSwPd22n?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe style="border-radius:12px; width: 500px; margin-left: 10px;" src="https://open.spotify.com/embed/show/4KnB6LzFr1PHPs8NWdr96Q?utm_source=generator" width="45%" height="300" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
 </div>
