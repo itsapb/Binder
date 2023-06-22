@@ -1,6 +1,6 @@
     <h2 class="heading-profile text-center"><%=@user.first_name%> has read 📖</h2>
     <br>
-    <div class="books-container1 justify-content-center pb-5">
+    <div class="books-container1 justify-content-center ">
       <% unless @read_books.empty? %>
         <% @read_books.each do |book| %>
           <div class="image1 text-center">
@@ -10,7 +10,7 @@
             <% if book.droppable && user_signed_in? %>
               <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
                 <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Borrow", class: "btn btn-green" %>
+                <%= form.submit "Borrow", class: "btn btn-green mt-3" %>
               <% end %>
             <% end %>
           </div>

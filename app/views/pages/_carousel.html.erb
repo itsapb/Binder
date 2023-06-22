@@ -7,8 +7,8 @@
         <% count = books.count >= 4 ? 4 : books.count %>
         <%  %>
         <% books.each_cons(count) do |book_one, book_two, book_three, book_four| %>
-          <div class="carousel-item <%= "active" if activeclass %>">
-            <div class="col-3">
+          <div class="carousel-item  <%= "active" if activeclass %>">
+            <div class="col-3 ">
               <div class="card-book">
                 <div class="picture">
                   <%= cl_image_tag book_one.photo.key, height: 280, width: 180, crop: :fill %>
@@ -23,7 +23,7 @@
                 </div>
                 <div class = "text">
                   <%unless book_one.droppable%>
-                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_one.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Lend?", update_droppable_book_path(book_id: book_one.id) , method: :patch, class: "btn btn-green-dash" %>
                   <% else %>
                   <div class="d-flex justify-content-center">
                     <p>Available</p>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="text">
                   <%unless book_two.droppable%>
-                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_two.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Lend?", update_droppable_book_path(book_id: book_two.id) , method: :patch, class: "btn btn-green-dash" %>
                   <% else %>
                     <div class="d-flex justify-content-center">
                     <p>Available</p>
@@ -78,7 +78,7 @@
               </div>
               <div class="text">
                   <%unless book_three.droppable%>
-                    <%= button_to "Make available?", update_droppable_book_path(book_id: book_three.id) , method: :patch, class: "btn btn-green" %>
+                    <%= button_to "Lend?", update_droppable_book_path(book_id: book_three.id) , method: :patch, class: "btn btn-green-dash" %>
                   <% else %>
                     <div class="d-flex justify-content-center">
                     <p>Available</p>
@@ -106,7 +106,7 @@
               </div>
               <div class="text">
                 <%unless book_four.droppable%>
-                  <%= button_to "Make available?", update_droppable_book_path(book_id: book_four.id) , method: :patch, class: "btn btn-green" %>
+                  <%= button_to "Lend?", update_droppable_book_path(book_id: book_four.id) , method: :patch, class: "btn btn-green-dash" %>
                 <% else %>
                   <div class="d-flex justify-content-center">
                     <p>Available</p>
