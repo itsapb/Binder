@@ -10,7 +10,7 @@
             <% if book.droppable && user_signed_in? %>
               <%= form_with(model: @drop, url: book_drops_path(book), method: :post) do |form| %>
                 <%= form.hidden_field :book_id, value: book.id %>
-                <%= form.submit "Borrow", class: "btn btn-green mt-3" %>
+                <%= form.submit "Borrow", class: "btn btn-green mt-3 mb-5" %>
               <% end %>
             <% end %>
           </div>
