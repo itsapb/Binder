@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     member do
       get "currently_reading"
     end
-
     member do
       get "droppable"
     end
@@ -44,4 +43,6 @@ Rails.application.routes.draw do
   patch "drops/:id/decline", to: "drops#decline_drop", as: :decline_drop
   patch "drops/:id/delete", to: "drops#delete_drop", as: :delete_drop
   patch "reviews/:id/delete", to: "reviews#destroy", as: :delete_review
+  patch 'books/:book_id/update_droppable', to: 'books#update_droppable', as: :update_droppable_book
+  patch 'books/:book_id/update_not_droppable', to: 'books#update_not_droppable', as: :update_not_droppable_book
 end
