@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def inspire
-    @book_quotes =[
+    @book_quotes = [
       "'I took a deep breath and listened to the old brag of my heart: I am, I am, I am.' — Sylvia Plath, The Bell Jar",
       "'Love is or it ain't. Thin love ain't love at all.' — Toni Morrison, Beloved",
       "'Procrastination is the thief of time, collar him.' — Charles Dickens, David Copperfield",
@@ -42,8 +42,8 @@ class PagesController < ApplicationController
       "'Isn't it nice to think that tomorrow is a new day with no mistakes in it yet?'
       — L.M. Montgomery, Anne of Green Gables",
       "'I am no bird; and no net ensnares me: I am a free human being with an independent will.'
-      - Charlotte Brontë, Jane Eyre",
-      "Everything was beautiful, and nothing hurt. — Kurt Vonnegut, Slaughterhouse-Five",
+      — Charlotte Brontë, Jane Eyre",
+      "'Everything was beautiful, and nothing hurt.' — Kurt Vonnegut, Slaughterhouse-Five",
       "'There is always something left to love.' — Gabriel García Márquez, One Hundred Years of Solitude",
       "'Anything worth dying for is certainly worth living for.' — Joseph Heller, Catch-22"
     ]
@@ -51,15 +51,15 @@ class PagesController < ApplicationController
   end
 
   def inspiration
-    @book_quotes =[
+    @book_quotes = [
       "'Not all those who wander are lost.'
       — J.R.R. Tolkien, The Fellowship of the Ring",
       "'Beware; for I am fearless, and therefore powerful.' — Mary Shelley, Frankenstein",
       "'Today a reader, tomorrow a leader.' — Margaret Fuller",
-      "'A word after a word after a word is power.' —Margaret Atwood",
+      "'A word after a word after a word is power.' — Margaret Atwood",
       "'Books are a uniquely portable magic.' — Stephen King",
-      "'Time moves slowly, but passes quickly.' - Alice Walker, The Color Purple",
-      "'When I discover who I am, I'll be free.' - Ralph Ellison, Invisible Man"
+      "'Time moves slowly, but passes quickly.' — Alice Walker, The Color Purple",
+      "'When I discover who I am, I'll be free.' — Ralph Ellison, Invisible Man"
     ]
     @book_quote = @book_quotes.sample
   end
