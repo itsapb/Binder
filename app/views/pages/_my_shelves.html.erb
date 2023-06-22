@@ -6,7 +6,7 @@
                   <div class="image">
                     <%= cl_image_tag book.photo.key, height: 280, width: 180, crop: :fill %>
                     <% if book.currently_reading %>
-                    <i class="fa-solid fa-book-open-reader fa-flip" style="color: #000000;" title ="Currently Reading"></i>
+                    <i class="fa-solid fa-book-open-reader fa-flip" style="color: #FF4602;" title ="Currently Reading"></i>
                     <%else%>
                     <i class="fa-solid fa-bookmark" style="color: #FF4602;" title ="In My Shelves"></i>
                     <%end%>

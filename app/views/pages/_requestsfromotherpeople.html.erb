@@ -1,12 +1,13 @@
-<div class="pb-5">
-          <% unless @booking_requests.empty? %>
-      <h2 class="heading-dashboard">People want to borrow these books from you!</h2>
-
-        <ul>
+<div class="books-container pb-5">
+        <% unless @booking_requests.empty? %>
+        <h2 class="heading-dashboard">Others booking requests!</h2>
+        <p class="greyed-p">These are the books people want to borrow from you. Let's hope you say yes...</p>
+        <div class="row" style="margin-left: 55px">
           <% @booking_requests.each do |booking_request| %>
+          <div class="col-3">
               <% if booking_request.status == nil %>
-                <p><%= link_to booking_request.user.first_name, user_path(booking_request.user) %> asks for </p>
-                <div class="image">
+              <p><strong><%= link_to booking_request.user.first_name, user_path(booking_request.user) %> </strong>asks for </p>
+              <div class = "image">
                   <%= cl_image_tag booking_request.book.photo.key, height: 280, width: 180, crop: :fill %>
                   <%= link_to decline_drop_path(booking_request), data: { "turbo-method": :patch }, class: "btn-delete" do %>
                     <i class="fas fa-times-circle red" title="Decline"></i>
@@ -15,11 +16,10 @@
                     <i class="fas fa-check-circle green" title="Accepted"></i>
                   <% end %>
                 </div>
-                  <%# <%= link_to "Accept", accept_drop_path(booking_request),data: {"turbo-method": :patch}, class: "btn btn-black" %>
               <% end %>
+            </div>
             <% end %>
-          <% else %>
+          </div>
           <% end %>
-        </ul>
         <br>
 </div>

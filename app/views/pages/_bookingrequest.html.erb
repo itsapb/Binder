@@ -2,9 +2,10 @@
       <p class="greyed-p">These are the books you want to borrow from other people. Let's hope they say yes...</p>
   <br>
       <% unless @drops.empty? %>
-      <div class="row">
+      <div class="row" style="margin-left: 55px">
         <% @drops.each do |drop| %>
           <div class="col-3">
+          <p> Asking <strong><%= link_to drop.book.user.first_name, user_path(drop.book.user) %> </strong>for:</p>
             <div class="image">
               <%= cl_image_tag drop.book.photo.key, height: 280, width: 180, crop: :fill %>
               <% if drop.status.nil? %>
