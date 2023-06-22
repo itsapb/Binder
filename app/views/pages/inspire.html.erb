@@ -2,7 +2,6 @@
   <div class="container quote content">
     <%= @book_quote %>
     <hr>
-    <div style = "width: 50%; margin: auto">
     <p style = "font-size: 20px">See what people in your area are reading</h6>
     <br>
     <br>
@@ -17,9 +16,9 @@
     <% quote_parts = @book_quote.split(" — ") %>
     <% quote_parts.each_with_index do |quote_part, index| %>
       <% if index == 0 %>
-        <p style="font-size: 55px; font-weight: bold; text-align: left;"><%= quote_part %></p>
+        <p style="font-size: 55px; font-weight: bold; text-align: center;"><%= quote_part %></p>
       <% else %>
-        <p style="font-size: 30px; text-align: left;"><%= quote_part %></p>
+        <p style="font-size: 30px; text-align: center;"><%= quote_part %></p>
       <% end %>
     <% end %>
     <hr>
@@ -28,4 +27,5 @@
       <%= link_to "Find community", map_path, class: "btn btn-green" , style: "margin-top: 0;"%>
     </div>
   </div>
+
 </div>

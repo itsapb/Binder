@@ -43,7 +43,7 @@ user = User.new(
   last_name: "M",
   email: "tm@lewagon.com",
   bio: "My favourite book is Secret Diary of a Vampire. Don't like it? Fight me.",
-  password: "TM12345",
+  password: "tm@lewagon.com",
   address: "Paris Corte, 75 Loampit Vale, London SE13 7FN")
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 puts "user photo attached"
@@ -56,7 +56,7 @@ user1 = User.new(
   last_name: "J",
   email: "ej@lewagon.com",
   bio: "Fellow book nerds is my name, reading is my game.",
-  password: "EJ12345",
+  password: "ej@lewagon.com",
   address: "43 Manor Ave, London SE4 1PE")
 user1.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user1.save!
@@ -68,7 +68,7 @@ user2 = User.create(
   last_name: "G",
   email: "gg@lewagon.com",
   bio: "I love immersing myself in diverse worlds and experiencing the power of words that stir my soul.",
-  password: "GG12345",
+  password: "gg@lewagon.com",
   address: "51 Aspinall Rd, London SE4 2JJ")
 user2.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user2.save!
@@ -82,8 +82,8 @@ user3 = User.create(
   bio: "Books have become my sanctuary, where imagination takes flight and knowledge blooms. I just love reading and would like to meet and chat to some
   other book nerds like me. My favrouite genres are fantasy fiction and historical fiction.
   Welcome to borrow from me any time 👻 ",
-  password: "JS12345",
-  address: "13 St Norbert Rd, London SE4 2EY")
+  password: "js@lewagon.com",
+  address: "Rye Hill Park, London SE15 3JN")
 user3.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user3.save!
 
@@ -93,12 +93,12 @@ user4 = User.new(
   first_name: "Alice",
   last_name: "PB",
   email: "apb@lewagon.com",
-  password: "APB12345",
+  password: "apb@lewagon.com",
   bio: "From the moment I discovered the enchantment of books,
   I have been captivated by their ability to transport me to different eras,
   cultures, and realms, igniting my imagination and
   fueling a never-ending thirst for knowledge.",
-  address: "127 St Asaph Rd, Brockley, London SE4 2EJ")
+  address: "43 Millmark Grove, London SE14 6RL")
 user4.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user4.save!
 
@@ -108,7 +108,7 @@ user5 = User.create!(
   first_name: "Jennifer",
   last_name: "Paige",
   email: "JP@lewagon.com",
-  password: "APB12345",
+  password: "JP@lewagon.com",
   bio: "I am an avid book lover, finding solace and joy within the pages of countless stories.",
   address: "51 Cranfield Rd, London SE4 1TN")
 user5.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
@@ -120,7 +120,7 @@ user6 = User.create!(
   first_name: "Isabella",
   last_name: "Wright",
   email: "IW@lewagon.com",
-  password: "APB12345",
+  password: "IW@lewagon.com",
   bio: "With each turn of a page, I am transported to realms unexplored,
   forever enamored by the power of literature.",
   address: "22 Turnham Rd, London SE4 2LA")
@@ -132,7 +132,7 @@ file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1686304400/d
 user7 = User.create!(first_name: "James",
   last_name: "Turner",
   email: "JT@lewagon.com",
-  password: "APB12345",
+  password: "JT@lewagon.com",
   bio: "Just here, curating my list of books to read.
   Would love to chat with likeminded book lovers.",
   address: "The Old Nun's Head, 15 Nunhead Grn, London SE15 3QQ")
@@ -144,15 +144,15 @@ user8 = User.create!(
   first_name: "Emma",
   last_name: "Roberts",
   email: "ER@lewagon.com",
-  password: "APB12345",
-  address: "1 Kitto Rd, London SE14 5SN")
+  password: "ER@lewagon.com",
+  address: "60 Adelaide Ave, London SE4 1YR")
 
 puts "new user"
 user9 = User.create!(
   first_name: "Andrew",
   last_name: "Anderson",
   email: "AA@lewagon.com",
-  password: "APB12345",
+  password: "AA@lewagon.com",
   address: "1 Stondon Park, London SE23 1LB")
 
 puts "new user"
@@ -160,36 +160,68 @@ user10 = User.create!(
   first_name: "Olivia",
   last_name: "Walker",
   email: "OW@lewagon.com",
-  password: "APB12345",
+  password: "OW@lewagon.com",
   address: "1 Ewhurst Rd, London SE4 1AG")
 
 puts "new user"
 user11 = User.create!(
-  first_name: "Matthew",
-  last_name: "Wilson",
-  email: "MW@lewagon.com",
-  password: "MW@lewagon.com",
-  address: "N125 3, 8005-412 Faro, Portugal")
-
-
-puts "new user"
-user12 = User.create!(
-  first_name: "Sophia",
-  last_name: "Jackson",
-  email: "SJ@lewagon.com",
-  password: "SJ@lewagon.com",
-  address: "8005-429 Faro, Portugal")
+  first_name: "Liam",
+  last_name: "Jones",
+  email: "LJJ@lewagon.com",
+  password: "LJJ@lewagon.com",
+  address: "61A Adys Rd, London SE15 4DX")
 
 puts "new user"
 user13 = User.create!(
-  first_name: "Daniel",
-  last_name: "Miller",
-  email: "DM@lewagon.com",
-  password: "DM@lewagon.com",
-  address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
+  first_name: "Leah",
+  last_name: "Jones",
+  email: "LJ@lewagon.com",
+  password: "LJ@lewagon.com",
+  address: "20 Maxted Rd, London SE15 4LF")
+
+puts "new user"
+user14 = User.create!(
+  first_name: "Mimi",
+  last_name: "Edwards",
+  email: "ME@lewagon.com",
+  password: "ME@lewagon.com",
+  address: "66 Drakefell Rd, London SE14 5SJ")
+
+puts "new user"
+user12 = User.create!(
+  first_name: "JJ",
+  last_name: "Jones",
+  email: "JJJ@lewagon.com",
+  password: "JJJ@lewagon.com",
+  address: "Marmora Rd, London SE22 0RY")
 
 # puts "new user"
-# user14 = User.create!(
+# user20 = User.create!(
+#   first_name: "Matthew",
+#   last_name: "Wilson",
+#   email: "MW@lewagon.com",
+#   password: "MW@lewagon.com",
+#   address: "N125 3, 8005-412 Faro, Portugal")
+
+
+# puts "new user"
+# user21 = User.create!(
+#   first_name: "Sophia",
+#   last_name: "Jackson",
+#   email: "SJ@lewagon.com",
+#   password: "SJ@lewagon.com",
+#   address: "8005-429 Faro, Portugal")
+
+# puts "new user"
+# user22 = User.create!(
+#   first_name: "Daniel",
+#   last_name: "Miller",
+#   email: "DM@lewagon.com",
+#   password: "DM@lewagon.com",
+#   address: "Quinta do Lago, Roundabout 6, Av. Ayrton Senna de Silva, 8135-024 Portugal")
+
+# puts "new user"
+# user23 = User.create!(
 #   first_name: "Emily",
 #   last_name: "Thompson",
 #   email: "ET@lewagon.com",
@@ -197,12 +229,20 @@ user13 = User.create!(
 #   address: "Estrada Nacional 125/10. 322 A, 8005-146 Faro, Portugal")
 
 # puts "new user"
-# user15 = User.create!(
+# user24 = User.create!(
 #   first_name: "Michael",
 #   last_name: "Scott",
 #   email: "MS@lewagon.com",
 #   password: "APB12345",
 #   address: "sitio dos virgilios, 8005-144 Faro, Portugal")
+
+# puts "new user"
+# user25 = User.create!(
+#   first_name: "Sophia",
+#   last_name: "Jackson",
+#   email: "SJ@lewagon.com",
+#   password: "SJ@lewagon.com",
+#   address: "8005-429 Faro, Portugal")
 
 file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081146/development/revenge_xlmz3s.png")
 book_temp = BookTemp.new(
@@ -431,7 +471,7 @@ book = Book.new(title: "Olive Kitteridge",
                 eventually proposes to Denise and the couple move to Texas.
                 Denise maintains contact with Henry through a yearly birthday letter.",
                 isbn: "9780571334655",
-                user: user4,
+                user: user14,
                 currently_reading: false,
                 droppable: false,
                 have_read: true,
@@ -737,6 +777,189 @@ book = Book.new(title: "Cleopatra and Frankenstein",
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
 
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687081148/development/cleo_lbwee0.png")
+book = Book.new(title: "Cleopatra and Frankenstein",
+  author: "Coco Mellors",
+  description: "New York is slipping from Cleo's grasp.
+  Sure, she's at a different party every other night,
+  but she barely knows anyone. Her student visa is running out,
+  and she doesn't even have money for cigarettes. But then she meets Frank.
+  Twenty years older, Frank's life is full of all the success and excess that Cleo's lacks.
+  He offers her the chance to be happy, the freedom to paint,
+  and the opportunity to apply for a green card.
+  She offers him a life imbued with beauty and art-and,
+  hopefully, a reason to cut back on his drinking.
+  He is everything she needs right now.
+
+  Cleo and Frank run head-first into a romance that neither of them can quite keep up with.
+  It reshapes their lives and the lives of those around them,
+  whether that's Cleo's best friend struggling to embrace his gender identity in the wake of her marriage,
+  or Frank's financially dependent sister arranging sugar daddy dates after being
+  cut off. Ultimately, this chance meeting between two strangers outside of a
+  New Year's Eve party changes everything, for better or worse.",
+                isbn: "9780571334658",
+                user: user11,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp7)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got four books!!"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410997/9780241630891-jacket-large_knamjh.jpg")
+book_temp8 = BookTemp.new(
+  title: "Bonjour Tristesse",
+  author: "Françoise Sagan",
+  description: "Published when she was only eighteen, Françoise Sagan's astonishing novella, Bonjour Tristesse,
+  became an instant bestseller. It tells the story of Cécile, who leads a carefree life with her widowed father
+  and his young mistresses until, one hot summer on the Riviera, he decides to remarry
+  - with devastating consequences.",
+  isbn: "9780571334695")
+book_temp8.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp8.save!
+
+puts "Eighth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410997/9780241630891-jacket-large_knamjh.jpg")
+book = Book.new(title: "Bonjour Tristesse",
+  author: "Françoise Sagan",
+  description: "Published when she was only eighteen, Françoise Sagan's astonishing novella, Bonjour Tristesse,
+  became an instant bestseller. It tells the story of Cécile, who leads a carefree life with her widowed father
+  and his young mistresses until, one hot summer on the Riviera, he decides to remarry
+  - with devastating consequences.",
+                isbn: "9780571334695",
+                user: user10,
+                droppable: true,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp8)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410997/9780241630891-jacket-large_knamjh.jpg")
+book = Book.new(title: "Bonjour Tristesse",
+  author: "Françoise Sagan",
+  description: "Published when she was only eighteen, Françoise Sagan's astonishing novella, Bonjour Tristesse,
+  became an instant bestseller. It tells the story of Cécile, who leads a carefree life with her widowed father
+  and his young mistresses until, one hot summer on the Riviera, he decides to remarry
+  - with devastating consequences.",
+                isbn: "9780571334695",
+                user: user3,
+                droppable: true,
+                have_read: true,
+                currently_reading: false,
+                book_temp: book_temp8)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410997/9780241630891-jacket-large_knamjh.jpg")
+book = Book.new(title: "Bonjour Tristesse",
+  author: "Françoise Sagan",
+  description: "Published when she was only eighteen, Françoise Sagan's astonishing novella, Bonjour Tristesse,
+  became an instant bestseller. It tells the story of Cécile, who leads a carefree life with her widowed father
+  and his young mistresses until, one hot summer on the Riviera, he decides to remarry
+  - with devastating consequences.",
+                isbn: "9780571334695",
+                user: user14,
+                droppable: false,
+                have_read: false,
+                currently_reading: true,
+                book_temp: book_temp8)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got another book file. Sorry for so many seeds Binder crew..."
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410962/9780241512449-jacket-large_d0jz69.jpg")
+book_temp9 = BookTemp.new(
+  title: "The Last Devil to Die",
+  author: "Richard Osman",
+  description: "Shocking news reaches the Thursday Murder Club.
+
+  An old friend in the antiques business has been killed,
+  and a dangerous package he was protecting has gone missing.
+
+  As the gang springs into action they encounter art forgers,
+  online fraudsters and drug dealers, as well as heartache close to home.",
+  isbn: "9780571334444")
+book_temp9.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp9.save!
+
+puts "Nineth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410962/9780241512449-jacket-large_d0jz69.jpg")
+book = Book.new(
+  title: "The Last Devil to Die",
+  author: "Richard Osman",
+  description: "Shocking news reaches the Thursday Murder Club.
+
+  An old friend in the antiques business has been killed,
+  and a dangerous package he was protecting has gone missing.
+
+  As the gang springs into action they encounter art forgers,
+  online fraudsters and drug dealers, as well as heartache close to home.",
+  isbn: "9780571334444",
+  user: user12,
+  droppable: false,
+  have_read: false,
+  currently_reading: true,
+  book_temp: book_temp9)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+puts "Got another book file. Sorry for so many seeds Binder crew..."
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410945/9781529115321-jacket-large_qfzrzc.jpg")
+book_temp10 = BookTemp.new(
+  title: "100 Queer Poems",
+  author: "Andrew McMillan",
+  description: "Mary Jean Chan and Andrew McMillan's luminous anthology,
+  100 Queer Poems, is a celebration of thrilling contemporary voices and
+  visionary poets of the past. Featuring Elizabeth Bishop, Langston Hughes,
+  Ocean Vuong, Carol Ann Duffy, Kae Tempest and many more.",
+  isbn: "9780577334444")
+book_temp10.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book_temp10.save!
+
+puts "Tenth Book_Temp, now associated books"
+
+file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687410962/9780241512449-jacket-large_d0jz69.jpg")
+book = Book.new(
+  title: "100 Queer Poems",
+  author: "Andrew McMillan",
+  description: "Mary Jean Chan and Andrew McMillan's luminous anthology,
+  100 Queer Poems, is a celebration of thrilling contemporary voices and
+  visionary poets of the past. Featuring Elizabeth Bishop, Langston Hughes,
+  Ocean Vuong, Carol Ann Duffy, Kae Tempest and many more.",
+  isbn: "9780577334444",
+  user: user14,
+  droppable: true,
+  have_read: true,
+  currently_reading: false,
+  book_temp: book_temp10)
+book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+book.save!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
 # book = Book.new(title: "The History of the Siege of Lisbon",
 #   author: "José Saramago",
@@ -758,57 +981,57 @@ book.save!
 # book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 # book.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
-book = Book.new(title: "The History of the Siege of Lisbon",
-  author: "José Saramago",
-  description: "What happens when the facts of history are replaced by the mysteries of love?
-  When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
-  inserts a negative into a sentence of a historical text,
-  he alters the whole course of the 1147 Siege of Lisbon.
-  Fearing censure he is met instead with admiration:
-  Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
-  As his retelling draws on all his imaginative powers,
-  Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
-  so can the details of his own dusty bachelor present.",
-                isbn: "9780571334658",
-                user: user11,
-                droppable: false,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174545/9781860467226-uk_drbzrl.jpg")
+# book = Book.new(title: "The History of the Siege of Lisbon",
+#   author: "José Saramago",
+#   description: "What happens when the facts of history are replaced by the mysteries of love?
+#   When Raimundo Silva, a lowly proofreader for a Lisbon publishing house,
+#   inserts a negative into a sentence of a historical text,
+#   he alters the whole course of the 1147 Siege of Lisbon.
+#   Fearing censure he is met instead with admiration:
+#   Dr Maria Sara, his voluptuous new editor, encourages him to pen his own alternative history.
+#   As his retelling draws on all his imaginative powers,
+#   Silva finds – to his nervous delight – that if the facts of the past can be rewritten as a romance then
+#   so can the details of his own dusty bachelor present.",
+#                 isbn: "9780571334658",
+#                 user: user11,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174498/1860466850_os6auj.jpg")
-book = Book.new(title: "Blindness",
-  author: "José Saramago",
-  description: "A driver waiting at the traffic lights goes blind.
-  An opthamologist tries to diagnose his distinctive blindness, but is affected before he can read the textbooks.
-  It becomes a contagion, spreading throughout the city. Trying to stem the epidemic, the authorities herd the afflicted
-  into a mental asylum where the wards are terrorised by blind thugs.",
-                isbn: "9780571334658",
-                user: user12,
-                droppable: false,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174498/1860466850_os6auj.jpg")
+# book = Book.new(title: "Blindness",
+#   author: "José Saramago",
+#   description: "A driver waiting at the traffic lights goes blind.
+#   An opthamologist tries to diagnose his distinctive blindness, but is affected before he can read the textbooks.
+#   It becomes a contagion, spreading throughout the city. Trying to stem the epidemic, the authorities herd the afflicted
+#   into a mental asylum where the wards are terrorised by blind thugs.",
+#                 isbn: "9780571334658",
+#                 user: user12,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
 
-file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174496/9788532511669-uk_u1w1kj.jpg")
-book = Book.new(title: "Harry Potter: E A Camara Secreta",
-  author: "JK Rowling",
-  description: "Harry Potter e a camara secreta esta repleto de aventuras
-  fantasticas e recheado de supresas, que irao proporcionar ao leitor o
-  magico prazer da leitura",
-                isbn: "9780571334658",
-                user: user13,
-                droppable: false,
-                have_read: false,
-                currently_reading: true,
-                book_temp: book_temp)
-book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-book.save!
+# file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174496/9788532511669-uk_u1w1kj.jpg")
+# book = Book.new(title: "Harry Potter: E A Camara Secreta",
+#   author: "JK Rowling",
+#   description: "Harry Potter e a camara secreta esta repleto de aventuras
+#   fantasticas e recheado de supresas, que irao proporcionar ao leitor o
+#   magico prazer da leitura",
+#                 isbn: "9780571334658",
+#                 user: user13,
+#                 droppable: false,
+#                 have_read: false,
+#                 currently_reading: true,
+#                 book_temp: book_temp)
+# book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+# book.save!
 
 # file = URI.open("https://res.cloudinary.com/dfx8gzbl4/image/upload/v1687174958/this_sorrow_that_lifts_me_up_book_cover_yxzq98.jpg")
 # book = Book.new(title: "A tristeza que me vive",
