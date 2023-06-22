@@ -935,9 +935,9 @@ book = Book.new(
   Ocean Vuong, Carol Ann Duffy, Kae Tempest and many more.",
   isbn: "9780577334444",
   user: user14,
-  droppable: false,
-  have_read: false,
-  currently_reading: true,
+  droppable: true,
+  have_read: true,
+  currently_reading: false,
   book_temp: book_temp10)
 book.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 book.save!
