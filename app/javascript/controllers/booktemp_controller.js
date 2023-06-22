@@ -20,7 +20,7 @@ export default class extends Controller {
         console.log(data)
         data.items.forEach((item) => {
           let addButtonHtml =
-            ` <button class="Btn btn-green btn-sm">&plus; Add</button> `
+            ` <button class="Btn btn-green add-button btn-sm">&plus; Add</button> `
 
           let booktempTag =
             `

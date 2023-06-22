@@ -21,7 +21,7 @@
     width: 140px;
   }
 
-  // for the round green button
+  // for the default round green button
   .search-bar {
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
     padding: 0px 0px 0px 12px;
   }
 
-  // for the round green button
+  // for the default round green button
   .search-input {
     flex-grow: 1;
     border: none;
@@ -72,7 +72,10 @@
 
   .square-button:hover {
     background-color: #ffffff;
-    // color: #b0d65eb9;
-    // color: #87f2a8 RGB(135, 242, 168)
+    color: #D5D507;
+  }
+
+  .add-button:hover {
+    background-color: #ffffff;
     color: #D5D507;
   }
